@@ -1,0 +1,63 @@
+/* Initial body*/
+body {
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+/* Initial Menu*/
+.menu {
+	background: black;
+	left: -285px; /*starts off screen*/
+	height: 100%; /*full page height*/
+	position: fixed;
+	width: 285px; /*has to coincide with offset left*/
+}
+/* Basic styling*/
+.jumbotron {
+	background-image: url("jumbotron.jpg"); /*add an image or good background*/
+	height: auto; /*takes full page of website*/
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+.menu ul {
+	border-top: 1px solid #ffffff;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	border-bottom: 1px solid #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 45px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	padding-top: 3px;
+}
+
+.menu a{
+	color: #ffffff;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.icon-menu p {
+	color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	padding-bottom: 25px; 
+	padding-left: 25px;
+	padding-top: 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.icon-menu span {
+	margin-right: 5px;
+	cursor: pointer;
+}
