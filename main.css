@@ -13,30 +13,14 @@ body {
 	width: 285px; /*has to coincide with offset left*/
 	opacity: 0.5;
 }
-/* Basic styling*/
-.jumbotron {
-	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
-	height: 100%; /*takes full page of website*/
-	-webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-}
-
-.timeline-jumbotron {
-	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
-	height: 100%; /*takes full page of website*/
-	-webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-}
 
 .menu ul {
 	border-top: 1px solid #ffffff;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	position: relative;
+	top: 115px;
 }
 
 .menu li {
@@ -70,6 +54,25 @@ body {
 	margin-right: 5px;
 	cursor: pointer;
 }
+/* Basic styling*/
+.jumbotron {
+	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
+	height: 100%; /*takes full page of website*/
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+.timeline-jumbotron {
+	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
+	height: 100%; /*takes full page of website*/
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
 /*intital img*/
 .jumbotron img {
 	overflow: hidden;
@@ -104,6 +107,7 @@ body {
 #timeline li {
   margin: 40px 0;
   position: relative;
+  left: 5px;
 }
 #timeline p {
   margin: 0 0 15px;
@@ -176,13 +180,11 @@ label {
   z-index: 100;
   cursor: pointer;
   top: 20px;
+  left: 10px;
   transition: transform 0.2s linear;
 }
 
-.radio {
-  display: none;
-}
-
+/*
 .radio:checked + .relative label {
   cursor: auto;
   transform: translateX(42px);
