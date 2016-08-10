@@ -1,8 +1,9 @@
 /* Initial body*/
-body {
+body, html {
+  height: 100%;
   left: 0;
   margin: 0;
-  position: relative;
+  font: 400 15px/1.8 "Lato", sans-serif;
 }
 /* Initial Menu*/
 .menu {
@@ -58,26 +59,22 @@ body {
 .jumbotron {
 	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
 	height: 100%; /*takes full page of website*/
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 	-webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
-}
-
-.timeline-jumbotron {
-	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
-	height: 100%; /*takes full page of website*/
-	-webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+	
 }
 
 /*intital img*/
 .jumbotron img {
 	overflow: hidden;
 	position: relative;
-	left: 200px;
+	left: 0px;
 	clip: rect(0px,400px,0px,400px);
 	max-width: 100%;
 	visibility: auto; 
@@ -86,176 +83,193 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* -------------------------------------
- * For horizontal version, set the
- * $vertical variable to false
- * ------------------------------------- */
-/* -------------------------------------
- * General Style
- * ------------------------------------- */
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
-
-/* -------------------------------------
- * timeline
- * ------------------------------------- */
-#timeline {
-  list-style: none;
-  margin: 50px 0 30px 120px;
-  padding-left: 30px;
-  border-left: 8px solid #eee9dc;
-}
-#timeline li {
-  margin: 40px 0;
-  position: relative;
-  left: 5px;
-}
-#timeline p {
-  margin: 0 0 15px;
+.intro-info {
+	background-color: #111;
+	padding:10px;
+	padding-bottom:40px;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+	letter-spacing: 5px;
+	text-align: center;
+	opacity: 0.8;
+	position: relative;
+	top: 40px;
 }
 
-.date {
-  margin-top: -10px;
-  top: 50%;
-  left: -158px;
-  font-size: 0.95em;
-  line-height: 20px;
-  position: absolute;
+.intro-info:hover {
+	opacity:0.7;
 }
 
-.circle {
-  margin-top: -10px;
-  top: 50%;
-  left: -44px;
-  width: 10px;
-  height: 10px;
-  background: #48b379;
-  border: 5px solid #eee9dc;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
+.intro-info h3{
+	letter-spacing:1px;
+	font-size: 1rem;
 }
 
-.content {
-  max-height: 20px;
-  padding: 50px 20px 0;
-  border-color: transparent;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 0.5em;
-  position: relative;
+.about-me h2{
+  font-size: 2rem;
+  color: black;
+  text-align:center;
+  letter-spacing: 10px;
+  padding-bottom: 35px;
 }
-.content:before, .content:after {
+
+.about-me {
+	height: 100%;
+	padding-bottom: 25px;
+}
+
+.timeline-jumbotron {
+	background-image: url("images/timeline.jpg"); /*add an image or good background*/
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	overflow: hidden;
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.timeline-jumbotron {
+  width: 100%;
+}
+
+.timeline-jumbotron {
+  padding-top: 10px;
+  font-family: 'Lato', sans-serif;
+  line-height: 160%;
+  font-size: 100%;
+  color: #f2f2f2;
+}
+
+.group:after {
   content: "";
-  width: 0;
-  height: 0;
-  border: solid transparent;
-  position: absolute;
-  pointer-events: none;
-  right: 100%;
-}
-.content:before {
-  border-right-color: inherit;
-  border-width: 20px;
-  top: 50%;
-  margin-top: -20px;
-}
-.content:after {
-  border-right-color: #48b379;
-  border-width: 17px;
-  top: 50%;
-  margin-top: -17px;
-}
-.content p {
-  max-height: 0;
-  color: transparent;
-  text-align: justify;
-  word-break: break-word;
-  hyphens: auto;
-  overflow: hidden;
+  display: table;
+  clear: both;
 }
 
-label {
-  font-size: 1.3em;
-  position: absolute;
-  z-index: 100;
+.fullwidth {
+  width: 100%;
+  padding-top: 4rem;
+  background-color: transparent;
+}
+
+.timeline {
+  width: 100%;
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  background-image: -webkit-linear-gradient(#999999, #999999);
+  background-image: linear-gradient(#999999, #999999);
+  background-size: 2px 100%;
+  background-position: 50% 1rem;
+  background-repeat: no-repeat;
+}
+@media (max-width: 40rem) {
+  .timeline {
+    background-position: 2rem 0;
+  }
+}
+
+.timeline .item{
+  position: relative;
+  display: block;
   cursor: pointer;
-  top: 20px;
-  left: 10px;
-  transition: transform 0.2s linear;
+  width: 50%;
+  float: left;
+  clear: both;
+  margin-top: -1rem;
 }
 
-/*
-.radio:checked + .relative label {
-  cursor: auto;
-  transform: translateX(42px);
+.timeline .item .description{
+	display:none;
 }
-.radio:checked + .relative .circle {
-  background: #f98262;
+.timeline-jumbotron .section-title {
+  font-size: 2rem;
+  color: #f2f2f2;
+  text-align:center;
+  letter-spacing: 10px;
+  padding-top:25px;
 }
-.radio:checked ~ .content {
-  max-height: 180px;
-  border-color: #eee9dc;
-  margin-right: 20px;
-  transform: translateX(20px);
-  transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+.timeline .item .title {
+	letter-spacing: 5px;
 }
-.radio:checked ~ .content p {
-  max-height: 200px;
-  color: #eee9dc;
-  transition: color 0.3s linear 0.3s;
+@media (max-width: 40rem) {
+  .timeline .item {
+    width: 100%;
+    float: none;
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}
+.timeline .item:before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #999999;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+}
+.timeline .item:hover:before {
+  background-color: #999999;
 }
 
-/* -------------------------------------
- * mobile phones (vertical version only)
- * ------------------------------------- */
-@media screen and (max-width: 767px) {
-  #timeline {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-  }
-  #timeline li {
-    margin: 50px 0;
-  }
+.timeline .item:first-child {
+  margin-top: 0;
+}
 
-  label {
-    width: 85%;
-    font-size: 1.1em;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    transform: translateX(18px);
-  }
+.timeline .item:nth-child(odd) {
+  float: right;
+  padding-left: 2rem;
+}
+.timeline .item:nth-child(odd):before {
+  left: -0.5rem;
+}
 
-  .content {
-    padding-top: 45px;
-    border-color: #eee9dc;
+.timeline .item:nth-child(even) {
+  padding-right: 2rem;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even) {
+    padding-right: 0;
+    padding-left: 2rem;
   }
-  .content:before, .content:after {
-    border: solid transparent;
-    bottom: 100%;
+}
+.timeline .item:nth-child(even):before {
+  right: -0.5rem;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even):before {
+    left: -0.5rem;
   }
-  .content:before {
-    border-bottom-color: inherit;
-    border-width: 17px;
-    top: -16px;
-    left: 50px;
-    margin-left: -17px;
-  }
-  .content:after {
-    border-bottom-color: #48b379;
-    border-width: 20px;
-    top: -20px;
-    left: 50px;
-    margin-left: -20px;
-  }
-  .content p {
-    font-size: 0.9em;
-    line-height: 1.4;
-  }
+}
 
-  .circle, .date {
-    display: none;
+.timeline .item h2 {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 100%;
+}
+
+.timeline .item:nth-child(even) h2 {
+  text-align: right;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even) h2 {
+    text-align: left;
   }
 }
