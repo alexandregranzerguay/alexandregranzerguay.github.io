@@ -73,14 +73,24 @@ body, html {
 /*intital img*/
 .jumbotron img {
 	overflow: hidden;
-	position: relative;
-	left: 0px;
+	left: 0;
 	clip: rect(0px,400px,0px,400px);
 	max-width: 100%;
 	visibility: auto; 
 	height: auto;
 	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotron .intro {
+	position: absolute;
+	top: 50%;
+	margin: -15% 0 0 5%;
+}
+
+.intro-pic {
+	position: relative;
+	left: -40px;
 }
 
 .intro-info {
@@ -92,8 +102,8 @@ body, html {
 	letter-spacing: 5px;
 	text-align: center;
 	opacity: 0.8;
-	position: relative;
-	top: 40px;
+	margin-top: 4.5%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .intro-info:hover {
@@ -272,4 +282,18 @@ body, html {
   .timeline .item:nth-child(even) h2 {
     text-align: left;
   }
+}
+
+.skills h2{
+  font-size: 2rem;
+  color: black;
+  text-align:center;
+  letter-spacing: 10px;
+  padding-bottom: 35px;
+  padding-top:20px;
+}
+
+.skills {
+	height: 100%;
+	padding-bottom: 25px;
 }
