@@ -31,7 +31,60 @@ var main = function() {
 			}, 1000);
 		}
 	});
-
+	$('.border').click(function(){
+		$('html, body').animate({
+				scrollTop: $('.about-me').offset().top
+		}, 1000);
+	});
+	$('.menu .item1').click(function(){
+		$('html, body').animate({
+				scrollTop: $('.about-me').offset().top
+		}, 1000);
+	});
+	$('.menu .item2').click(function(){
+		$('html, body').animate({
+				scrollTop: $('.timeline-jumbotron').offset().top
+		}, 1000);
+	});
+	$('.menu .item3').click(function(){
+		$('html, body').animate({
+				scrollTop: $('.skills').offset().top
+		}, 1000);
+	});
+	var $animation_elements = $('.skills .progress');
+	var $window = $(window);
+	$window.on('scroll', check_if_in_view);
+	$window.on('scroll resize', check_if_in_view);
+	$window.trigger('scroll');
 };
+
+function check_if_in_view() {
+  var $window = $(window);
+  	var cssPercent = 75
+	var javaPercent = 50
+  var $animation_elements = $('.skills .progress');
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
+
+  $.each($animation_elements, function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
+
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+        (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view');
+    }
+	if ($animation_elements.hasClass('in-view')){
+		var progressBarWidth = cssPercent;
+		$animation_elements.animate({ width: progressBarWidth }, 750);
+	}
+  });
+}
 
 $(document).ready(main);

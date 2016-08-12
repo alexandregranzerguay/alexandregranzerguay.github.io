@@ -1,4 +1,6 @@
 /* Initial body*/
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
 body, html {
   height: 100%;
   left: 0;
@@ -7,12 +9,11 @@ body, html {
 }
 /* Initial Menu*/
 .menu {
-	background: black;
+	background-color: rgba(0,0,0,0.5);
 	left: -285px; /*starts off screen*/
 	height: 100%; /*full page height*/
 	position: fixed;
 	width: 285px; /*has to coincide with offset left*/
-	opacity: 0.5;
 }
 
 .menu ul {
@@ -25,89 +26,59 @@ body, html {
 }
 
 .menu li {
-	border-bottom: 1px solid #ffffff;
-	font-family: 'Open Sans', sans-serif;
 	line-height: 45px;
 	padding-bottom: 3px;
 	padding-left: 20px;
 	padding-top: 3px;
-}
-
-.menu a{
-	color: #ffffff;
+	color: rgba(255, 255, 255, 1);
+	cursor: pointer;
 	font-size: 15px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
 .icon-menu p {
-	color: #ffffff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	padding-bottom: 25px; 
+	position: fixed;
+	color: black;
+	font-size: 35px; 
 	padding-left: 25px;
-	padding-top: 25px;
-	text-decoration: none;
-	text-transform: uppercase;
+	padding-top: 15px;
 }
 
 .icon-menu span {
 	margin-right: 5px;
-	cursor: pointer;
+	cursor: pointer;	
 }
 /* Basic styling*/
 .jumbotron {
 	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
 	height: 100%; /*takes full page of website*/
+	width:100%;
 	background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-	-webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
 	
 }
 
-/*intital img*/
-.jumbotron img {
-	overflow: hidden;
-	left: 0;
-	clip: rect(0px,400px,0px,400px);
-	max-width: 100%;
-	visibility: auto; 
-	height: auto;
-	border-radius: 50%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.jumbotron .intro {
+.intro-info {
 	position: absolute;
 	top: 50%;
-	margin: -15% 0 0 5%;
+	width: 100%;
+	text-align: center;
+	
 }
-
-.intro-pic {
-	position: relative;
-	left: -40px;
-}
-
-.intro-info {
+.intro-info span.border{
 	background-color: #111;
 	padding:10px;
-	padding-bottom:40px;
-	font-family: 'Lato', sans-serif;
 	color: #fff;
 	letter-spacing: 5px;
-	text-align: center;
-	opacity: 0.8;
-	margin-top: 4.5%;
+	font-size: 2rem;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-.intro-info:hover {
+.intro-info .border:hover {
 	opacity:0.7;
+	cursor: pointer;
 }
 
 .intro-info h3{
@@ -117,15 +88,17 @@ body, html {
 
 .about-me h2{
   font-size: 2rem;
-  color: black;
+  text-transform: uppercase;
+  color: #111;
   text-align:center;
   letter-spacing: 10px;
   padding-bottom: 35px;
 }
 
 .about-me {
-	height: 100%;
-	padding-bottom: 25px;
+	padding: 35px 60px;
+	text-align: justify;
+	margin-top: -30px;
 }
 
 .timeline-jumbotron {
@@ -135,10 +108,6 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 	overflow: hidden;
-	-webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
@@ -290,10 +259,27 @@ body, html {
   text-align:center;
   letter-spacing: 10px;
   padding-bottom: 35px;
-  padding-top:20px;
 }
 
 .skills {
-	height: 100%;
 	padding-bottom: 25px;
+	text-align: justify;
+	padding: 20px 0px;
+}
+.skills .skill {
+	background-color: rgb(209, 209, 209);
+	height: 30px;
+	padding: 0px;
+}
+
+.skills .progress {
+	height: 100%;
+	width: 0;
+}
+
+.skills p {
+	margin-bottom: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgb(56, 56, 56);
 }
