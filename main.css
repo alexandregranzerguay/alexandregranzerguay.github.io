@@ -13,7 +13,9 @@ body, html {
 	left: -285px; /*starts off screen*/
 	height: 100%; /*full page height*/
 	position: fixed;
+	z-index: 1000;
 	width: 285px; /*has to coincide with offset left*/
+	
 }
 
 .menu ul {
@@ -39,6 +41,7 @@ body, html {
 
 .icon-menu p {
 	position: fixed;
+	z-index: 1001;
 	color: black;
 	font-size: 35px; 
 	padding-left: 25px;
@@ -96,7 +99,7 @@ body, html {
 }
 
 .about-me {
-	padding: 35px 60px;
+	padding: 35px 80px;
 	text-align: justify;
 	margin-top: -30px;
 }
@@ -265,6 +268,7 @@ body, html {
 	padding-bottom: 25px;
 	text-align: justify;
 	padding: 20px 0px;
+	padding-bottom: 60px;
 }
 .skills .skill {
 	background-color: rgb(209, 209, 209);
@@ -282,4 +286,160 @@ body, html {
 	text-align: center;
 	text-transform: uppercase;
 	color: rgb(56, 56, 56);
+}
+
+.contact {
+	height: 100%;
+}
+
+.contact .box {
+	margin: 60px auto;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: transparent;
+	color: white;
+	width: 50%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.contact .box a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	letter-spacing: 2px;
+	font-size: 2em;
+}
+
+.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   }
+
+ .fade:hover {
+      opacity: 0.5;
+ }
+ 
+ #grad {
+  background: rgb(53, 53, 53); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(53, 53, 53) , rgb(75, 75, 75)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(53, 53, 53), rgb(75, 75, 75)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(53, 53, 53), rgb(75, 75, 75)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(53, 53, 53) , rgb(75, 75, 75)); /* Standard syntax */
+}
+
+.resume {
+	height: 100%;
+}
+#hire{
+	padding-top: 40px;
+	color: white;
+	text-align: center;
+}
+
+#hire h1 {
+	padding-bottom: 20px;
+	text-transform: uppercase;
+}
+
+form {
+  width: 75%;
+  margin: 0 auto;
+}
+form .field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+form .field label {
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #878282;
+  width: 100%;
+  padding: 18px 18px;
+  font-size: 1.45em;
+  letter-spacing: 0.075em;
+  -webkit-transition: all 333ms ease-in-out;
+  -moz-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  -ms-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+
+form .field input[type="text"],
+form .field textarea {
+  border: none;
+  background: #E8E9EA;
+  width: 100%;
+  margin: 0;
+  padding: 18px 0;
+  padding-left: 19.5%;
+  color: #313A3D;
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+form .field input[type="text"]#msg,
+form .field textarea#msg {
+  height: 75px;
+  resize: none;
+  -webkit-transition: all 333ms ease-in-out;
+  -moz-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  -ms-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+form .field input[type="text"]:focus, form .field input[type="text"].focused,
+form .field textarea:focus,
+form .field textarea.focused {
+  outline: none;
+}
+
+form .field input[type="text"]:focus + label, form .field input[type="text"].focused + label,
+form .field textarea:focus + label,
+form .field textarea.focused + label {
+  width: 18%;
+  background: #FD9638;
+  color: #313A3D;
+}
+form .field input[type="text"].focused + label,
+form .field textarea.focused + label {
+  color: #313A3D;
+}
+form .field:hover label {
+  width: 18%;
+  background: #878282;
+  color: white;
+}
+form input[type="submit"] {
+  background: #FD9638;
+  color: white;
+  -webkit-appearance: none;
+  border: none;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 35px;
+  padding: 13px 50px;
+  font-size: 1.4em;
+  letter-spacing: 0.1em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  -webkit-transition: all 333ms ease-in-out;
+  -moz-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  -ms-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+form input[type="submit"]:hover {
+  background: #313A3D;
+  color: #FD9638;
+}
+form input[type="submit"]:focus {
+  outline: none;
+  background: #cd6302;
 }

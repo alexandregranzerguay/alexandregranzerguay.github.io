@@ -56,6 +56,42 @@ var main = function() {
 	$window.on('scroll', check_if_in_view);
 	$window.on('scroll resize', check_if_in_view);
 	$window.trigger('scroll');
+	
+	$('textarea').blur(function () {
+    $('#hire textarea').each(function () {
+		$this = $(this);
+		if ( this.value != '' ) {
+			  $this.addClass('focused');
+			}
+		else {
+			  $this.removeClass('focused');
+		}
+		});
+	});
+
+	$('#hire .field:first-child input').blur(function () {
+		$('#hire .field:first-child input').each(function () {
+			$this = $(this);
+			if ( this.value != '' ) {
+			  $this.addClass('focused');
+			}
+			else {
+			  $this.removeClass('focused');
+			}
+		});
+	});
+
+	$('#hire .field:nth-child(2) input').blur(function () {
+		$('#hire .field:nth-child(2) input').each(function () {
+			$this = $(this);
+			if ( this.value != '' ) {
+			  $this.addClass('focused');
+			}
+			else {
+			  $this.removeClass('focused');
+			}
+		});
+	});
 };
 
 function check_if_in_view() {
@@ -82,7 +118,7 @@ function check_if_in_view() {
     }
 	if ($animation_elements.hasClass('in-view')){
 		var progressBarWidth = cssPercent;
-		$animation_elements.animate({ width: progressBarWidth }, 750);
+		$animation_elements.animate({ width: progressBarWidth +"%" }, 750);
 	}
   });
 }
