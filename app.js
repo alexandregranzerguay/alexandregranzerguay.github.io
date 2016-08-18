@@ -96,8 +96,10 @@ var main = function() {
 
 function check_if_in_view() {
   var $window = $(window);
-  	var cssPercent = 75
-	var javaPercent = 50
+  	var cssPercent = 60 ;
+	var javaPercent = 35 ;
+	var htmlPercent = 75 ;
+	var rubyPercent = 15 ;
   var $animation_elements = $('.skills .progress');
   var window_height = $window.height();
   var window_top_position = $window.scrollTop();
@@ -116,9 +118,25 @@ function check_if_in_view() {
     } else {
       $element.removeClass('in-view');
     }
-	if ($animation_elements.hasClass('in-view')){
-		var progressBarWidth = cssPercent;
-		$animation_elements.animate({ width: progressBarWidth +"%" }, 750);
+	if ($element.hasClass('in-view') && $element.hasClass('css')){
+		var progressBarWidth1 = cssPercent;
+		$element.animate({ width: progressBarWidth1 +"%" }, 750);
+		$('<p/>').addClass('inner-percent').appendTo($element).text(cssPercent + '%');
+	}
+	if ($element.hasClass('in-view') && $element.hasClass('html')){
+		var progressBarWidth2 = htmlPercent;
+		$element.animate({ width: progressBarWidth2 +"%" }, 750);
+		$('<p/>').addClass('inner-percent').appendTo($element).text(htmlPercent + '%');
+	}
+	if ($element.hasClass('in-view') && $element.hasClass('javascript')){
+		var progressBarWidth3 = javaPercent;
+		$element.animate({ width: progressBarWidth3 +"%" }, 750);
+		$('<p/>').addClass('inner-percent').appendTo($element).text(javaPercent + '%');
+	}
+	if ($element.hasClass('in-view') && $element.hasClass('ruby')){
+		var progressBarWidth4 = rubyPercent;
+		$element.animate({ width: progressBarWidth4 +"%" }, 750);
+		$('<p/>').addClass('inner-percent').appendTo($element).text(rubyPercent + '%');
 	}
   });
 }

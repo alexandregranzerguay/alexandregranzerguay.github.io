@@ -274,6 +274,7 @@ body, html {
 	background-color: rgb(209, 209, 209);
 	height: 30px;
 	padding: 0px;
+	margin-bottom: 10px;
 }
 
 .skills .progress {
@@ -283,11 +284,23 @@ body, html {
 
 .skills p {
 	margin-bottom: 0px;
-	text-align: center;
+	text-align: right;
 	text-transform: uppercase;
+	font-size: 1em;
 	color: rgb(56, 56, 56);
 }
 
+.skills .inner-percent {
+	margin-bottom: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1em;
+	color: rgb(56, 56, 56);
+}
+
+.skills .seperator {
+	margin-bottom: 20px;
+}
 .contact {
 	height: 100%;
 }
