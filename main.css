@@ -19,12 +19,11 @@ body, html {
 }
 
 .menu ul {
-	border-top: 1px solid #ffffff;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	position: relative;
-	top: 115px;
+	top: 140px;
 }
 
 .menu li {
@@ -34,9 +33,10 @@ body, html {
 	padding-top: 3px;
 	color: rgba(255, 255, 255, 1);
 	cursor: pointer;
-	font-size: 15px;
+	font-size: 20px;
 	text-decoration: none;
 	text-transform: uppercase;
+	letter-spacing: 5px;
 }
 
 .icon-menu p {
@@ -54,7 +54,7 @@ body, html {
 }
 /* Basic styling*/
 .jumbotron {
-	background-image: url("images/jumbotron.jpg"); /*add an image or good background*/
+	background-image: url("images/jumbotron_1.jpg"); /*add an image or good background*/
 	height: 100%; /*takes full page of website*/
 	width:100%;
 	background-attachment: fixed;
@@ -302,28 +302,19 @@ body, html {
 	margin-bottom: 20px;
 }
 .contact {
-	height: 100%;
+	height: auto;
+	
 }
 
 .contact .box {
-	margin: 60px auto;
-	border: 2px solid black;
-	border-radius: 10px;
+	margin: 100px auto;
 	padding: 20px;
 	background-color: transparent;
 	color: white;
-	width: 50%;
 	text-align: center;
-	cursor: pointer;
+	cursor: default;
 }
 
-.contact .box a {
-	text-transform: uppercase;
-	text-decoration: none;
-	color: white;
-	letter-spacing: 2px;
-	font-size: 2em;
-}
 
 .fade {
    opacity: 1;
@@ -356,6 +347,8 @@ body, html {
 #hire h1 {
 	padding-bottom: 20px;
 	text-transform: uppercase;
+	
+	letter-spacing: 10px;
 }
 
 form {
@@ -429,6 +422,11 @@ form .field:hover label {
   background: #878282;
   color: white;
 }
+form .msg-box textarea#msg:focus,
+form .msg-box textarea#msg.focused{
+  height: 250px;
+}
+
 form input[type="submit"] {
   background: #FD9638;
   color: white;
@@ -455,4 +453,38 @@ form input[type="submit"]:hover {
 form input[type="submit"]:focus {
   outline: none;
   background: #cd6302;
+}
+
+.bracket {
+	text-transform: uppercase;
+	font-size: 5rem;
+	position: relative;
+	top: 12px;
+}
+
+.hidden {
+	display: hidden;
+}
+
+.contact .email{
+	text-transform: uppercase;
+	color: white;
+	font-size: 2em;
+	letter-spacing: 10px;
+	text-decoration: none;
+}
+
+.contact a:hover {
+	cursor: text;
+}
+
+#resume-link {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	font-size: 2em;
+	text-decoration: none;
+	letter-spacing: 10px;
+	margin: 0 15px 0 23px;
+	cursor: pointer;
 }

@@ -26,9 +26,6 @@ var main = function() {
 			$('.timeline .item .description').hide('200');
 			$(this).addClass('current');
 			$(this).children('.description').show('200');
-			$('html, body').animate({
-				scrollTop: $('.timeline .item .title').offset().top
-			}, 1000);
 		}
 	});
 	$('.border').click(function(){
@@ -40,16 +37,41 @@ var main = function() {
 		$('html, body').animate({
 				scrollTop: $('.about-me').offset().top
 		}, 1000);
+		$('.menu').animate({
+				left: "-285px"
+		}, 400);
+		$('.menu').removeClass("opened");
+		$('.menu').addClass("clsd");
 	});
 	$('.menu .item2').click(function(){
 		$('html, body').animate({
 				scrollTop: $('.timeline-jumbotron').offset().top
 		}, 1000);
+		$('.menu').animate({
+				left: "-285px"
+		}, 400);
+		$('.menu').removeClass("opened");
+		$('.menu').addClass("clsd");
 	});
 	$('.menu .item3').click(function(){
 		$('html, body').animate({
 				scrollTop: $('.skills').offset().top
 		}, 1000);
+		$('.menu').animate({
+				left: "-285px"
+		}, 400);
+		$('.menu').removeClass("opened");
+		$('.menu').addClass("clsd");
+	});
+	$('.menu .item4').click(function(){
+		$('html, body').animate({
+				scrollTop: $('.contact').offset().top
+		}, 1000);
+		$('.menu').animate({
+				left: "-285px"
+		}, 400);
+		$('.menu').removeClass("opened");
+		$('.menu').addClass("clsd");
 	});
 	var $animation_elements = $('.skills .progress');
 	var $window = $(window);

@@ -1,3 +1,44 @@
+
+<?php
+/*if(!isset($_POST['submit'])){
+	$name = $email = $message = "";
+	$nameErr = $emailErr = $messageErr = "";
+
+	//validation
+
+	  if (empty($_POST["name"])) {
+		$nameErr = "Name is required";
+	  } else {
+		$name = $_POST["name"]);
+	  }
+
+	  if (empty($_POST["email"])) {
+		$emailErr = "Email is required";
+	  } else {
+		$email = $_POST["email"];
+	  }
+	  
+	  if (empty($_POST["message"])) {
+		$messageErr = "Message is required";
+	  } else {
+		$message = $_POST["message"];
+	  }
+	  
+	$my_email= 'alegra@claudel.org';
+	$email_subject = "New Form Submission";
+	$email_body: "You have received a new message from $name. \n".
+				"email address: $email\n".
+				"Message: \n $message".
+
+	$to = "alegra@claudel.org";
+	$headers = 'From: '.$email."\r\n";
+	$time = date("h:ia")
+	$date = date("d/m/Y");
+	//Sending email
+	mail($to,$email_subject,$email_body,$headers);
+*/
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +62,8 @@
 		<ul>
 			<li class="item1">About me</li>
 			<li class="item2">Exerience</li>
-			<li class="item3">Skills</li>			
+			<li class="item3">Skills</li>
+			<li class="item4">Contact</li>
 		</ul>
 	</div>
 	<div class="jumbotron">
@@ -36,7 +78,7 @@
 	</div>
 	<div class="about-me row">
 				<h2>About Me</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				<p>I am currently a third-year Electrical Engineering student. I have a strong interest in new design ideas and realizing projects.  I hope to specilize in the field of bio-electrical engineering. I consider myself a creative person who is quick to pick up new skills and able to work efficiently and independently. I also consider myself as someone who values attention to detail, has a sense for aesthetics and has strong analytical skills.</p>
 	</div>
 	<div class="timeline-jumbotron">
 		<div class="container">
@@ -47,28 +89,13 @@
 							  <div class="timeline group">
 								
 								<div class="item">
-								  <h2 class="title">LYCEE CLAUDEL</h2>
-								  <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+								  <h2 class="title">APP DEVELOPMENT</h2>
+								  <p class="description">my team and i were tasked with the development of an app to help the social intergration of people with visual impairements. we were limited to the use of appinventor for this project. we created an application that helps people with visual impairements to vocally store, categorize and search contacts through the use of tags.</p>
 								</div>
 								
 								<div class="item">
-								  <h2 class="title">QUEENS</h2>
-								  <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-								</div>
-								
-								<div class="item">
-								  <h2 class="title">March</h2>
-								  <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
-								</div>
-								
-								<div class="item">
-								  <h2 class="title">April</h2>
-								  <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-								</div>
-								
-								<div class="item">
-								  <h2 class="title">May</h2>
-								  <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+								  <h2 class="title">URBAN FARM PLANNING</h2>
+								  <p class="description">this project was focused around the development of a farm in an urban area. through the use of online and field research we created a complete project plan to develop an efficient and eco-friendly farm in downtown montreal.</p>
 								</div>							
 							  </div>
 							</div>
@@ -105,27 +132,30 @@
 		<div class="container">
 				<section id="hire">
 					<h1>Contact Me</h1>
-					
-					<form>
+					<form method="POST" action="index.php" enctype="multipart/form-data" name="emailform" class="hidden">
 						  <div class="field name-box">
-								<input type="text" id="name" placeholder="Who Are You?"/>
+								<input type="text" id="name" placeholder="Who Are You?" name="name"/>
 								<label for="name">Name</label>
+								<span class="error"><?php echo $nameErr;?></span>
 						  </div>
 
 						  <div class="field email-box">
-								<input type="text" id="email" placeholder="name@email.com"/>
+								<input type="text" id="email" placeholder="name@email.com" name="email"/>
 								<label for="email">Email</label>
+								<span class="error"><?php echo $emailErr;?></span>
 						  </div>
 
 						  <div class="field msg-box">
-								<textarea id="msg" rows="4" placeholder="Your message goes here..."/></textarea>
+								<textarea id="msg" rows="4" placeholder="Your message goes here..." name="message"/></textarea>
 								<label for="msg">Msg</label>
+								<span class="error"><?php echo $messageErr;?></span>
 						  </div>
 
 						  <input class="button" type="submit" value="Send" />
 					</form>
-					<div class="box fade">
-						<a href="#">Resume/CV</a>
+					<div class="resume box">
+						<div><a class="email">13agg1@queensu.ca</a></div>
+						<span class="bracket">{</span><a href="content/AGG_Resume.pdf" download="AlexandreGranzerGuay-Resume.pdf" id="resume-link" class="fade" >Resume/CV</a><span class="bracket">}</span>
 					</div>
 				</section>
 		</div>
