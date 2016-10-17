@@ -178,6 +178,8 @@ body, html {
 
 .timeline .item .description{
 	display:none;
+	font-size: 0.75rem;
+	letter-spacing: 5px;
 }
 .timeline-jumbotron .section-title {
   font-size: 2rem;
@@ -188,6 +190,110 @@ body, html {
 }
 .timeline .item .title {
 	letter-spacing: 5px;
+	font-size: 1.25rem;
+}
+@media (max-width: 40rem) {
+  .timeline .item {
+    width: 100%;
+    float: none;
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}
+.timeline .item:before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #999999;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+}
+.timeline .item:hover:before {
+  background-color: #999999;
+}
+
+.timeline .item:first-child {
+  margin-top: 0;
+}
+
+.timeline .item:nth-child(odd) {
+  float: right;
+  padding-left: 2rem;
+}
+.timeline .item:nth-child(odd):before {
+  left: -0.5rem;
+}
+
+.timeline .item:nth-child(even) {
+  padding-right: 2rem;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even) {
+    padding-right: 0;
+    padding-left: 2rem;
+  }
+}
+.timeline .item:nth-child(even):before {
+  right: -0.5rem;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even):before {
+    left: -0.5rem;
+  }
+}
+
+.timeline .item h2 {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 100%;
+}
+
+.timeline .item:nth-child(even) h2 {
+  text-align: right;
+}
+@media (max-width: 40rem) {
+  .timeline .item:nth-child(even) h2 {
+    text-align: left;
+  }
+}
+
+
+
+
+
+@media (max-width: 40rem) {
+  .timeline {
+    background-position: 2rem 0;
+  }
+}
+
+.timeline .item{
+  position: relative;
+  display: block;
+  cursor: pointer;
+  width: 50%;
+  float: left;
+  clear: both;
+  margin-top: -1rem;
+}
+
+.timeline .item .description{
+	display:none;
+	font-size: 0.75rem;
+	letter-spacing: 5px;
+}
+.timeline-jumbotron .section-title {
+  font-size: 2rem;
+  color: #f2f2f2;
+  text-align:center;
+  letter-spacing: 10px;
+  padding-top:25px;
+}
+.timeline .item .title {
+	letter-spacing: 5px;
+	font-size: 1.25rem;
 }
 @media (max-width: 40rem) {
   .timeline .item {
@@ -301,6 +407,16 @@ body, html {
 .skills .seperator {
 	margin-bottom: 20px;
 }
+
+.skills ul{
+	margin-top: 30px;
+	list-style: none;
+}
+.skills ul li{
+	margin-top:5px;
+	letter-spacing: 3px;
+}
+
 .contact {
 	height: auto;
 	

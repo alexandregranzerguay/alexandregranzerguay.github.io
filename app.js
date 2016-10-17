@@ -1,5 +1,7 @@
 var main = function() {
 	/*make menu appear*/
+	width_timeline = $('.timeline-jumbotron').width();
+	console.log(width_timeline);
 	$('.icon-menu span').click(function(){
 		if($('.menu').hasClass("clsd")){
 			$('.menu').animate({
@@ -16,6 +18,10 @@ var main = function() {
 			$('.menu').addClass("clsd");
 		}
 	});
+	if(width_timeline<= 1000){
+		$('.timeline-jumbotron').find('.item').addClass('small');
+		$('.timeline-jumbotron').find('h2').addClass('small');
+	}
 	$('.timeline .item').click(function(){
 		if($(this).hasClass('current')){
 			$('.item').removeClass('current');
