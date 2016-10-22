@@ -102,6 +102,8 @@ body, html {
 	padding: 35px 80px;
 	text-align: justify;
 	margin-top: -30px;
+	margin-right: 0px;
+	margin-left: 0px;
 }
 
 .timeline-jumbotron {
@@ -261,49 +263,55 @@ body, html {
 
 
 
-
-
-@media (max-width: 40rem) {
-  .timeline {
-    background-position: 2rem 0;
-  }
+.groupsmall:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.timeline .item{
+.smalltime {
+  width: 100%;
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  background-image: -webkit-linear-gradient(#999999, #999999);
+  background-image: linear-gradient(#999999, #999999);
+  background-size: 2px 100%;
+  background-position: 0%;
+  background-repeat: no-repeat;
+}
+
+.smalltime .itemsmall{
   position: relative;
   display: block;
   cursor: pointer;
-  width: 50%;
+  width: 85%;
   float: left;
   clear: both;
   margin-top: -1rem;
 }
 
-.timeline .item .description{
+.smalltime .itemsmall .description{
 	display:none;
 	font-size: 0.75rem;
 	letter-spacing: 5px;
 }
-.timeline-jumbotron .section-title {
-  font-size: 2rem;
-  color: #f2f2f2;
-  text-align:center;
-  letter-spacing: 10px;
-  padding-top:25px;
-}
-.timeline .item .title {
+
+.smalltime .itemsmall .title {
 	letter-spacing: 5px;
 	font-size: 1.25rem;
 }
 @media (max-width: 40rem) {
-  .timeline .item {
+  .smalltime .itemsmall {
     width: 100%;
     float: none;
     margin-top: 0;
     margin-bottom: 3rem;
   }
 }
-.timeline .item:before {
+.smalltime .itemsmall:before {
   content: '';
   position: absolute;
   top: 0.3rem;
@@ -313,51 +321,51 @@ body, html {
   border-radius: 50%;
   background-color: #e6e6e6;
 }
-.timeline .item:hover:before {
+.smalltime .itemsmall:hover:before {
   background-color: #999999;
 }
 
-.timeline .item:first-child {
+.smalltime .itemsmall:first-child {
   margin-top: 0;
 }
 
-.timeline .item:nth-child(odd) {
-  float: right;
+.smalltime .itemsmall:nth-child(odd) {
+  float: left;
   padding-left: 2rem;
 }
-.timeline .item:nth-child(odd):before {
+.smalltime .itemsmall:nth-child(odd):before {
   left: -0.5rem;
 }
 
-.timeline .item:nth-child(even) {
-  padding-right: 2rem;
+.smalltime .itemsmall:nth-child(even) {
+  padding-left: 2rem;
 }
 @media (max-width: 40rem) {
-  .timeline .item:nth-child(even) {
+  .smalltime .itemsmall:nth-child(even) {
     padding-right: 0;
     padding-left: 2rem;
   }
 }
-.timeline .item:nth-child(even):before {
-  right: -0.5rem;
+.smalltime .itemsmall:nth-child(even):before {
+  left: -0.5rem;
 }
 @media (max-width: 40rem) {
-  .timeline .item:nth-child(even):before {
+  .smalltime .itemsmall:nth-child(even):before {
     left: -0.5rem;
   }
 }
 
-.timeline .item h2 {
+.smalltime .itemsmall h2 {
   display: block;
   margin-bottom: 1rem;
   font-size: 100%;
 }
 
-.timeline .item:nth-child(even) h2 {
-  text-align: right;
+.smalltime .itemsmall:nth-child(even) h2 {
+  text-align: left;
 }
 @media (max-width: 40rem) {
-  .timeline .item:nth-child(even) h2 {
+  .smalltime .itemsmall:nth-child(even) h2 {
     text-align: left;
   }
 }
@@ -449,6 +457,8 @@ body, html {
   background: -o-linear-gradient(rgb(53, 53, 53), rgb(75, 75, 75)); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(rgb(53, 53, 53), rgb(75, 75, 75)); /* For Firefox 3.6 to 15 */
   background: linear-gradient(rgb(53, 53, 53) , rgb(75, 75, 75)); /* Standard syntax */
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .resume {
@@ -585,7 +595,6 @@ form input[type="submit"]:focus {
 .contact .email{
 	text-transform: uppercase;
 	color: white;
-	font-size: 2em;
 	letter-spacing: 10px;
 	text-decoration: none;
 }
