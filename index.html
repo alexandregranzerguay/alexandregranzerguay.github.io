@@ -1,198 +1,142 @@
-
-<?php
-/*if(!isset($_POST['submit'])){
-	$name = $email = $message = "";
-	$nameErr = $emailErr = $messageErr = "";
-
-	//validation
-
-	  if (empty($_POST["name"])) {
-		$nameErr = "Name is required";
-	  } else {
-		$name = $_POST["name"]);
-	  }
-
-	  if (empty($_POST["email"])) {
-		$emailErr = "Email is required";
-	  } else {
-		$email = $_POST["email"];
-	  }
-	  
-	  if (empty($_POST["message"])) {
-		$messageErr = "Message is required";
-	  } else {
-		$message = $_POST["message"];
-	  }
-	  
-	$my_email= 'alegra@claudel.org';
-	$email_subject = "New Form Submission";
-	$email_body: "You have received a new message from $name. \n".
-				"email address: $email\n".
-				"Message: \n $message".
-
-	$to = "alegra@claudel.org";
-	$headers = 'From: '.$email."\r\n";
-	$time = date("h:ia")
-	$date = date("d/m/Y");
-	//Sending email
-	mail($to,$email_subject,$email_body,$headers);
-*/
-}
-?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Alexandre Granzer-Guay</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Trocchi" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title>Alexandre Granzer-Guay</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1200px)" href="./css/large-style.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 961px) and (max-width: 1199px)" href="./css/style.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 960px)" href="./css/narrow-style.css" />
+    <script defer src="./js/fontawesome-all.min.js"></script>
+    <!-- <script>
+      $(function() {
+        $.scrollify({
+          section : ".panel",
+        });
+      });
+    </script> -->
 </head>
+
 <body>
-	<div class="menu clsd">
-		<!--Menu-->
-		<ul>
-			<li class="item1">About me</li>
-			<li class="item2">Exerience</li>
-			<li class="item3">Skills</li>
-			<li class="item4">Contact</li>
-		</ul>
-	</div>
-	<div class="jumbotron">
-		<div class="icon-menu">	
-			<p><span class="glyphicon glyphicon-menu-hamburger"></span></p>
-		</div>
-			<div class="intro-info">
-				<span class="border">
-					ALEXANDRE GRANZER-GUAY
-				</span>
-			</div>
-	</div>
-	<div class="about-me row">
-				<h2>About Me</h2>
-				<p style="letter-spacing:3px;">3<sup>rd</sup> year b.a.sc. in electrical engineering with a strong interest in biomedical engineering, big data and circuit networks. I have successfully completed courses in circuit networks, electromagnetics, programming, matlab optimization and computer architecture. I strive to come up with innovative ideas and I seek knowledge to solve problems efficiently and creatively.</p>
-	</div>
-	<div class="timeline-jumbotron">
-		<div class="container">
-			<section id="experience" class="section section-experience">
-					<h2 class="section-title text-center">EXPERIENCE</h2>
-							<div class="fullwidth">
-  
-							  <div class="timeline group">
-								
-								<div class="item">
-								  <h2 class="title">APP DEVELOPMENT</h2>
-								  <p class="description">MY TEAM HAD TO DEVELOP AN APP TO FACILITATE THE SOCIAL INTERGRATION OF PEOPLE WITH VISUAL IMPAIRMENT.
-								  I OVERSAW THE DEVELOPMENT OF A VOICE CONTROLLED USER-INTERFACE. I BRIDGED THE INTERFACE TO AN SQL DATABASE AND ENSURED THE ALGORITHM RAN SMOOTHLY THROUGH THE APP. I MADE SURE THE USER COULD PROPERLY INTERACT WITH THE APP AND PROPERLY STORE, CATEGORIZE, SEARCH AND READ CONTACTS USING TAGS.
-									</p>
-								</div>
-								
-								<div class="item">
-								  <h2 class="title">URBAN FARM PLANNING</h2>
-								  <p class="description">THIS PROJECT WAS FOCUSED AROUND THE DEVELOPMENT OF A FARM IN AN URBAN AREA. I OVERSAW FIELD RESEARCH IN MONTREAL AND HAD TO FIND THE RIGHT PROPERTY AND TARGET CUSTOMER FOR THIS PROJECT. THIS TRANSLATED INTO TANGIBLE NUMBERS DURING THE CONCEPTUALIZATION OF THE PROJECT. I DEVELOPED THE FLOOR PLAN AND STRUCTURAL PLAN FOR THE FARM. I ALSO ENSURED THE TIMELINE OF THE PROJECT WAS RESPECTED.</p>
-								</div>							
-							  </div>
-							</div>
-			</section>
-		</div>
-	</div>
-	<div class="skills container">
-				<h2>SKILLS</h2>
-				<div>
-					<ul>
-						<hr></hr><hr></hr><li>HAVE KNOWLEDGE OF VISUAL BASIC, C, C++, CSS, HTML AND JAVA 	SCRIPT, VHDL, ASSEMBLY LANGUAGES.CAN QUICKLY PICK-UP NEW LANGUAGE WITH LITTLE GUIDANCE</li>
-						<hr><li>EXPERIENCE IN VISUAL DESIGN WITH 3DS MAX, MAYA AND SOLID EDGE</li>
-						<hr><li>EXPERIENCE IN PCB AD CIRCUIT MODELING SOFTWARE SUCH AS AGILENT ADS</li>
-						<hr><li>EXPERIENCE IN COMPUTATIONAL AND MODELING SOFTWARES SUCH AS MATLAB AND R</li>
-						<hr><li>EXPERIENCE WITH LATEX</li>
-						<hr><li>ENGINEERING FACULTY PROGRAMMING COURSES: INTRODUCTION TO COMPUTING PROGRAMMING FOR ENGINEERS, FUNDAMENTALS OF INFORMATION STRUCTURES, FUNDAMENTALS OF INFORMATION STRUCTURES</li>
-						<li>FULL PROFICIENCY IN BOTH ENGLISH AND FRENCH.</li>
-					</ul>
-				</div>
-				<div style="display:none;">
-					<div class="col-xs-2"> 	<p>HTML</p> </div>
-					<div class="col-xs-3 skill">
-						<div class="progress html">
-						</div>
-					</div>
-					<div class="col-xs-2"> 	<p>CSS</p> </div>
-					<div class="col-xs-3 skill">
-						<div class="progress css">
-						</div>
-					</div>
-					<div class="col-xs-2"> &nbsp </div>
-					<div class="col-xs-2 seperator"> &nbsp </div>
-					<div class="col-xs-2"> <p>JavaScript</p> </div>
-					<div class="col-xs-3 skill">
-						<div class="progress javascript">
-						</div>
-					</div>
-					<div class="col-xs-2"> <p>Ruby</p> </div>
-					<div class="col-xs-3 skill">
-						<div class="progress ruby">
-						</div>
-					</div>
-					<div class="col-xs-2"> &nbsp </div>
-				</div>
-	</div>
-	<div class="row contact" id="grad">
-		<div class="container">
-				<section id="hire">
-					<h1>Contact Me</h1>
-					<form method="POST" action="index.php" enctype="multipart/form-data" name="emailform" class="hidden">
-						  <div class="field name-box">
-								<input type="text" id="name" placeholder="Who Are You?" name="name"/>
-								<label for="name">Name</label>
-								<span class="error"><?php echo $nameErr;?></span>
-						  </div>
-
-						  <div class="field email-box">
-								<input type="text" id="email" placeholder="name@email.com" name="email"/>
-								<label for="email">Email</label>
-								<span class="error"><?php echo $emailErr;?></span>
-						  </div>
-
-						  <div class="field msg-box">
-								<textarea id="msg" rows="4" placeholder="Your message goes here..." name="message"/></textarea>
-								<label for="msg">Msg</label>
-								<span class="error"><?php echo $messageErr;?></span>
-						  </div>
-
-						  <input class="button" type="submit" value="Send" />
-					</form>
-					<div class="resume box">
-						<div><a class="email">alexandre.granzerguay@queensu.ca</a></div>
-						<div style="margin-top:50px;">
-						<span class="bracket">{</span><a href="content/AGG_Resume.pdf" download="AlexandreGranzerGuay-Resume.pdf" id="resume-link" class="fade" >Resume/CV</a><span class="bracket">}</span>
-						</div>
-					</div>
-				</section>
-		</div>
-	</div>
-	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery-1.11.3.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	<!--jQuery file for all animations-->
-	<script src="app.js"></script>
+    <div class="menu">
+        <h1 onClick="moveToSection('#home')">Home</h1>
+        <h1 onClick="moveToSection('#kaggle')">Projects</h1>
+        <h4 onClick="moveToSection('#kaggle')">Kaggle Competition</h4>
+        <h4 onClick="moveToSection('#music-creator')">Music Creator</h4>
+        <h4 onClick="moveToSection('#personal-assistant')">Personal Assistant</h4>
+        <h1 onClick="moveToSection('#prodigy')">Articles</h1>
+        <h4 onClick="moveToSection('#prodigy')">Making A Prodigy</h4>
+        <h1 onClick="moveToSection('#contact')">Contact</h1>
+    </div>
+    <section class="panel full-windows-height" data-section-name="home">
+        <div class="container" id="row-profile-container" style="opacity: 1;">
+            <div class="row justify-content-md-center profile-row-container">
+                <div class="profile-picture-container col-6">
+                    <img src="./images/profile_photo.jpg" class="img-fluid">
+                </div>
+                <div class="profile-text-container col-6">
+                    <div class="vertically-centered">
+                        <h1 class="profile-text" style="padding-bottom: 15%;">Alexandre
+                            <br>Granzer-Guay</h1>
+                        <h1 class="profile-text">Electrical Engineering student</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-container" id="chevron-container" style="opacity: 1;">
+            <div class="container-scroll-down">
+                <a class="link link--text" onclick="{animateScroll()}">enter
+                    <!-- <span>Give Me The Money!</span> -->
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="panel full-windows-height" data-section-name="kaggle">
+        <div class="project-title-container">
+            <h1 class="">Kaggle Competition</h1>
+            <h2 class="">Kaggle Competition - TensorFlow Speech Recognition</h1>
+        </div>
+        <div class="project-content-container">
+            <h4 class="content-status">Research - In Progress</h4>
+            <p class="content-text">Using TensorFlow's Speech Commands Dataset to build an algorithm that understands simple spoken commands. I will
+                be participation in the Kaggle Competition and will publish an article explaining my methodology</p>
+            <div class="row">
+                <a class="btn btn-2 content-btn" href="https://github.com/alexandregranzerguay/tensorflow-speech-recognition-kaggle">View More</a>
+            </div>
+        </div>
+    </section>
+    <section class="panel full-windows-height" data-section-name="music-creator">
+        <div class="project-title-container">
+            <h1 class="">Music Creator</h1>
+            <h2 class="">Music Creator using TensorFlow</h1>
+        </div>
+        <div class="project-content-container">
+            <h4 class="content-status">Research - In Progress</h4>
+            <p class="content-text">Machine learning algorithm to create music based off of inputed training data. The Midi are inputed into the
+                Recurrent Neural Networks. The RNN makes use of Long Short Term Memory, or LSTM, to understand the musical
+                patterns in the input music files.</p>
+            <div class="row">
+                <a class="btn btn-2 content-btn" href="https://github.com/alexandregranzerguay/tensorflow-music-generator">View More</a>
+            </div>
+        </div>
+    </section>
+    <section class="panel full-windows-height" data-section-name="personal-assistant">
+        <div class="project-title-container">
+            <h1 class="">Personal Assistant</h1>
+            <h2 class="">Personal Assistant Tutorial</h1>
+        </div>
+        <div class="project-content-container">
+            <h4 class="content-status">Project - In Progress</h4>
+            <p class="content-text">Easy-to-use tutorial for Bluemix Conversation and Natural Language Processing. App is built on Node.JS. User
+                only needs to interact with Conversation to build their Personal Assistant. Further Developments: Learning
+                Conversation Bot</p>
+            <div class="row">
+                <a class="btn btn-2 content-btn" href="https://github.com/alexandregranzerguay/personal-assistant-tutorial">View More</a>
+            </div>
+        </div>
+    </section>
+    <section class="panel full-windows-height" data-section-name="prodigy">
+        <div class="article-container">
+            <div class="article-title-container">
+                <h1 class="">Making A Prodigy</h1>
+                <h2 class="">A Five Part Manifesto</h1>
+            </div>
+            <div class="article-content-container">
+                <div class="article-text-container">
+                    <p class="content-text">I am challenging myself to bring forth a manifesto denouncing different realities of our society</p>
+                </div>
+                <div class="row">
+                    <a class="btn btn-2 content-btn" href="#">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="panel full-windows-height" data-section-name="contact">
+        <div class="contact-info-container">
+            <div class="email-container">
+                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top" class="email">alexandre.granzerguay@gmail.com</a>
+            </div>
+            <div class="resume-container">
+                <div class="resume">
+                    <a href="./AlexandreGranzerGuay_Resume.pdf" download>{ Resume }</a>
+                </div>
+            </div>
+        </div>
+        <div class="social-media-container">
+                <i class="fab fa-github fa-3x" style="margin-right:0.3em;" href="https://github.com/alexandregranzerguay"></i>
+                <i class="fab fa-facebook-f fa-3x" style="margin-right:0.3em;" href="https://www.facebook.com/alexandre.guay3"></i>
+                <i class="fab fa-linkedin-in fa-3x" style="margin-right:0.3em;" href="https://www.linkedin.com/in/alexandre-granzer-guay-8b8378b2/"></i>
+                <i class="fab fa-instagram fa-3x" href="https://www.instagram.com/alexandregranzerguay/"></i>       
+        </div>
+    </section>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.17/jquery.scrollify.min.js"></script>
+    <script src="./js/jquery.visible.js"></script>
+    <script src="./js/index.js"></script>
 </body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-61756798-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </html>
