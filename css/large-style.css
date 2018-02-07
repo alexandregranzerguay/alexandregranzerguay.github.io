@@ -625,7 +625,7 @@ body {
   width: fit-content;
   margin: auto;
   position: relative;
-  top: 50%;
+  top: 30vh;
 }
 
 .panel:last-of-type .social-media-container .fa-github {
