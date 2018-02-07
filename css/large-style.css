@@ -63,6 +63,11 @@ body {
   line-height: 2;
 }
 
+.profile-picture-container .horizontally-centered img {
+  width: 60vh;
+  float: right;
+}
+
 .link {
   outline: none;
   text-decoration: none;
