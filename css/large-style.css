@@ -184,6 +184,10 @@ body {
   transition: font-size 0.2s ease-in-out;
 }
 
+.menu .no-click:hover {
+  cursor: default;
+}
+
 .panel:not(:first-of-type) {
   background-color: none !important;
   padding-top: 2%;
