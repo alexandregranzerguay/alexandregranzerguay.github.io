@@ -21,12 +21,13 @@
 <body>
     <div class="menu">
         <h1 onClick="moveToSection('#home')">Home</h1>
-        <h1 onClick="moveToSection('#kaggle')">Projects</h1>
+        <h1 onClick="moveToSection('#gtd')">Projects</h1>
+        <h4 onClick="moveToSection('#gtd')">Behind The Attack?</h4>
         <h4 onClick="moveToSection('#kaggle')">Kaggle Competition</h4>
         <h4 onClick="moveToSection('#music-creator')">Music Creator</h4>
         <h4 onClick="moveToSection('#personal-assistant')">Personal Assistant</h4>
-        <h1 onClick="moveToSection('#prodigy')">Articles</h1>
-        <h4 onClick="moveToSection('#prodigy')">Making A Prodigy</h4>
+        <h1 class="no-click" onClick="return false">Articles</h1>
+        <h4 class="no-click" onClick="return false">Coming Soon</h4>
         <h1 onClick="moveToSection('#contact')">Contact</h1>
     </div>
     <section class="panel full-windows-height" data-section-name="home">
@@ -54,10 +55,33 @@
             </div>
         </div>
     </section>
+    <section class="panel full-windows-height" data-section-name="gtd">
+        <div class="project-title-container">
+            <h1 class="">Who Was Behind The Attack?</h1>
+            <h2 class="">Challenge - Global Terrorism Database</h2>
+        </div>
+        <div class="project-content-container">
+            <h4 class="content-status">Research - In Progress</h4>
+            <p class="content-text">The Global Terrorism Database has an archive of all publicly known terrorist attacks from the year 1970 to the
+                year 2016. This dataset contains ~170,000 entries with more than 200 attributes each. Every row corresponds
+                to a specific attack. Every column is a different attribute of these attacks. To name a few, there is, type of
+                attack (bombing, shooting, etc), location, group behind the attack. I would like to focus on the latter,
+                group behind the attack. There are a lot of missing entries or entries left as "unknown" for this attribute.
+                The idea is to run a machine learning model to accurately determine what terrorist group was behind every
+                single attack based on various factors. I hope to find interesting correlations between specific terrorist
+                groups and their behaviors/tendencies.
+                <br> I am currently working on cleaning the dataset to increase obvious correlation factors between attributes.
+                <br> Charts to be posted soon on github...
+            </p>
+            <div class="row">
+                <a class="btn btn-2 content-btn" href="https://github.com/alexandregranzerguay/fellowshipAI_GTD_challenge">View More</a>
+            </div>
+        </div>
+    </section>
     <section class="panel full-windows-height" data-section-name="kaggle">
         <div class="project-title-container">
             <h1 class="">Kaggle Competition</h1>
-            <h2 class="">Kaggle Competition - TensorFlow Speech Recognition</h1>
+            <h2 class="">Kaggle Competition - TensorFlow Speech Recognition</h2>
         </div>
         <div class="project-content-container">
             <h4 class="content-status">Research - In Progress</h4>
@@ -98,7 +122,7 @@
             </div>
         </div>
     </section>
-    <section class="panel full-windows-height" data-section-name="prodigy">
+    <!-- <section class="panel full-windows-height" data-section-name="prodigy">
         <div class="article-container">
             <div class="article-title-container">
                 <h1 class="">Making A Prodigy</h1>
@@ -113,7 +137,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="panel full-windows-height" data-section-name="contact">
         <div class="contact-info-container">
             <div class="email-container">
@@ -126,10 +150,18 @@
             </div>
         </div>
         <div class="social-media-container">
-                <a href="https://github.com/alexandregranzerguay"><i class="fab fa-github fa-3x" style="margin-right:0.3em;"></i></a>
-                <a href="https://www.facebook.com/alexandre.guay3"><i class="fab fa-facebook-f fa-3x" style="margin-right:0.3em;"></i></a>
-                <a href="https://www.linkedin.com/in/alexandre-granzer-guay-8b8378b2/"><i class="fab fa-linkedin-in fa-3x" style="margin-right:0.3em;"></i></a>
-                <a href="https://www.instagram.com/alexandregranzerguay/"><i class="fab fa-instagram fa-3x"></i></a>
+            <a href="https://github.com/alexandregranzerguay">
+                <i class="fab fa-github fa-3x" style="margin-right:0.3em;"></i>
+            </a>
+            <a href="https://www.facebook.com/alexandre.guay3">
+                <i class="fab fa-facebook-f fa-3x" style="margin-right:0.3em;"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alexandre-granzer-guay-8b8378b2/">
+                <i class="fab fa-linkedin-in fa-3x" style="margin-right:0.3em;"></i>
+            </a>
+            <a href="https://www.instagram.com/alexandregranzerguay/">
+                <i class="fab fa-instagram fa-3x"></i>
+            </a>
         </div>
     </section>
     <script src="./js/jquery-3.3.1.min.js"></script>
