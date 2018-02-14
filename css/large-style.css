@@ -632,6 +632,11 @@ body {
   top: 30vh;
 }
 
+.panel:last-of-type .social-media-container a:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
 .panel:last-of-type .social-media-container .fa-github {
   transition: 0.5s ease-in-out;
   color: black;

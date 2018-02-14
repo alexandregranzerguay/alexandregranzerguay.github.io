@@ -387,6 +387,10 @@ body {
             margin: auto;
             position: relative;
             top: 30vh;
+            a:hover{
+                text-decoration: none;
+                cursor: default;
+            }
             .fa-github {
                 transition: 0.5s ease-in-out;
                 color: black;
