@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === ' development') {
     }
 }
 
-const composedEnhancers = comopose(
+const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers
 )
