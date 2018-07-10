@@ -101,6 +101,19 @@ module.exports = {
     module: {
         strictExportPresence: true,
         rules: [
+            /**
+             * MDX is a tool that converts Markdown files to React components. This 
+             * loader uses MDX to create Page objects for Markdown files. As it
+             * produces ES2015, the result is then passed through babel.
+             */
+            {
+                test: /\.mdx?$/,
+                use: [
+                    'babel-loader',
+                    'mdx-loader',
+                ]
+            },
+
             // TODO: Disable require.ensure as it's not a standard language feature.
             // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
             // { parser: { requireEnsure: false } },
