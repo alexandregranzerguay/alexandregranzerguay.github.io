@@ -1,17 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import ReactDOM, { hydrate } from 'react-dom';
+import './scss/index.scss';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store';
+import { Route, Switch } from 'react-router' // react-router v4
+import { ConnectedRouter } from 'connected-react-router'
 
  ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
-                <App />
+            <Switch>
+                <Route exact path="/" render={() => (<App />)} />
+                <Route render={() => (<div>Error with routing</div>)} />
+            </Switch>
             </div>
         </ConnectedRouter>
     </Provider>,
