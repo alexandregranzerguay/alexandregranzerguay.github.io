@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import routes from "./routes";
 import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
 
 class App extends Component {
     render(){
@@ -10,6 +11,9 @@ class App extends Component {
                     <Header />
                 </div>
                 { routes }
+                <div className="footer">
+                    <Footer />
+                </div>
             </div>
         );
     }

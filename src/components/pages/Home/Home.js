@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
+import {Jumbotron, Button, Container, Col, Row} from 'reactstrap';
+import image from './Profile_Photo.jpg';
 import styles from './Home.scss';
 
 class Home extends Component {
     render() {
         return (
-            <div className={styles["App"]}>
-                <header className={styles["App-header"]}>
-                    <img
-                        src="img/logo.svg"
-                        className={styles["App-logo"]}
-                        alt="logo"
-                    />
-                    <h1 className={styles["App-title"]}>Welcome to React</h1>
-                </header>
-                <p className={styles["App-intro"]}>
-                    To get started, edit{" "}
-                    <code>client/src/components/pages/Home/Home.js</code> and
-                    save to reload.
-                </p>
-            </div>
+            <Jumbotron fluid>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h1>Hello, my name is <p>Alexandre Granzer-Guay</p></h1>
+                            <p className="h4">Explore. Live. Create.</p>
+                            <hr className="my-2" />
+                            <p className="lead">Here I will share with you life experiences, hard-learned lessons, and basically my way of optimising life.</p>
+                            <p className="lead">
+                                <Button color="primary">Stalk Me!</Button>
+                            </p>
+                        </Col>
+                        <Col>
+                            <img 
+                            src={image} 
+                            alt="profile_photo"
+                            />
+                        </Col>
+                    </Row>
+                </Container>
+            </Jumbotron>
         )
     }
 }

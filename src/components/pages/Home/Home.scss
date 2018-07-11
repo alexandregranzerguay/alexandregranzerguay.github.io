@@ -1,24 +1,16 @@
-.App {
-    text-align: center;
-    .App-intro {
-      font-size: large;
+.jumbotron {
+    .container {
+        .row {
+            .col{
+                img {
+                    width: 30px;
+                }
+            }
+        }
     }
-    .App-header {
-      background-color: rgb(165, 37, 37);
-      height: 400px;
-      padding: 20px;
-      color: white;
-      .App-title {
-        font-size: 1.5em;
-      }
-      .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-        height: 80px;
-      }
-    }
-  }
-  
-  @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+}
+
+img {
+    width: 90vw;
+    max-width: 562px;
+}
