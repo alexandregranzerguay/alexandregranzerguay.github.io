@@ -1,0 +1,19 @@
+.title {
+    .link {
+        color: inherit;
+        text-decoration: inherit;
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.item {
+    .link {
+        color: inherit;
+        text-decoration: inherit;
+        &:hover {
+            color: inherit;
+        }
+    }
+}

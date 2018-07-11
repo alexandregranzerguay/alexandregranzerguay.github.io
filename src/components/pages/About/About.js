@@ -1,12 +1,5 @@
-import React, { Component } from 'react';
-import styles from "./About.scss";
+import React from "react";
 
-class About extends Component{
-    render() {
-        return (
-            <p> This is the about page!</p>
-        )
-    }
-}
+const About = () => <div className="test">ABOUT PAGE</div>;
 
 export default About;
