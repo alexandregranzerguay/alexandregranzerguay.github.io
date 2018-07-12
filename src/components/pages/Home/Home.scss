@@ -1,12 +1,10 @@
-.jumbotron {
-    .container {
-        .row {
-            .col{
-                img {
-                    width: 30px;
-                }
-            }
-        }
+.button-link {
+    color: white;
+    display: 'block';
+    height: 100%;
+    &:hover {
+        color: white;
+        text-decoration: none;
     }
 }
 
