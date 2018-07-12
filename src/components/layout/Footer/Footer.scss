@@ -1,0 +1,27 @@
+.icon {
+    padding-left: 2em;
+    padding-bottom: 2em;
+    .git {
+        &:hover {
+            color: #be4bdb;
+        }
+    }
+    .fb {
+        &:hover {
+            color: #15aabf;
+        }
+    }
+    .insta {
+        &:hover {
+            color: #82c91e;
+        }
+    }
+    .linkedin {
+        &:hover {
+            color: #0077B5;
+        }
+    }
+}
+
+
+    
