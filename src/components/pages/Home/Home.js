@@ -17,7 +17,7 @@ class Home extends Component {
                             <p className="lead">Here I will share with you life experiences, hard-learned lessons, and basically my way of optimising life.</p>
                             <p className="lead">
                                 <Button color="primary">
-                                <Link to="/about" className={styles["button-link"]}>Stalk Me!</Link>
+                                <Link to="/about" className={styles["button-link"]}>Come into my mind!</Link>
                                 </Button>
                             </p>
                         </Col>
