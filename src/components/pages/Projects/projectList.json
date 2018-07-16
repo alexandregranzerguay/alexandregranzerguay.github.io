@@ -1,0 +1,6 @@
+[{
+    "title": "Violent Incidents Around the World",
+    "preview":"The Global Terrorism Database has an archive of all publicly known terrorist attacks from the year 1970 to the year 2016.",
+    "description" : " The Global Terrorism Database has an archive of all publicly known terrorist attacks from the year 1970 to the year 2016. This dataset contains ~170,000 entries with more than 200 attributes each. Every row corresponds to a specific attack. Every column is a different attribute of these attacks. To name a few, there is, type of attack (bombing, shooting, etc), location, group behind the attack. I would like to focus on the latter, group behind the attack. There are a lot of missing entries or entries left as \"unknown\" for this attribute. The idea is to run a machine learning model to accurately determine what terrorist group was behind every single attack based on various factors. I hope to find interesting correlations between specific terrorist groups and their behaviors/tendencies."
+}
+ ]

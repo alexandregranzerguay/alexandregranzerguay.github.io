@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import {Container, Row, Col} from 'reactstrap'
+import {Container, Row, Col, Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
+import styles from './Preview.scss';
 
 class Preview extends Component {
     render() {
@@ -7,8 +9,11 @@ class Preview extends Component {
             <Container>
                 <Row>
                     <Col>
-                        <h1>Here is preview for project [Make this modulare based on some project ID]</h1>
-                        <p lead> [prop.description]</p>
+                        <h1>{this.props.title}</h1>
+                        <p lead>{this.props.preview}</p>
+                        <Button color="primary">
+                            <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]}>Read More</Link>
+                        </Button>
                     </Col>
                 </Row>
             </Container>
