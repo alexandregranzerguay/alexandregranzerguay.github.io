@@ -1,5 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
+import {Container} from 'reactstrap';
 
-const About = () => <div className="test">ABOUT PAGE</div>;
+class About extends Component {
+    render() {
+        return (
+            <Container>
+                <div className ="d-flex justify-content-center">
+                    <h2>Alexandre Granzer-Guay</h2>
+                </div>
+            </Container>
+        )
+    }
+}
 
 export default About;
