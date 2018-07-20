@@ -23,9 +23,6 @@ class Footer extends Component {
                         className={styles.linkedin}
                     />                
                 </a>
-                <a href="https://www.facebook.com/alexandre.guay3" className={styles.icon}>
-                    <FontAwesomeIcon icon={['fab', 'facebook-f']} size='4x' className={styles.fb} />
-                </a>
                 <a href="https://www.instagram.com/alexandregranzerguay/" className={styles.icon}>
                     <FontAwesomeIcon icon={['fab', 'instagram']} size='4x' className={styles.insta} />          
                 </a>

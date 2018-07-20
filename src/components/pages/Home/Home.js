@@ -7,7 +7,7 @@ import styles from './Home.scss';
 class Home extends Component {
     render() {
         return (
-            <Jumbotron fluid>
+            <Jumbotron fluid className={styles["content-container"]}>
                 <Container>
                     <Row>
                         <Col>

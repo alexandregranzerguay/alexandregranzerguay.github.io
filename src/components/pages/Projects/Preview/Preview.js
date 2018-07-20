@@ -6,14 +6,16 @@ import styles from './Preview.scss';
 class Preview extends Component {
     render() {
         return(
-            <Container>
+            <Container className={styles["content-container"]}>
                 <Row>
                     <Col>
                         <h1>{this.props.title}</h1>
                         <p lead>{this.props.preview}</p>
-                        <Button color="primary">
-                            <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]}>Read More</Link>
-                        </Button>
+                        <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]} style={{display: 'block', height: '100%'}} >
+                            <Button color="primary">
+                                Read More
+                            </Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>
