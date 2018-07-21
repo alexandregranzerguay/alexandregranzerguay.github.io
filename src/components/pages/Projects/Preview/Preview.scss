@@ -1,9 +1,12 @@
 .button-link {
     color: white;
-    display: 'block';
-    height: 100%;
     &:hover {
         color: white;
         text-decoration: none;
     }
+}
+
+.content-container {
+    padding-top: 5%;
+    padding-bottom: 5%;
 }

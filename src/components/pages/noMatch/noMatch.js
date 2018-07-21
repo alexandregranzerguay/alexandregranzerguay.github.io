@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
+import styles from './noMatch.scss';
 
 class noMatch extends Component {
     render() {
         return (
-            <Container>
+            <Container className={styles["content-container"]}>
                 <div className ="d-flex justify-content-center">
                     <h1> 404 </h1>
                 </div>
