@@ -15,3 +15,5 @@ class Blogpost extends Component {
         )
     }
 }
+
+export default Blogpost;

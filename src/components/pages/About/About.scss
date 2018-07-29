@@ -1,4 +1,10 @@
 .content-container {
     padding-top: 5%;
     padding-bottom: 5%;
+    div{
+        .para {
+            padding-top:2%;
+            text-align:justify;
+        }
+    }
 }

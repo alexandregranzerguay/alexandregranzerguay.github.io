@@ -11,18 +11,22 @@ class Home extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>Hello, my name is <p>Alexandre Granzer-Guay</p></h1>
-                            <p className="h4">Explore. Live. Create.</p>
+                            <h1>Hello, my name is </h1>
+                            <h1>Alexandre Granzer-Guay</h1>
+                            <h4>Explore. Live. Create.</h4>
                             <hr className="my-2" />
                             <p className="lead">Here I will share with you life experiences, hard-learned lessons, and basically my way of optimising life.</p>
                             <p className="lead">
+                            <Link to="/about" className={styles["button-link"]}>
                                 <Button color="primary">
-                                <Link to="/about" className={styles["button-link"]}>Come into my mind!</Link>
+                                    About Me
                                 </Button>
+                            </Link>
                             </p>
                         </Col>
                         <Col>
                             <img 
+                            className={styles.homeImg}
                             src={image} 
                             alt="profile_photo"
                             />

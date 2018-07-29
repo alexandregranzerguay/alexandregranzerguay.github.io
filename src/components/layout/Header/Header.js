@@ -5,7 +5,11 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem} from 'reactstrap';
+    NavItem,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem} from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 import styles from './Header.scss';
 
@@ -44,7 +48,7 @@ class Header extends Component {
                     <NavLink to="/projects" className="nav-link">Projects</NavLink>
                 </NavItem>
                 <NavItem className={styles.item}>
-                    <NavLink to="/misc" className="nav-link">Misc.</NavLink>
+                    <NavLink to="/blog" className="nav-link">Blog</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

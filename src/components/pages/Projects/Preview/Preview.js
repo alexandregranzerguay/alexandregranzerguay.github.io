@@ -9,9 +9,9 @@ class Preview extends Component {
             <Container className={styles["content-container"]}>
                 <Row>
                     <Col>
-                        <h1>{this.props.title}</h1>
+                        <h2>{this.props.title}</h2>
                         <p lead>{this.props.preview}</p>
-                        <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]} style={{display: 'block', height: '100%'}} >
+                        <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]}>
                             <Button color="primary">
                                 Read More
                             </Button>
