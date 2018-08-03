@@ -38,6 +38,7 @@
     "gh-pages": "^1.2.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "markdown-to-jsx": "^6.7.0",
     "mdxc": "^1.1.1",
     "node-sass": "^4.9.0",
     "object-assign": "4.1.1",
@@ -49,6 +50,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-markdown": "^3.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -117,6 +119,6 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "mdx-loader": "^1.1.0"
+    "mdx-loader": "^1.1.1"
   }
 }

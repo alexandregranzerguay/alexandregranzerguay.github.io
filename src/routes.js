@@ -7,17 +7,18 @@ import Project from './components/pages/Projects/Project/Project';
 import Blog from './components/pages/Blog/Blog';
 import noMatch from './components/pages/noMatch/noMatch';
 import projectList from './components/pages/Projects/projectList.json';
+import ServeBlogpost from './components/pages/Blog/Blogpost/ServeBlogpost';
 
 const routes = (
     <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About} />
         <Route exact path="/projects" component={Projects} />
-        <Route path="/projects/:projectId" component={Project} />
-        <Route path="/blog" component={Blog} />
+        <Route exact path="/projects/:projectId" component={Project} />
+        <Route exact path="/blog" component={Blog} />
+        <Route exact path="/blog/:id" component={ServeBlogpost} />
+        <Route exact path="/404" component={noMatch}/>
         <Route component={noMatch} />
-        {/* Figure out how this will be possible to do */}
-        {/* <Route exact path="/projects/[id]" component={Project.[id]} */}
     </Switch>
 );
 
