@@ -8,6 +8,7 @@ import Blog from './components/pages/Blog/Blog';
 import noMatch from './components/pages/noMatch/noMatch';
 import projectList from './components/pages/Projects/projectList.json';
 import ServeBlogpost from './components/pages/Blog/Blogpost/ServeBlogpost';
+import Books from './components/pages/Books/Books';
 
 const routes = (
     <Switch>
@@ -17,6 +18,7 @@ const routes = (
         <Route exact path="/projects/:projectId" component={Project} />
         <Route exact path="/blog" component={Blog} />
         <Route exact path="/blog/:id" component={ServeBlogpost} />
+        <Route exact path="/books" component={Books} />
         <Route exact path="/404" component={noMatch}/>
         <Route component={noMatch} />
     </Switch>

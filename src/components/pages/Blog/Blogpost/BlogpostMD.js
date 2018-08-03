@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-
 // const test = myFirstContribution
 const input = '# This is a header\n\nAnd this is a paragraph'
 
@@ -38,7 +37,9 @@ class BlogpostMD extends Component {
 
     render () {
         return(
-                <ReactMarkdown source={this.state.content}/>
+                <ReactMarkdown 
+                    source={this.state.content}
+                />
         )
     }
 }
