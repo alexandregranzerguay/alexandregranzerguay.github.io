@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Container} from 'reactstrap';
 import styles from './About.scss';
+import resume from './resume.pdf';
+
 class About extends Component {
     render() {
         return (
@@ -27,6 +29,9 @@ class About extends Component {
                         on React/Redux with NodeJS backend. The products developed noticeably helped the client’s 
                         current reach and growth in a new market. 
                     </p>
+                </div>
+                <div className ="d-flex justify-content-center">
+                    <a href={resume} download style={{textTransform: 'uppercase'}}>Resume</a>
                 </div>
             </Container>
         )

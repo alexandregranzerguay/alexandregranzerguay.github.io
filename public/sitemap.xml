@@ -19,4 +19,8 @@
         <loc>http://alexandregranzerguay.com/blog</loc>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>http://alexandregranzerguay.com/books</loc>
+        <priority>0.5</priority>
+    </url>
 </urlset> 

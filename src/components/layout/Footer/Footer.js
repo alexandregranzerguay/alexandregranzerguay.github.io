@@ -12,6 +12,8 @@ library.add(fab)
 class Footer extends Component {
     render() {
         return (
+            <div>
+                
                 <div className="d-flex justify-content-center" >
                 <a href="https://github.com/alexandregranzerguay" className={styles.icon}>
                     <FontAwesomeIcon icon={['fab', 'github']} size='4x' className={styles.git} />
@@ -25,8 +27,14 @@ class Footer extends Component {
                 </a>
                 <a href="https://www.instagram.com/alexandregranzerguay/" className={styles.icon}>
                     <FontAwesomeIcon icon={['fab', 'instagram']} size='4x' className={styles.insta} />          
-                </a>
+                </a>     
                 </div>
+                <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
+                <h4>
+                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top">alexandre.granzerguay@gmail.com</a>  
+                </h4>
+                </div>
+            </div>
         )
     }
 }

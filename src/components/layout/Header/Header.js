@@ -50,6 +50,9 @@ class Header extends Component {
                 <NavItem className={styles.item}>
                     <NavLink to="/blog" className="nav-link">Blog</NavLink>
                 </NavItem>
+                <NavItem className={styles.item}>
+                    <NavLink to="/books" className="nav-link">Books</NavLink>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
