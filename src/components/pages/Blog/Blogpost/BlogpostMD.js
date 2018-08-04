@@ -24,7 +24,15 @@ class BlogpostMD extends Component {
     });
     }
     componentDidMount(props){
-        const markdownFile = require('./MarkdownPosts/'+this.props.id+'.md');
+        const markdownFile = ""
+        try{
+            const markdownFile = require('static/media/'+this.props.id+'.md');
+            
+        } catch (err) {
+            const markdownFile = require('./MarkdownPosts/'+this.props.id+'.md');
+            console.log(err)
+        }
+        
         console.log(markdownFile)
         this.loadBlog(markdownFile)
     }
