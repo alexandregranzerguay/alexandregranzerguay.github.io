@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-// const test = myFirstContribution
-const input = '# This is a header\n\nAnd this is a paragraph'
-
 class BlogpostMD extends Component {
     constructor(props) {
         super(props)
-        this.state = {content : null}
+        this.state = {content : null, url : null}
     }
 
     loadBlog = blogId => {
@@ -20,12 +17,10 @@ class BlogpostMD extends Component {
         this.setState(()=>{
             return {content : text}
         })
-        // console.log(text);
     });
     }
     componentDidMount(props){
         const markdownFile = require('./MarkdownPosts/'+this.props.id+'.md');
-        console.log(markdownFile)
         this.loadBlog(markdownFile)
     }
 
