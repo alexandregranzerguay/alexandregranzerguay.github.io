@@ -7,7 +7,7 @@ import styles from './PostPreview.scss'
 class PostPreview extends Component {
     render() {
         return (
-            <div>
+            <div className={styles['content-container']}>
                 <div className="d-flex justify-content-left flex-wrap">
                     <h2>{this.props.title}</h2>
                     <p>{this.props.preview}</p>

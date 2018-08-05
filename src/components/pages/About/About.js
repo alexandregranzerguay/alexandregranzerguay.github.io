@@ -31,7 +31,7 @@ class About extends Component {
                     </p>
                 </div>
                 <div className ="d-flex justify-content-center">
-                    <a href={resume} download style={{textTransform: 'uppercase'}}>Resume</a>
+                    <a href={resume} download style={{textTransform: 'uppercase', fontSize:'1em'}}><h5>Resume</h5></a>
                 </div>
             </Container>
         )

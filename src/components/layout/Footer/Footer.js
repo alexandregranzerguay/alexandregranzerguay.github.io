@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import { Container } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
@@ -29,11 +30,14 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={['fab', 'instagram']} size='4x' className={styles.insta} />          
                 </a>     
                 </div>
-                <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
-                <h4>
-                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top">alexandre.granzerguay@gmail.com</a>  
-                </h4>
-                </div>
+                <Container>
+                    <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
+                    <h4 className={styles.email}>
+                    <a href="mailto:alexandre.granzerguay@gmail.com" target="_top">alexandre.granzerguay@gmail.com</a>  
+                    </h4>
+                
+                    </div>
+                </Container>
             </div>
         )
     }

@@ -7,17 +7,13 @@ class Preview extends Component {
     render() {
         return(
             <Container className={styles["content-container"]}>
-                <Row>
-                    <Col>
-                        <h2>{this.props.title}</h2>
-                        <p lead>{this.props.preview}</p>
-                        <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]}>
-                            <Button color="primary">
-                                Read More
-                            </Button>
-                        </Link>
-                    </Col>
-                </Row>
+                <h2>{this.props.title}</h2>
+                <p lead>{this.props.preview}</p>
+                <Link to={`/projects/${this.props.projectId}`} className={styles["button-link"]}>
+                    <Button color="primary">
+                        Read More
+                    </Button>
+                </Link>
             </Container>
         )
     }
