@@ -20,8 +20,8 @@ const publicPath = paths.servedPath;
 // For these, "homepage" can be set to "." to enable relative asset paths.
 const shouldUseRelativeAssetPaths = publicPath === './';
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-// const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-const shouldUseSourceMap = false
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+// const shouldUseSourceMap = false
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -108,19 +108,6 @@ module.exports = {
     module: {
         strictExportPresence: true,
         rules: [
-            /**
-             * MDX is a tool that converts Markdown files to React components. This 
-             * loader uses MDX to create Page objects for Markdown files. As it
-             * produces ES2015, the result is then passed through babel.
-             */
-            // {
-            //     test: /\.mdx?$/,
-            //     use: [
-            //         'babel-loader',
-            //         'mdx-loader',
-            //     ]
-            // },
-
             // TODO: Disable require.ensure as it's not a standard language feature.
             // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
             // { parser: { requireEnsure: false } },

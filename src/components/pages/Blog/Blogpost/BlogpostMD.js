@@ -21,6 +21,7 @@ class BlogpostMD extends Component {
     }
     componentDidMount(props){
         const markdownFile = require('./MarkdownPosts/'+this.props.id+'.md');
+        console.log('is this an object',markdownFile)
         this.loadBlog(markdownFile)
     }
 
