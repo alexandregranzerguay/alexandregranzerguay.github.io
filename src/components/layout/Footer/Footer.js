@@ -30,20 +30,9 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={['fab', 'instagram']} size='4x' className={styles.insta} />          
                 </a>     
                 </div>
-<<<<<<< HEAD
-                <Container>
-                    <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
-                    <h4 className={styles.email}>
-                    <a href="mailto:alexandre.granzerguay@gmail.com" target="_top">alexandre.granzerguay@gmail.com</a>  
-                    </h4>
-                
-                    </div>
-                </Container>
-=======
                 <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
                 <a href="mailto:alexandre.granzerguay@gmail.com" target="_top" className={styles.email}>alexandre.granzerguay@gmail.com</a> 
                 </div>
->>>>>>> development
             </div>
         )
     }

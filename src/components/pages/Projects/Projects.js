@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Preview from './Preview/Preview'
 import {Container} from 'reactstrap';
 import projectList from './projectList.json';
-import {Container} from 'reactstrap';
 import styles from './Projects.scss';
 
 class Projects extends Component {
