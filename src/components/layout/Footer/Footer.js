@@ -12,7 +12,7 @@ library.add(fab)
 class Footer extends Component {
     render() {
         return (
-            <div>
+            <div style={{paddingTop: '5%'}}>
                 
                 <div className="d-flex justify-content-center" >
                 <a href="https://github.com/alexandregranzerguay" className={styles.icon}>
@@ -30,9 +30,7 @@ class Footer extends Component {
                 </a>     
                 </div>
                 <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
-                <h4>
-                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top">alexandre.granzerguay@gmail.com</a>  
-                </h4>
+                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top" className={styles.email}>alexandre.granzerguay@gmail.com</a> 
                 </div>
             </div>
         )

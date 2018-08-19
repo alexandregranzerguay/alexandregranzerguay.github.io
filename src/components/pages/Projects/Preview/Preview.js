@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {Container, Row, Col, Button} from 'reactstrap';
+import {Row, Col, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import styles from './Preview.scss';
 
 class Preview extends Component {
     render() {
         return(
-            <Container className={styles["content-container"]}>
+            <div>
                 <Row>
                     <Col>
                         <h2>{this.props.title}</h2>
@@ -18,7 +18,7 @@ class Preview extends Component {
                         </Link>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         )
     }
 }
