@@ -13,7 +13,7 @@ library.add(fab)
 class Footer extends Component {
     render() {
         return (
-            <div>
+            <div style={{paddingTop: '5%'}}>
                 
                 <div className="d-flex justify-content-center" >
                 <a href="https://github.com/alexandregranzerguay" className={styles.icon}>
@@ -30,6 +30,7 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={['fab', 'instagram']} size='4x' className={styles.insta} />          
                 </a>     
                 </div>
+<<<<<<< HEAD
                 <Container>
                     <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
                     <h4 className={styles.email}>
@@ -38,6 +39,11 @@ class Footer extends Component {
                 
                     </div>
                 </Container>
+=======
+                <div className="d-flex justify-content-center" style={{paddingBottom: '1%'}}>
+                <a href="mailto:alexandre.granzerguay@gmail.com" target="_top" className={styles.email}>alexandre.granzerguay@gmail.com</a> 
+                </div>
+>>>>>>> development
             </div>
         )
     }
