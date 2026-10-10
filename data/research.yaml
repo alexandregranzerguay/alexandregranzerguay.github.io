@@ -4,6 +4,8 @@
 #   public: false -> title, authors, year, status and talks only; abstract, venue and links are never rendered
 #   public: true  -> abstract, links, BibTeX and a /research/<slug>/ page
 #   resume: false -> left off the one-page résumé (still on the site and the academic CV)
+#   selected: true -> shown on the home page (keep it to about three)
+#   scope: short description for unpublished work, shown in place of an abstract
 # type is article, thesis or patent. Patents are listed separately and get no paper page.
 # status is a position on a non-convex landscape:
 #   initialized  = in preparation         (start)
@@ -18,6 +20,9 @@
   authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
   date: "2026-09"  # TODO
   status: descending
+  selected: true
+  scope: >-
+    We develop a model predictive control framework for fixed-income index tracking, incorporating transaction costs, liquidity limits, and risk-exposure constraints. We investigate how forecasting and intertemporal trading decisions affect tracking performance.
   listed: true
   public: false
   venue: null
@@ -31,6 +36,9 @@
   authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]  # TODO confirm (taken from the earlier Treasury draft)
   date: "2026-07"
   status: descending
+  selected: true
+  scope: >-
+    We investigate sparse replication of U.S. Treasury indices, focusing on how interest-rate risk models, exposure constraints, and trading decisions affect tracking accuracy and portfolio composition.
   listed: true
   public: false
   venue: null
@@ -44,6 +52,9 @@
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2026-04"
   status: kkt
+  selected: true
+  scope: >-
+    We develop non-convex ADMM heuristics for risk parity with exact cardinality constraints, evaluating their solution quality and computational performance against mixed-integer optimization benchmarks.
   listed: true
   public: false
   venue: null
@@ -58,6 +69,8 @@
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]                 # TODO confirm
   date: "2025-03"  # TODO confirm
   status: kkt
+  scope: >-
+    We study risk parity portfolio construction under prescribed equity–bond allocations and cardinality constraints, examining how sparse asset selection affects portfolio composition and risk contributions.
   listed: true
   public: false
   venue: null
@@ -100,6 +113,7 @@
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2024-07"
   status: converged
+  selected: true
   listed: true
   public: true
   venue: The Engineering Economist, 69(3), 189–212

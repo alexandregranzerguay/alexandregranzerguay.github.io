@@ -20,7 +20,7 @@ Research interests: {{ person.knows_about | join(", ") }}.
 ## Papers (newest first)
 
 {% for r in papers %}
-- {{ r.title }} ({{ r.year }}). {{ authors(r.authors) }}. Status: {{ r.status_label }}.{% if r.talks %} Presented at {{ r.talks | map(attribute="event") | join(", ") }}.{% endif %}{% if r.venue %} {{ r.venue }}.{% endif %}{% if r.page %} {{ BASE }}{{ r.page }}{% endif %}
+- {{ r.title }} ({{ r.year }}). {{ authors(r.authors) }}. Status: {{ r.status_label }}.{% if r.scope and not r.public %} {{ r.scope }}{% endif %}{% if r.talks %} Presented at {{ r.talks | map(attribute="event") | join(", ") }}.{% endif %}{% if r.venue %} {{ r.venue }}.{% endif %}{% if r.page %} {{ BASE }}{{ r.page }}{% endif %}
 
 {% endfor %}
 

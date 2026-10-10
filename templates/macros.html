@@ -4,6 +4,7 @@
 {% if r.page %}<a href="{{ r.page }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %} <span class="meta">· {{ r.year }}</span><br>
 <span class="meta">{{ authors(r.authors) }}{% if r.venue %}. <em>{{ r.venue }}</em>{% endif %}.{% if r.talks %} Presented at {% for t in r.talks %}<abbr title="{{ t.org or t.event }}">{{ t.short or t.event }}</abbr>{% if t.year %} {{ t.year }}{% endif %}{% if t.city %}, {{ t.city }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.{% endif %}</span>
 {% if r.links %}<br><span class="meta">{% for k, u in r.links.items() if u %}<a href="{{ u }}">{{ link_label(k) }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
+{% if r.scope and not r.public %}<p class="scope">{{ r.scope }}</p>{% endif %}
 {% if show_abstract and r.abstract %}<details class="abstract"><summary>Abstract</summary><p>{{ r.abstract }}</p></details>{% endif %}
 </div>
 <span class="status">{{ glyph(r.status) }}<span>{{ r.status_label }}</span></span>

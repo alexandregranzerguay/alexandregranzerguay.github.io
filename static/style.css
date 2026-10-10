@@ -20,7 +20,7 @@ ul.plain{list-style:none;padding:0;margin:0}ul.plain>li{margin:0 0 .8rem}ul.teac
 li.paper{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1.25rem;align-items:start}.paper .status{padding-top:.2em}
 .glyph{display:block;width:4.4em;height:1.4em;overflow:visible}
 .glyph path{fill:none;stroke:var(--muted);stroke-width:1.1;opacity:.85}.glyph circle{fill:var(--link)}.glyph .ghost{fill:var(--faint)}
-.abstract{margin:1rem 0}details.abstract{margin:.25rem 0 0}details.abstract summary{display:inline;cursor:pointer;color:var(--link);font-size:.9rem;list-style:none}details.abstract summary::-webkit-details-marker{display:none}details.abstract summary::after{content:" ▸"}details.abstract[open] summary::after{content:" ▾"}details.abstract p{margin:.4rem 0 .2rem;font-size:.95rem;color:var(--fg)}
+.abstract{margin:1rem 0}.scope{margin:.3rem 0 0;font-size:.95rem}details.abstract{margin:.25rem 0 0}details.abstract summary{display:inline;cursor:pointer;color:var(--link);font-size:.9rem;list-style:none}details.abstract summary::-webkit-details-marker{display:none}details.abstract summary::after{content:" ▸"}details.abstract[open] summary::after{content:" ▾"}details.abstract p{margin:.4rem 0 .2rem;font-size:.95rem;color:var(--fg)}
 pre,code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.82em}
 pre{overflow-x:auto;padding:.75rem;border:1px solid var(--faint)}
 footer{margin-top:3.5rem;border-top:1px solid var(--faint);padding-top:.9rem;color:var(--muted)}
