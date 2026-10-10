@@ -183,7 +183,7 @@ service:
 skills:
   - label: Optimization
     items: [linear, quadratic and conic programming, mixed-integer programming (MIQP, MISOCP), non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
-  - label: Solvers
+  - label: Optimization software
     items: [Gurobi, CPLEX, CVXPY]  # TODO add others you use (MOSEK, JuMP, ...)
   - label: Programming
     items: [Python, Julia, MATLAB, SQL]

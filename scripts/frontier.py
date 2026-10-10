@@ -2,9 +2,10 @@
 "Sparsity breaks the efficient frontier". Run locally (needs cvxpy, see requirements-dev.txt);
 the JSON output is committed, so the site build never solves anything.
 
-For each K, the frontier is computed exactly by enumerating every support of size K
+For each K, the frontier is computed exactly by enumerating every eligible subset of size K
 (zero weights allowed, so smaller supports are included) and keeping, at each target
-return, the support with the lowest variance.
+return, the subset with the lowest variance. The optimal weights are stored, and the
+holdings shown in the note are the assets with weight above HOLD_TOL, not the eligible subset.
 
 Usage: python scripts/frontier.py  ->  notes/sparse-frontier/frontier.json
 """
@@ -37,10 +38,11 @@ CORR = np.array([
     [-0.10, 0.10, 0.35, 0.30, 0.40, 0.45, 0.25, 1.00],
 ])
 GRID = np.round(np.arange(4.0, 8.5001, 0.1), 2)
+HOLD_TOL = 1e-4  # weights below this are treated as not held
 
 
-def subset_frontier(S: tuple[int, ...], cov: np.ndarray) -> dict[float, float]:
-    """Minimum volatility at each grid return for a long-only portfolio supported on S."""
+def subset_frontier(S: tuple[int, ...], cov: np.ndarray) -> dict[float, tuple[float, np.ndarray]]:
+    """Minimum volatility and full weight vector at each grid return, long-only, supported on S."""
     mu, L = MU[list(S)], np.linalg.cholesky(cov[np.ix_(S, S)] + 1e-10 * np.eye(len(S)))
     w, r = cp.Variable(len(S), nonneg=True), cp.Parameter()
     prob = cp.Problem(cp.Minimize(cp.sum_squares(L.T @ w)), [cp.sum(w) == 1, mu @ w == r])
@@ -51,7 +53,9 @@ def subset_frontier(S: tuple[int, ...], cov: np.ndarray) -> dict[float, float]:
         r.value = float(target)
         prob.solve(solver=cp.CLARABEL)
         if prob.status == cp.OPTIMAL:
-            out[float(target)] = float(np.sqrt(max(prob.value, 0.0)))
+            full = np.zeros(len(MU))
+            full[list(S)] = np.clip(w.value, 0.0, None)
+            out[float(target)] = (float(np.sqrt(max(prob.value, 0.0))), full / full.sum())
     return out
 
 
@@ -64,11 +68,12 @@ def main() -> None:
     for K in range(2, n + 1):
         pts = []
         for target in GRID:
-            best = min(((f[float(target)], S) for S, f in frontiers.items() if len(S) == K and float(target) in f),
-                       default=None)
+            best = min((f[float(target)] for S, f in frontiers.items() if len(S) == K and float(target) in f),
+                       key=lambda vw: vw[0], default=None)
             if best:
-                vol, S = best
-                pts.append([float(target), round(vol, 3), sum(1 << i for i in S)])
+                vol, wts = best
+                held = sum(1 << i for i in range(n) if wts[i] > HOLD_TOL)
+                pts.append([float(target), round(vol, 3), held, [round(float(x), 4) for x in wts]])
         data["frontier"][str(K)] = pts
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(data, separators=(",", ":")))

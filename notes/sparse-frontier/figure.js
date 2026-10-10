@@ -46,7 +46,7 @@
       el("text", { x: sx(d.vol[i]) + 6, y: sy(m) + 4 }, g).textContent = SHORT[i];
     });
 
-    // Holdings strip: one row per asset, one column per target return.
+    // Holdings strip: one row per asset, one column per target return, shaded by weight.
     const grid = d.frontier["8"].map((p) => p[0]);
     const SW = 640, SH = 8 * 13 + 26, sl = 44, cw = (SW - sl - 14) / grid.length;
     const strip = el("svg", { viewBox: `0 0 ${SW} ${SH}`, class: "fig strip", role: "img",
@@ -63,28 +63,34 @@
     const caption = document.createElement("figcaption");
     fig.appendChild(caption);
     const binom = (n, k) => (k === 0 ? 1 : (n * binom(n - 1, k - 1)) / k);
+    // One-way turnover between neighbouring targets: half the L1 change in weights.
+    const steps = (pts) => pts.slice(1).map((p, j) => 0.5 * p[3].reduce((a, w, i) => a + Math.abs(w - pts[j][3][i]), 0));
+    const JUMP = 0.15;
+    const fullMax = Math.max(...steps(d.frontier["8"]));
+    const pct = (x) => Math.round(100 * x) + "%";
 
     const draw = (K) => {
       const pts = d.frontier[String(K)];
+      const to = steps(pts);
       cur.setAttribute("d", line(pts));
       kinks.textContent = "";
       cells.textContent = "";
-      let switches = 0;
       pts.forEach((p, j) => {
-        if (j > 0 && pts[j - 1][2] !== p[2]) {
-          switches++;
-          el("circle", { cx: sx(p[1]), cy: sy(p[0]), r: 2.5 }, kinks);
-        }
+        if (j > 0 && to[j - 1] > JUMP) el("circle", { cx: sx(p[1]), cy: sy(p[0]), r: 2.5 }, kinks);
         const col = grid.findIndex((g) => Math.abs(g - p[0]) < 1e-9);
-        for (let i = 0; i < 8; i++) {
-          if (p[2] & (1 << i)) el("rect", { x: sl + col * cw + 0.5, y: i * 13 + 2, width: cw - 1, height: 10 }, cells);
-        }
+        p[3].forEach((w, i) => {
+          if (p[2] & (1 << i)) {
+            el("rect", { x: sl + col * cw + 0.5, y: i * 13 + 2, width: cw - 1, height: 10,
+              style: `opacity:${(0.2 + 0.8 * w).toFixed(2)}` }, cells);
+          }
+        });
       });
       document.getElementById("kout").textContent = K;
       caption.textContent = K === 8
-        ? "K = 8: no constraint. Holdings change smoothly along the frontier."
-        : `K = ${K}: ${binom(8, K)} supports searched at each target return. ` +
-          `The optimal holdings change ${switches} times along the frontier (dots). Dashed: unconstrained.`;
+        ? `K = 8: no cardinality limit. The largest change between neighbouring targets is ${pct(fullMax)} of the portfolio.`
+        : `K = ${K}: ${binom(8, K)} subsets searched at each target return. The largest change between ` +
+          `neighbouring targets (0.1 points apart) is ${pct(Math.max(...to))} of the portfolio, against ` +
+          `${pct(fullMax)} unconstrained. Dots mark steps above ${pct(JUMP)}; shading is weight.`;
     };
     const input = document.getElementById("k");
     input.addEventListener("input", () => draw(+input.value));

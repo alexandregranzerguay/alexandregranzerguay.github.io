@@ -1,7 +1,7 @@
 ---
 title: Sparsity breaks the efficient frontier
 date: 2026-10-09
-summary: A cardinality constraint barely moves the mean-variance frontier, but it makes the optimal holdings jump. Eight asset classes, every support enumerated.
+summary: A cardinality constraint barely moves the mean-variance frontier, but it makes the optimal holdings jump. Eight asset classes, every subset enumerated.
 tags: [portfolio optimization, mixed-integer programming, cardinality constraints]
 script: figure.js
 draft: false
@@ -19,7 +19,7 @@ and the feasible set becomes a union of $\binom{n}{K}$ faces of the simplex. It 
 
 ## What the figure shows
 
-Eight asset classes with illustrative long-run assumptions (table below). For each $K$ the frontier is exact. Every support of size $K$ is solved as its own QP, and at each target return the lowest-variance support wins. With $n = 8$ that is at most $\binom{8}{4} = 70$ QPs per point, which is why exhaustive search works here.
+Eight asset classes with illustrative long-run assumptions (table below). For each $K$ the frontier is exact. Every eligible subset of size $K$ is solved as its own QP, and at each target return the lowest-variance subset wins. With $n = 8$ that is at most $\binom{8}{4} = 70$ QPs per point, which is why exhaustive search works here. The bottom panel shows the optimal weights, not the eligible subset: an asset counts as held only if its weight exceeds $10^{-4}$.
 
 <figure id="frontier-fig" data-src="/notes/sparse-frontier/frontier.json">
 <noscript><p>This figure needs JavaScript. The data is in <a href="/notes/sparse-frontier/frontier.json">frontier.json</a>.</p></noscript>
@@ -29,9 +29,9 @@ Two things stand out.
 
 **The frontier barely moves.** At a 6% target, the best three-asset portfolio has 8.85% volatility, against 8.80% for the unconstrained one. Even two assets cost only about 0.6 points of volatility. Judged by the curve alone, sparsity looks almost free.
 
-**The holdings jump.** The bottom panel shows which assets the optimal portfolio holds at each target return. With $K = 3$ the support changes ten times between 4% and 8.5%. Between a 5.6% and a 5.7% target, government bonds are swapped out for investment-grade credit in a single step. The unconstrained portfolio moves weight continuously. The sparse one cannot, so a small change in the target, or in an estimate of $\mu$ or $\Sigma$, can force a complete trade. Each switch is a kink in the frontier, where two subset frontiers cross.
+**The holdings jump.** Counting changes in holdings is not enough on its own: the unconstrained portfolio also adds and drops assets along the frontier, but its weights move continuously, so each change is small. A better measure is the one-way turnover between neighbouring targets, $\tfrac{1}{2}\|w(r + 0.1) - w(r)\|_1$. For the unconstrained portfolio it never exceeds 8%. With $K = 3$, moving the target from 5.6% to 5.7% swaps government bonds for investment-grade credit and turns over 48% of the portfolio in one step. With $K = 2$ the largest step is a complete trade. Each jump is a kink in the frontier, where two subset frontiers cross.
 
-That is what non-convexity means to a portfolio manager: the optimal portfolio is not a continuous function of the inputs. What sparsity costs is turnover, not risk.
+That is what non-convexity means to a portfolio manager: the optimal portfolio is no longer a continuous function of the inputs. In this example, sparsity costs little ex ante risk but makes the optimal holdings much less stable as the target changes, which creates the potential for higher turnover. How much of it becomes realized turnover depends on the rebalancing policy.
 
 ## Solving it at scale
 
@@ -40,6 +40,10 @@ Enumeration stops working quickly. With 500 assets and $K = 30$ there are about 
 $$w_i \le z_i, \qquad \sum_i z_i \le K, \qquad z \in \{0, 1\}^n,$$
 
 which gives a mixed-integer QP that branch-and-bound solves exactly for moderate universes (Bienstock, 1996; Bertsimas and Shioda, 2009). Perspective reformulations tighten its continuous relaxation considerably (Frangioni and Gentile, 2006). Larger instances fall to heuristics, from the early metaheuristics of Chang et al. (2000), who showed that the cardinality-constrained frontier can be discontinuous, to ADMM methods that alternate a convex step with a projection onto the sparse set (Takapoui et al., 2020).
+
+## Limitations
+
+The example is illustrative rather than empirical. It uses fixed assumptions, ignores estimation error and transaction costs, and varies the target return rather than the inputs. A natural extension is to perturb $\mu$ and $\Sigma$, re-optimize, and measure how often the holdings change and what trading a given rebalancing policy would require.
 
 ## Assumptions
 
