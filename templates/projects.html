@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% from "macros.html" import project_item %}
+{% block main %}
+<h1>Projects</h1>
+<ul class="plain">
+{% for p in projects if not p.earlier %}{{ project_item(p) }}{% endfor %}
+</ul>
+{% set earlier = projects | selectattr("earlier") | list %}
+{% if earlier %}
+<h2>Earlier</h2>
+<ul class="plain">
+{% for p in earlier %}{{ project_item(p) }}{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

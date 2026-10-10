@@ -1,0 +1,196 @@
+# Single source of truth for the website, cv.json, llms files and both Typst PDFs.
+# Dates are quoted "YYYY" or "YYYY-MM" strings; "present" for ongoing.
+# Bullets with resume: true appear on the 1-page résumé; all bullets appear on the academic CV.
+# Anything marked TODO is listed by `python scripts/build.py --todo`.
+
+person:
+  name: Alexandre Granzer-Guay
+  alternate_names: [Alexandre Granzer Guay, Alex Granzer-Guay]
+  headline: Quantitative researcher working on large-scale and non-convex portfolio optimization
+  bio: >-
+    Currently a Quantitative Researcher at CIBC Global Asset Management and a PhD
+    candidate in large-scale and non-convex portfolio optimization under the
+    supervision of Prof. Roy H. Kwon, Department of Mechanical and Industrial
+    Engineering, University of Toronto. My research focuses on developing
+    scalable, structure-exploiting optimization methods for non-convex and
+    mixed-integer portfolio construction problems.
+  summary: >-
+    Quantitative Researcher at CIBC Global Asset Management and PhD candidate in
+    large-scale and non-convex portfolio optimization at the University of Toronto.
+  location: Toronto, Canada
+  email: alexandre.granzerguay@mail.utoronto.ca  # PDFs only; the website shows email_display
+  email_display: alexandre (dot) granzerguay (at) mail (dot) utoronto (dot) ca
+  url: https://alexandregranzerguay.github.io
+  job_title: Quantitative Researcher
+  employer: {name: CIBC Global Asset Management, short: CIBC Global Asset Management, url: https://www.cibc.com}
+  affiliation: {name: University of Toronto, unit: Department of Mechanical and Industrial Engineering, url: https://www.mie.utoronto.ca}
+  knows_about:
+    - Portfolio optimization
+    - Mixed-integer conic optimization
+    - Risk parity
+    - Alternating direction method of multipliers (ADMM)
+    - Model predictive control
+    - Fixed-income index tracking
+    - Operations research
+
+links:
+  github: https://github.com/alexandregranzerguay
+  scholar: https://scholar.google.com/citations?user=LmsmsfAAAAAJ&hl=en
+  orcid: null     # TODO ORCID iD URL (create one at orcid.org if needed)
+  linkedin: null  # TODO LinkedIn profile URL
+
+education:
+  - degree: Ph.D., Mechanical and Industrial Engineering
+    short: PhD
+    field: Operations Research
+    school: University of Toronto
+    location: Toronto, Canada
+    start: "2023"
+    end: present
+    detail: Non-convex optimization methods in finance.
+    advisor: Roy H. Kwon
+  - degree: M.A.Sc., Mechanical and Industrial Engineering
+    short: MASc
+    field: Operations Research
+    school: University of Toronto
+    location: Toronto, Canada
+    start: "2021"
+    end: "2023"
+    detail: Financial optimization and risk models.
+    advisor: Roy H. Kwon
+    thesis: Multi-Period Index-Tracking Strategies for Investment Portfolios
+  - degree: B.A.Sc., Electrical Engineering
+    short: BASc
+    field: Electrical Engineering
+    school: Queen's University
+    location: Kingston, Canada
+    start: "2014"
+    end: "2019"
+    detail: Included a 12-month internship as a software developer at the Queen's University Centre for Advanced Computing.
+
+experience:
+  - title: Quantitative Researcher
+    org: CIBC Global Asset Management
+    location: Toronto, Canada
+    start: "2026-02"
+    end: present
+    bullets:
+      - text: Develop a multi-period bond index tracking framework based on model predictive control (MPC) for large fixed-income universes under turnover, trading-cost and liquidity constraints.
+        resume: true
+      - text: Designed the optimization pipeline end to end, including term-structure and stochastic models, stress testing and the backtesting framework.
+        resume: true
+      - text: Built trade optimizers that turn target portfolios into executable trades under turnover, liquidity, and mandate-specific constraints.
+        resume: true
+
+  - title: Quantitative Researcher (Mitacs Accelerate)
+    org: Investipal
+    location: Toronto, Canada
+    start: "2023-11"
+    end: "2024-06"
+    bullets:
+      - text: Built custom portfolio optimization models for research projects and client mandates.
+        resume: true
+      - text: Designed and built the platform's backtesting and portfolio-performance modules.
+        resume: true
+
+  - title: Machine Learning Engineer
+    org: TD Asset Management
+    location: Toronto, Canada
+    start: "2020-11"
+    end: "2021-08"
+    bullets:
+      - text: Maintained an internal ML API for portfolio optimization, backtesting and visualization.
+        resume: true
+      - text: Built a data pipeline and data lake from scratch that fed modelling, visualization and analytics work.
+        resume: true
+      - text: Automated equity research workflows for a team of 10 analysts.
+        resume: true
+      - text: Designed and deployed an executive dashboard for ETF sales decisions.
+        resume: false
+
+  - title: Technology Rotational Program
+    org: TD Bank Group
+    location: Toronto, Canada
+    start: "2019-07"
+    end: "2020-11"
+    earlier: true
+    bullets:
+      - lead: Business Systems Analyst and Technology Delivery Lead, TD Credit Cards and Merchant Solutions (2020).
+        text: Led delivery of a critical application processing 800 real-time credit card applications a day, resolved 10+ production incidents during the warranty period, and drove delivery decisions for two large projects, one waterfall and one agile. Co-inventor on two US patents from this work (US 11,880,709 and US 12,164,953).
+      - lead: Solution Architect, TD Architecture and Engineering (2019–2020).
+        text: Ran vendor engagements and proofs of concept for digitization and automation (PowerApps, Azure Logic Apps, cloud AI services).
+
+  - title: Contributor
+    org: Coldstart AI
+    location: Toronto, Canada
+    start: "2020-01"
+    end: "2022-08"
+    earlier: true
+    resume: false  # never on the 1-page résumé
+    cv: true       # TODO keep or drop this role on the academic CV
+    bullets:
+      - text: Sought partners for alpha-stage strategic partnerships and set technology-architecture and operations standards.
+
+  - title: Software Developer (internship)
+    org: Queen's University Centre for Advanced Computing
+    location: Kingston, Canada
+    start: "2017-05"
+    end: "2018-04"
+    earlier: true
+    bullets:
+      - text: Developed proof-of-concept and production software for a major Canadian financial services company.
+
+teaching:  # newest first. TODO codes for Engineering and Society and Digital Systems (optional)
+  - institution: University of Toronto
+    role: Teaching Assistant
+    start: "2022-09"
+    end: present
+    duties: Run tutorials and labs, write midterm and final exam questions, and grade assignments and exams.
+    courses:
+      - {name: Financial Optimization Models, code: MIE377, terms: [Winter 2024–2027]}
+      - {name: Financial Engineering, code: MIE375, terms: [Fall 2023–2026]}
+      - {name: Mathematical Programming, code: MIE376, terms: [Winter 2023]}
+      - {name: Decision Making under Uncertainty, code: MIE566, terms: [Fall 2022]}
+      - {name: Engineering and Society, code: null, terms: [Fall 2022]}
+  - institution: Queen's University
+    role: Teaching Assistant
+    start: "2017-09"
+    end: "2017-12"
+    duties: Ran labs, helped students debug their code and hardware implementations, and graded assignments.
+    courses:
+      - {name: Digital Systems, code: null, terms: [Fall 2017]}
+
+talks: []   # extra talks not tied to a paper; paper talks live in research.yaml. TODO {title, event, city, year}
+awards: []  # TODO {name, org, year, amount}
+
+service:
+  - role: Mentor, Company Program
+    org: Junior Achievement Central Ontario (with TD Bank Group)
+    start: "2020-11"
+    end: "2022-08"
+    text: Mentored a student team through starting and running an online business.
+  - role: Co-op mentor
+    org: TD Bank Group
+    start: "2020-01"
+    end: "2022-08"
+    text: Mentored three co-op students through their placements.
+  - role: Volunteer, United Way campaign
+    org: TD Bank Group
+    start: "2019-10"
+    end: "2019-12"
+    text: Helped raise $10,000 CAD, including through the CN Tower Climb.
+
+skills:
+  - label: Optimization
+    items: [linear, quadratic and conic programming, mixed-integer programming (MIQP, MISOCP), non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
+  - label: Solvers
+    items: [Gurobi, CPLEX, CVXPY]  # TODO add others you use (MOSEK, JuMP, ...)
+  - label: Programming
+    items: [Python, Julia, MATLAB, SQL]
+
+languages:
+  - {name: English, level: fluent}
+  - {name: French, level: fluent}
+  - {name: Spanish, level: conversational}
+
+interests: [Game theory, fermentation, building resilient systems]

@@ -1,0 +1,25 @@
+# Projects and open-source contributions. The Projects section, page and nav link appear when this list
+# has an entry. cv: true also lists it under "Open source" on the academic CV.
+# Template:
+# - slug: example
+#   name: Example project
+#   role: author            # or contributor
+#   year: "2026"
+#   summary: One sentence on the problem, the method, and a concrete number.
+#   stack: [Python, Gurobi]
+#   links: {code: https://github.com/..., paper: https://arxiv.org/abs/...}
+#   featured: true          # show on the home page
+#   earlier: false          # true groups it under "Earlier" on the projects page
+#   cv: false
+
+- slug: pysyft
+  name: PySyft (OpenMined)
+  role: contributor
+  year: "2018"
+  summary: Open-source library for privacy-preserving deep learning (federated learning, secure multi-party computation, differential privacy) on top of PyTorch.
+  stack: [Python, PyTorch]
+  links:
+    code: https://github.com/OpenMined/PySyft
+    paper: https://arxiv.org/abs/1811.04017
+  featured: true
+  cv: true

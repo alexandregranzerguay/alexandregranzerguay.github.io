@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Notes</h1>
+<p class="lede">Short technical notes. <a href="/notes/feed.xml">Atom feed</a>.</p>
+<ul class="plain">
+{% for n in notes %}
+<li><a href="{{ n.url }}">{{ n.title }}</a> <span class="meta">· {{ n.date }}</span><br><span class="meta">{{ n.summary }}</span></li>
+{% endfor %}
+</ul>
+{% endblock %}

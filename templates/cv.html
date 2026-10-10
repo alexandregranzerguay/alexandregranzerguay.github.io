@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% from "macros.html" import research_item, patent_items %}
+{% block main %}
+<h1>Curriculum vitae</h1>
+<p class="lede">PDF: <a href="/cv.pdf">academic CV</a> · <a href="/resume.pdf">one-page résumé</a> · <a href="/cv.json">JSON Resume</a></p>
+
+<h2>Education</h2>
+<ul class="plain">
+{% for e in cv.education %}
+<li><strong>{{ e.degree }}</strong>, {{ e.school }} <span class="meta">· {{ fmt_range(e.start, e.end) }}</span><br>
+<span class="meta">{{ e.detail }}{% if e.thesis %} Thesis: <em>{{ e.thesis }}</em>.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}</span></li>
+{% endfor %}
+</ul>
+
+<h2>Research</h2>
+<ul class="plain">
+{% for r in papers %}{{ research_item(r) }}{% endfor %}
+</ul>
+{% if patents %}
+<h2>Patents</h2>
+<ul class="plain">
+{{ patent_items(patents) }}
+</ul>
+{% endif %}
+
+<h2>Experience</h2>
+<ul class="plain">
+{% for x in cv.experience if x.cv is not defined or x.cv %}
+<li><strong>{{ x.title }}</strong>, {{ x.org }} <span class="meta">· {{ fmt_range(x.start, x.end) }}</span>
+<ul>{% for b in x.bullets %}<li>{% if b.lead %}<em>{{ b.lead }}</em> {% endif %}{{ b.text }}</li>{% endfor %}</ul></li>
+{% endfor %}
+</ul>
+
+<h2>Teaching</h2>
+<ul class="plain">
+{% for t in cv.teaching %}
+<li><strong>{{ t.role }}</strong>, {{ t.institution }} <span class="meta">· {{ fmt_range(t.start, t.end) }}</span><br>
+<span class="meta">{{ t.duties }}</span>
+<ul>{% for c in t.courses %}<li>{{ c.name }}{% if c.code %} ({{ c.code }}){% endif %}{% if c.terms %} <span class="meta">· {{ c.terms | join(", ") }}</span>{% endif %}</li>{% endfor %}</ul></li>
+{% endfor %}
+</ul>
+
+{% set paper_talks = [] %}{% for r in papers %}{% for t in r.talks %}{% set _ = paper_talks.append((r.title, t)) %}{% endfor %}{% endfor %}
+{% if paper_talks or cv.talks %}<h2>Talks</h2>
+<ul>{% for title, t in paper_talks %}<li>{{ title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}
+{% for t in cv.talks %}<li>{{ t.title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
+{% if cv.awards %}<h2>Awards and scholarships</h2>
+<ul>{% for a in cv.awards %}<li>{{ a.name }}, {{ a.org }} <span class="meta">· {{ a.year }}</span></li>{% endfor %}</ul>{% endif %}
+
+<h2>Service and mentoring</h2>
+<ul>{% for s in cv.service %}<li>{{ s.role }}, {{ s.org }} <span class="meta">· {{ fmt_range(s.start, s.end) }}</span>. {{ s.text }}</li>{% endfor %}</ul>
+
+<h2>Skills</h2>
+<ul>{% for s in cv.skills %}<li>{{ s.label }}: {{ s["items"] | join(", ") }}</li>{% endfor %}
+<li>Languages: {% for l in cv.languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}</li></ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "macros.html" import research_item, patent_items %}
+{% block main %}
+<h1>Research</h1>
+{% for para in overview.paragraphs %}<p>{{ para }}</p>
+{% endfor %}
+
+<h2>Papers</h2>
+<ul class="plain">
+{% for r in papers %}{{ research_item(r, show_abstract=true) }}{% endfor %}
+</ul>
+{% if patents %}
+<h2>Patents</h2>
+<ul class="plain">
+{{ patent_items(patents) }}
+</ul>
+{% endif %}
+{% endblock %}

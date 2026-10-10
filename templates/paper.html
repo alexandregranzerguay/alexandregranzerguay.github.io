@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+{% for k, v in citation.items() %}<meta name="{{ k }}" content="{{ v }}">
+{% endfor %}
+{% for a in r.authors %}<meta name="citation_author" content="{{ a }}">
+{% endfor %}
+{% if r.type == "thesis" %}<meta name="citation_dissertation_institution" content="University of Toronto">
+{% elif r.venue %}<meta name="citation_journal_title" content="{{ r.venue }}">
+{% endif %}
+{% if r.links.pdf %}<meta name="citation_pdf_url" content="{{ r.links.pdf }}">
+{% endif %}
+{% endblock %}
+{% block main %}
+<h1>{{ r.title }}</h1>
+<p class="lede">{{ authors(r.authors) }}{% if r.venue %}. <em>{{ r.venue }}</em>{% endif %}, {{ r.year }}.<br>
+<span class="status">{{ glyph(r.status) }}<span>{{ r.status_label }}</span></span></p>
+{% if r.links %}<p>{% for k, u in r.links.items() if u %}<a href="{{ u }}">{{ k }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+{% if r.abstract %}
+<h2>Abstract</h2>
+<p class="abstract">{{ r.abstract }}</p>
+{% endif %}
+{% if figure %}
+<h2>Key result</h2>
+{{ figure }}
+{% endif %}
+<h2>Cite</h2>
+<pre>{{ bib }}</pre>
+{% endblock %}

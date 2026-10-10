@@ -1,0 +1,19 @@
+# Research summary: who, sources of difficulty and problem classes, methods, applications.
+# Each item is one paragraph. Shown on /research/ and in the Markdown profile, llms.txt and llms-full.txt.
+# Keep the prose broad; specific terms (MIQP, MISOCP, ...) live in cv.yaml knows_about and llms.txt.
+paragraphs:
+  - >-
+    I am a PhD candidate in the Department of Mechanical and Industrial Engineering at the
+    University of Toronto, supervised by Prof. Roy H. Kwon.
+  - >-
+    My research focuses on developing scalable, structure-exploiting optimization methods for
+    non-convex and mixed-integer portfolio construction problems. These problems are computationally
+    challenging because of non-convexities, discrete decisions and multi-period dependencies, and
+    typically take the form of mixed-integer conic programs or continuous non-convex programs.
+  - >-
+    I develop and study solution methods in three families: decomposition algorithms such as the
+    alternating direction method of multipliers (ADMM), exact approaches based on strong
+    reformulations and branch-and-bound, and heuristics that trade optimality guarantees for scale.
+  - >-
+    Applications include equity and fixed-income index tracking, cardinality-constrained risk parity,
+    trade optimization, and multi-asset, multi-period portfolio management.

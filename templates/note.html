@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block main %}
+<article>
+<h1>{{ note.title }}</h1>
+<p class="lede">{{ note.date }}{% if note.tags %} · {{ note.tags | join(", ") }}{% endif %}</p>
+{{ note.html }}
+</article>
+{% if note.script %}<script src="{{ note.url }}{{ note.script }}" defer></script>{% endif %}
+{% endblock %}

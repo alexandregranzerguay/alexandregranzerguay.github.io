@@ -1,0 +1,39 @@
+:root{color-scheme:light dark;--fg:light-dark(#161616,#e6e4e0);--muted:light-dark(#5d5d5d,#a4a29e);--faint:light-dark(#c4c4c4,#3d3d3d);--link:light-dark(#0b45a8,#8fb6ff);--visited:light-dark(#5b2f9c,#c2a4ff);--bg:light-dark(#fffffd,#131313)}
+html{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%}
+body{max-width:62rem;margin:0 auto;padding:0 2.5rem 3rem;font:1.0625rem/1.6 "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;text-wrap:pretty}
+a{color:var(--link);text-underline-offset:.15em;text-decoration-thickness:1px}
+a:visited{color:var(--visited)}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.landscape-wrap{position:relative;margin:1.25rem 0 .75rem}.landscape{display:block;width:100%;height:auto;aspect-ratio:1000/170}.landscape.interactive{cursor:crosshair}
+.landscape-hint{position:absolute;right:0;bottom:-.1rem;font:.72rem ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--muted);background:var(--bg);padding:.1rem .4rem;opacity:0;transition:opacity .25s;pointer-events:none}.landscape-wrap:hover .landscape-hint{opacity:1}
+.lvl{fill:none;stroke:var(--faint);stroke-width:1;vector-effect:non-scaling-stroke}
+.path circle{fill:var(--muted)}.path .min{fill:var(--fg)}
+nav{font-size:.95rem;margin:0 0 1.5rem}nav a{margin-right:1em}nav a[aria-current]{color:var(--fg);text-decoration:none}
+h1{font-size:2rem;font-weight:400;line-height:1.2;margin:0 0 .3rem;letter-spacing:.005em}
+h2{font-size:1.1rem;font-weight:400;font-variant:small-caps;letter-spacing:.07em;margin:2.25rem 0 .7rem;padding-bottom:.15rem;border-bottom:1px solid var(--faint)}
+h3{font-size:1rem;font-weight:400;font-style:italic;margin:1.4rem 0 .4rem}
+.lede{color:var(--muted);margin:0 0 1rem}
+.links{margin:1rem 0}
+ul.plain{list-style:none;padding:0;margin:0}ul.plain>li{margin:0 0 .8rem}ul.teaching{margin:-.4rem 0 1.1rem 1rem}ul.teaching>li{margin:0 0 .15rem}
+.meta{color:var(--muted);font-size:.9rem}
+.status{display:inline-flex;flex-direction:column;align-items:flex-end;gap:.1rem;color:var(--muted);font-size:.85rem;line-height:1.2;white-space:nowrap}
+li.paper{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1.25rem;align-items:start}.paper .status{padding-top:.2em}
+.glyph{display:block;width:4.4em;height:1.4em;overflow:visible}
+.glyph path{fill:none;stroke:var(--muted);stroke-width:1.1;opacity:.85}.glyph circle{fill:var(--link)}.glyph .ghost{fill:var(--faint)}
+.abstract{margin:1rem 0}details.abstract{margin:.25rem 0 0}details.abstract summary{display:inline;cursor:pointer;color:var(--link);font-size:.9rem;list-style:none}details.abstract summary::-webkit-details-marker{display:none}details.abstract summary::after{content:" ▸"}details.abstract[open] summary::after{content:" ▾"}details.abstract p{margin:.4rem 0 .2rem;font-size:.95rem;color:var(--fg)}
+pre,code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.82em}
+pre{overflow-x:auto;padding:.75rem;border:1px solid var(--faint)}
+footer{margin-top:3.5rem;border-top:1px solid var(--faint);padding-top:.9rem;color:var(--muted)}
+footer pre{border:0;padding:0;margin:0 0 .6rem;font-size:.72rem;line-height:1.5;white-space:pre}
+footer p{font-size:.78rem;margin:.3rem 0}
+math{font-size:1.05em}math[display=block]{margin:1rem 0;overflow-x:auto}
+figure{margin:1.5rem 0}figcaption{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+table{border-collapse:collapse;font-size:.95rem}td,th{padding:.2rem .6rem;border-bottom:1px solid var(--faint);text-align:left}
+@view-transition{navigation:auto}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+@media (max-width:540px){li.paper{grid-template-columns:minmax(0,1fr)}.paper .status{justify-self:end;padding-top:.1em}body{font-size:1rem;padding:0 .9rem 2rem}h2{margin:1.75rem 0 .6rem}.landscape-wrap{margin:.75rem 0 .5rem}nav{margin-bottom:1rem}h1{font-size:1.65rem}.landscape{aspect-ratio:1000/240}footer pre{font-size:.62rem}}
+.fig{display:block;width:100%;height:auto;overflow:visible}.fig text{font:11px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--muted)}
+.fig .axis path{fill:none;stroke:var(--faint)}.fig .full{fill:none;stroke:var(--muted);stroke-dasharray:4 3;opacity:.7}.fig .cur{fill:none;stroke:var(--link);stroke-width:2}
+.fig .asset circle{fill:var(--fg)}.fig .kinks circle{fill:var(--bg);stroke:var(--link);stroke-width:1.5}.fig .cells rect{fill:var(--link);opacity:.75}.strip{margin-top:.75rem}
+.fig-controls{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;font-size:.95rem}.fig-controls input{flex:1;min-width:10rem;accent-color:var(--link)}
+@media (min-width:1100px){body{font-size:1.125rem}}

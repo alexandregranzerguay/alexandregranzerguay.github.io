@@ -1,0 +1,39 @@
+# {{ person.name }}
+
+> {{ person.job_title }} at {{ person.employer.name }} and PhD candidate in large-scale and non-convex portfolio optimization at the {{ person.affiliation.name }} (supervisor: Prof. Roy H. Kwon). Works on MIQP, MISOCP, non-convex QP and multi-period (MPC) portfolio problems, solved with ADMM-type heuristics and mixed-integer methods, applied to index tracking, risk parity and trading. Based in {{ person.location }}. Contact: {{ person.email_display }}.
+
+## Profile
+
+- [Profile (Markdown)]({{ BASE }}/index.md): bio, research, projects, teaching
+- [CV (Markdown)]({{ BASE }}/cv.md): full curriculum vitae
+- [CV (JSON Resume)]({{ BASE }}/cv.json): machine-readable CV
+- [CV (PDF)]({{ BASE }}/cv.pdf) and [one-page résumé (PDF)]({{ BASE }}/resume.pdf)
+
+## Research
+
+{% for r in papers %}
+- {% if r.page %}[{{ r.title }}]({{ BASE }}{{ r.page }}){% else %}{{ r.title }}{% endif %} ({{ r.year }}): {{ authors(r.authors) }}; {{ r.status_label }}
+{% endfor %}
+{% if patents %}
+
+## Patents
+
+{% for p in patents %}
+- {{ p.title }}: {{ p.venue }} ({{ p.year }}), assigned to {{ p.assignee }}
+{% endfor %}
+{% endif %}
+{% if notes %}
+
+## Notes
+
+{% for n in notes %}
+- [{{ n.title }}]({{ BASE }}/notes/{{ n.slug }}.md): {{ n.summary }}
+{% endfor %}
+{% endif %}
+
+## Optional
+
+- [Everything in one file]({{ BASE }}/llms-full.txt)
+{% for k, u in links.items() if u %}
+- [{{ label(k) }}]({{ u }})
+{% endfor %}

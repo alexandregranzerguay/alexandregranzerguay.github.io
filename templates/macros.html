@@ -1,0 +1,34 @@
+{% macro research_item(r, show_abstract=false) %}
+<li class="paper" id="{{ r.slug }}">
+<div>
+{% if r.page %}<a href="{{ r.page }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %} <span class="meta">· {{ r.year }}</span><br>
+<span class="meta">{{ authors(r.authors) }}{% if r.venue %}. <em>{{ r.venue }}</em>{% endif %}.{% if r.talks %} Presented at {% for t in r.talks %}<abbr title="{{ t.org or t.event }}">{{ t.short or t.event }}</abbr>{% if t.year %} {{ t.year }}{% endif %}{% if t.city %}, {{ t.city }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}.{% endif %}</span>
+{% if r.links %}<br><span class="meta">{% for k, u in r.links.items() if u %}<a href="{{ u }}">{{ link_label(k) }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
+{% if show_abstract and r.abstract %}<details class="abstract"><summary>Abstract</summary><p>{{ r.abstract }}</p></details>{% endif %}
+</div>
+<span class="status">{{ glyph(r.status) }}<span>{{ r.status_label }}</span></span>
+</li>
+{% endmacro %}
+
+{% macro project_item(p) %}
+<li>
+{% if p.links.code %}<a href="{{ p.links.code }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %} <span class="meta">· {% if p.role %}{{ p.role }}, {% endif %}{{ p.year }}</span><br>
+{{ p.summary }}
+{% if p.stack %}<span class="meta">{{ p.stack | join(", ") }}.</span>{% endif %}
+{% set extra = [] %}{% for k in ("paper",) if p.links[k] %}{% set _ = extra.append(k) %}{% endfor %}
+{% if extra %}<br><span class="meta">{% for k in extra %}<a href="{{ p.links[k] }}">{{ k }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
+</li>
+{% endmacro %}
+
+{% macro patent_items(patents) %}
+{% for title, group in patents | groupby("title") %}
+{% set ps = group | sort(attribute="date") %}
+<li class="paper">
+<div>
+{{ title }} <span class="meta">· {{ ps[-1].year }}</span><br>
+<span class="meta">US Patents {% for p in ps %}<a href="{{ p.links.patent }}">{{ p.number | replace("US ", "") }}</a>{% if not loop.last %} and {% endif %}{% endfor %}. {{ authors(ps[0].authors) }}. Assigned to {{ ps[0].assignee }}.</span>
+</div>
+<span class="status">{{ glyph("converged") }}<span>granted</span></span>
+</li>
+{% endfor %}
+{% endmacro %}

@@ -1,0 +1,181 @@
+# Research outputs, listed newest first by `date` (YYYY-MM; the year shown is its first four digits).
+# Disclosure rule:
+#   listed: false -> not shown anywhere
+#   public: false -> title, authors, year, status and talks only; abstract, venue and links are never rendered
+#   public: true  -> abstract, links, BibTeX and a /research/<slug>/ page
+#   resume: false -> left off the one-page résumé (still on the site and the academic CV)
+# type is article, thesis or patent. Patents are listed separately and get no paper page.
+# status is a position on a non-convex landscape:
+#   initialized  = in preparation         (start)
+#   descending   = working paper          (on the way down)
+#   kkt          = under review           (resting in a local minimum while someone checks the KKT conditions)
+#   backtracking = revise and resubmit    (climbing out over the hump)
+#   converged    = published, or thesis completed (global minimum)
+
+- slug: mpc-fixed-income-index-tracking
+  type: article
+  title: "Multi-Period Fixed-Income Index Tracking: A Model Predictive Control Framework"  # TODO working title
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
+  date: "2026-09"  # TODO
+  status: descending
+  listed: true
+  public: false
+  venue: null
+  abstract: null
+  links: {}
+  talks: []
+
+- slug: sparse-treasury-index-tracking
+  type: article
+  title: "Disciplined Sparse Tracking of U.S. Treasury Indices: Exposure Control, Risk Models and Trading"
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]  # TODO confirm (taken from the earlier Treasury draft)
+  date: "2026-07"
+  status: descending
+  listed: true
+  public: false
+  venue: null
+  abstract: null
+  links: {}
+  talks: []
+
+- slug: admm-cardinality-risk-parity
+  type: article
+  title: ADMM Heuristics for Large-Scale Cardinality-Constrained Risk Parity Portfolio Optimizations
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon]
+  date: "2026-04"
+  status: kkt
+  listed: true
+  public: false
+  venue: null
+  abstract: null
+  links: {}
+  talks:
+    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2025, city: Kingston}
+
+- slug: sparse-risk-parity
+  type: article
+  title: Sparse 60/40 Risk Parity Portfolios
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon]                 # TODO confirm
+  date: "2025-03"  # TODO confirm
+  status: kkt
+  listed: true
+  public: false
+  venue: null
+  abstract: null
+  links: {}
+  talks:
+    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2025, city: Kingston}
+
+- slug: masc-thesis
+  type: thesis
+  title: Multi-Period Index-Tracking Strategies for Investment Portfolios
+  authors: [Alexandre Granzer-Guay]
+  date: "2023-11"
+  status: converged
+  listed: true
+  public: true
+  venue: M.A.Sc. thesis, University of Toronto
+  resume: false  # the published paper stands in for it on the one-page résumé
+  abstract: >-
+    We introduce an innovative multi-period approach to index tracking for long-term investment
+    portfolios. Unlike conventional tracking methods relying on single-period estimates, we propose a
+    multi-period adaptive receding horizon strategy. The multi-period model mirrors the risk-return
+    dynamics of the index it is tracking while accommodating portfolio manager preferences. This
+    differs from existing multi-period tracking approaches that solely focus on replicating the return
+    profile of an index. Our approach also incorporates cardinality constraints by way of a Penalized
+    Alternating Direction Method of Multipliers (PADM), ensuring efficient optimal portfolio
+    computations. The strategy showcases sustained tracking accuracy, computational efficiency, and
+    adaptability to varying market conditions. We extend the multi-period index tracking model to a
+    goal-oriented strategy that aims to increase the likelihood of attaining a defined wealth goal over
+    a specified investment horizon. Our proposed model consistently outperforms benchmark strategies
+    like Mean-Variance Optimal (MVO) and Equal-Weighted (EW).
+  links:
+    pdf: https://utoronto.scholaris.ca/bitstreams/d806b823-4181-4562-a840-bac3e93601f7/download
+    handle: http://hdl.handle.net/1807/130437
+  talks: []
+
+- slug: adaptive-receding-horizon-tracking
+  type: article
+  title: Risk-Return Adaptive Receding Horizon Index Tracking Strategy
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon]
+  date: "2024-07"
+  status: converged
+  listed: true
+  public: true
+  venue: The Engineering Economist, 69(3), 189–212
+  citation: {journal: The Engineering Economist, volume: 69, issue: 3, firstpage: 189, lastpage: 212, doi: 10.1080/0013791X.2024.2402688, publisher: Taylor & Francis}
+  abstract: >-
+    Index tracking is a well-established financial strategy for passive investing. Typical index
+    tracking models are single period in nature, deriving an optimal tracking portfolio based on
+    future price/return estimates, using most if not all index constituent assets. In this article,
+    we propose a framework for index tracking that can accommodate multi-periods and asset selection.
+    First, we propose a risk-return-based index tracking strategy within a multi-period adaptive
+    receding horizon framework. The framework demonstrates strong tracking fidelity with the
+    benchmark whilst accounting for future tracking states. We then adapt a Penalized Alternating
+    Direction Method (PADM) to the multi-period framework to efficiently enforce a limit on tracking
+    portfolio size (cardinality). The PADM produces high-quality solutions to the cardinality-constrained
+    models and can be used effectively in both low and higher re-balancing frequency environments.
+    Finally, we generalize our base multi-period formulation to an enhanced index tracking strategy,
+    which can easily accommodate possible portfolio manager (PM) preferences. We present computational
+    results that indicate that our cardinality-constrained and non-cardinality-constrained adaptive
+    receding horizon framework for index tracking yields high tracking accuracy when compared to
+    equivalent single-period or return-based models used in a rolling horizon framework.
+  links:
+    doi: https://doi.org/10.1080/0013791X.2024.2402688
+    scholar: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=LmsmsfAAAAAJ&citation_for_view=LmsmsfAAAAAJ:YsMSGLbcyi4C
+  talks: []
+
+- slug: portfolio-transition-strategies
+  type: article
+  title: Optimizing Transition Strategies for Small to Medium Sized Portfolios
+  authors: [Nakul Upadhya, Alexandre Granzer-Guay]
+  date: "2024-01"
+  status: descending
+  listed: true
+  public: true
+  venue: arXiv:2401.13126
+  citation: {arxiv: "2401.13126"}
+  abstract: >-
+    This work discusses the benefits of constrained portfolio turnover strategies for small to
+    medium-sized portfolios. We propose a dynamic multi-period model that aims to minimize transaction
+    costs and maximize terminal wealth levels whilst adhering to strict portfolio turnover constraints.
+    Our results demonstrate that using our framework in combination with a reasonable forecast, can
+    lead to higher portfolio values and lower transaction costs on average when compared to a naive,
+    single-period model. Such results were maintained given different problem cases, such as, trading
+    horizon, assets under management, wealth levels, etc. In addition, the proposed model lends itself
+    to a reformulation that makes use of the column generation algorithm which can be strategically
+    leveraged to reduce complexity and solving times.
+  links:
+    arxiv: https://arxiv.org/abs/2401.13126
+    pdf: https://arxiv.org/pdf/2401.13126
+  talks: []
+
+- slug: patent-real-time-events-2
+  type: patent
+  title: System and Method for Handling Real-Time Transactional Events
+  authors: [Syrous Delavari-Maraghi, Carlton Anthony Raymond, Alexandre Granzer-Guay]
+  date: "2024-12"
+  status: converged
+  listed: true
+  public: true
+  venue: US Patent 12,164,953 B2
+  assignee: The Toronto-Dominion Bank
+  number: US 12,164,953
+  abstract: null
+  links: {patent: https://patents.google.com/patent/US12164953B2/en}
+  talks: []
+
+- slug: patent-real-time-events-1
+  type: patent
+  title: System and Method for Handling Real-Time Transactional Events
+  authors: [Syrous Delavari-Maraghi, Carlton Anthony Raymond, Alexandre Granzer-Guay]
+  date: "2024-01"
+  status: converged
+  listed: true
+  public: true
+  venue: US Patent 11,880,709 B2
+  assignee: The Toronto-Dominion Bank
+  number: US 11,880,709
+  abstract: null
+  links: {patent: https://patents.google.com/patent/US11880709B2/en}
+  talks: []
