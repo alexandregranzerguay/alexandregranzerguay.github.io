@@ -6,7 +6,7 @@ tags: [graph analytics, anti-money laundering, PageRank]
 script: figure.js
 ---
 
-For the 2024 IMI BIGDataAIHUB competition, Jesse Ward-Bond, Muhammad Maaz and I worked with synthetic banking data to identify customers and transaction networks associated with wildlife-trafficking risk. Our team [placed first](https://www.utm.utoronto.ca/imi/news/imi-bigdataaihub-announces-winners-2024-competition-fighting-crime-big-data-and-artificial). This note describes the graph-ranking part of our submission. The [code and notebooks](https://github.com/jwardbond/2023-imi-bigdata) also cover customer classification, name matching and a Flask app for exploring the results.
+For the 2024 IMI BIGDataAIHUB competition, Jesse Ward-Bond, Muhammad Maaz and I worked with synthetic banking data to identify customers and transaction networks associated with wildlife-trafficking risk. Our team [placed first](https://www.utm.utoronto.ca/imi/news/imi-bigdataaihub-announces-winners-2024-competition-fighting-crime-big-data-and-artificial). We used weighted PageRank to rank customers by their own indicators and their transaction connections. The [code and notebooks](https://github.com/jwardbond/2023-imi-bigdata) also cover customer classification, name matching and a Flask app for exploring the results.
 
 ## Customer and transaction scores
 
@@ -32,27 +32,27 @@ $$Q_i = \gamma_i \sum_{j:s_j>0} \frac{w_{ji}}{s_j} P_j + (1 - \gamma_i) \frac{\b
 
 Here, $P_j$ is the previous iteration's score and $\beta_i$ is the customer's own indicator score. A larger total edge weight $s_i$ gives more weight to the graph term. It measures accumulated transaction scores, including the 0.01 baseline, rather than the amount of money transferred.
 
-The notebook then applies a uniform correction so the scores sum to one, where $N$ is the number of customers:
+We then apply a uniform correction so the scores sum to one, where $N$ is the number of customers:
 
 $$P_i^{\mathrm{next}} = Q_i + \frac{1 - \sum_j Q_j}{N} .$$
 
-This is a custom PageRank-style iteration. The node-specific $\gamma_i$ multiplies the score received at customer $i$; it is not a departure probability for a standard random walk. The correction is needed because the update does not otherwise preserve the total score, including at customers with no graph edges.
+In this custom PageRank-style iteration, the node-specific $\gamma_i$ multiplies the score received at customer $i$; it is not a departure probability for a standard random walk. The correction is needed because the update does not otherwise preserve the total score, including at customers with no graph edges.
 
-The original run starts with equal scores and stops when the largest relative change is below $10^{-10}$, with a cap on the number of iterations. It then rescales the final scores to the range $[0,1]$ for display. That rescaling does not change the ranking.
+The ranking starts with equal scores and stops when the largest relative change is below $10^{-10}$, with a cap on the number of iterations. It then rescales the final scores to the range $[0,1]$ for display. That rescaling does not change the ranking.
 
 ## Interactive example
+
+A small neighbourhood of the transaction graph appears below. Names and identifiers are omitted, and ranks are calculated across all 300,008 customers. Larger nodes rank higher; filled nodes are in the top 1,000. Highlighted edges have a combined payment score of at least 1, before the baseline is added.
 
 <figure id="aml-fig" data-src="/notes/aml-pagerank/graph.json">
 <noscript><p>This figure needs JavaScript. The data is in <a href="/notes/aml-pagerank/graph.json">graph.json</a>.</p></noscript>
 </figure>
 
-The figure shows a small neighbourhood from the synthetic data, with names and identifiers omitted. Rankings are computed on the full graph. Larger nodes rank higher; filled nodes are in the top 1,000. Highlighted edges have a combined payment score of at least 1, before the baseline is added.
+The slider starts at the customer scores, so step 0 represents the ranking before information passes through the graph. The central customer has a zero customer score. As the iterations proceed, its connections to customers with positive scores raise its rank to third out of 300,008. Move the slider to follow the ranking across iterations, or click a node to inspect its score and rank.
 
-For this illustration, step 0 starts from the customer scores rather than the equal scores used in the original run. The central customer has a zero customer score. As the iterations proceed, its connections to customers with positive scores raise its rank to third out of 300,008. The slider shows this change. Click a node to inspect its score and rank.
+Connections to customers with positive scores can therefore raise a customer's priority even when its own score is zero. We used the ranking to select customers and connections for further review. A high rank is a review priority, not a probability of involvement in trafficking.
 
-This example shows how the graph can raise the priority of a customer whose own indicators contribute no score. It does not establish that the customer is involved in trafficking. The ranking was intended to help users select customers and connections for further review; this demonstration does not measure detection accuracy.
-
-The demo is generated by [`scripts/aml_demo.py`](https://github.com/alexandregranzerguay/alexandregranzerguay.github.io/blob/main/scripts/aml_demo.py), which reruns the ranking and checks it against the saved competition output.
+[`scripts/aml_demo.py`](https://github.com/alexandregranzerguay/alexandregranzerguay.github.io/blob/main/scripts/aml_demo.py) reproduces the saved competition ranking and exports the neighbourhood and ranks used above.
 
 ## References
 
