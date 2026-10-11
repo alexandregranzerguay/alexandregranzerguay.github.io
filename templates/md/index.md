@@ -48,6 +48,14 @@ Research interests: {{ person.knows_about | join(", ") }}.
 {% endfor %}
 {% endif %}
 
+{% if cv.awards %}
+## Awards
+
+{% for a in cv.awards %}
+- {{ a.name }} ({{ a.year }}), {{ a.org }}.{% if a.detail %} {{ a.detail }}{% endif %}
+
+{% endfor %}
+{% endif %}
 ## Teaching
 
 {% for t in cv.teaching %}

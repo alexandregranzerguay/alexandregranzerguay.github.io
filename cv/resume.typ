@@ -1,6 +1,7 @@
 // One-page industry and quant résumé. Must stay at exactly one page (checked in CI).
 #import "lib.typ": *
 #show: setup.with("Résumé")
+#set page(margin: (x: 0.75in, top: 0.55in, bottom: 0.45in))
 
 #header()
 
@@ -40,6 +41,9 @@
   #patents-block()
 ]
 
-#section("Skills")
+#section(if cv.awards.len() > 0 { "Skills and awards" } else { "Skills" })
 #skills-block()
-#block(above: 0.4em)[*Languages:* #languages-line()]
+#block(above: 0.4em, below: 0pt)[*Languages:* #languages-line()]
+#for a in cv.awards {
+  block(above: 0.4em, below: 0pt)[*Award:* #a.at("short", default: a.name + " (" + str(a.year) + ")").]
+}

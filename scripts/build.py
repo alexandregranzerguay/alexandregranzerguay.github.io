@@ -228,6 +228,7 @@ def person_node(cv: dict) -> dict:
         "alumniOf": sorted({e["school"] for e in cv["education"]}),
         "knowsAbout": p["knows_about"],
         "knowsLanguage": [x["name"] for x in cv["languages"]],
+        "award": [f"{a['name']} ({a['year']})" for a in cv.get("awards") or []],
         "sameAs": [u for u in l.values() if u],
         "image": f"{BASE}/og.png",
     }
@@ -384,7 +385,8 @@ class Site:
                       "Short technical notes on portfolio optimization and operations research.",
                       [], [n["source"] for n in d["notes"]] + [tpls / "notes.html"])
         for n in d["notes"]:
-            self.page("note.html", n["url"], "notes", f"{n['title']} · {p['name']}", n["summary"],
+            title = f"{n['title']} · {p['name']}"
+            self.page("note.html", n["url"], "notes", title if len(title) <= 70 else n["title"], n["summary"],
                       [{"@type": "BlogPosting", "headline": n["title"], "description": n["summary"],
                         "datePublished": n["date"], "author": {"@id": f"{BASE}/#person"},
                         "url": BASE + n["url"], "keywords": n.get("tags", [])}],
@@ -499,6 +501,8 @@ def json_resume(cv: dict, research: list[dict]) -> dict:
                           **({"publisher": r["venue"]} if r.get("venue") else {}),
                           **({"url": BASE + r["page"]} if r.get("page") else {}),
                           **({"summary": r["abstract"]} if r.get("abstract") else {})} for r in research],
+        "awards": [{"title": a["name"], "date": str(a["year"]), "awarder": a["org"], "summary": a.get("detail", "")}
+                   for a in cv.get("awards") or []],
         "skills": [{"name": s["label"], "keywords": s["items"]} for s in cv["skills"]],
         "languages": [{"language": x["name"], "fluency": x["level"]} for x in cv["languages"]],
         "interests": [{"name": i} for i in cv["interests"]],

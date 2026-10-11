@@ -161,7 +161,17 @@ teaching:  # newest first. TODO codes for Engineering and Society and Digital Sy
       - {name: Digital Systems, code: null, terms: [Fall 2017]}
 
 talks: []   # extra talks not tied to a paper; paper talks live in research.yaml. TODO {title, event, city, year}
-awards: []  # TODO {name, org, year, amount}
+awards:
+  - name: First place, IMI BIGDataAIHUB Big Data and AI Competition
+    org: Institute for Management and Innovation, University of Toronto Mississauga (sponsored by Scotiabank)
+    short: First place, 2024 IMI BIGDataAIHUB Big Data and AI Competition (UofT Mississauga, sponsored by Scotiabank)  # one-page résumé
+    year: 2024
+    detail: >-
+      Fighting Crime with Big Data and Artificial Intelligence: detecting illegal wildlife trade in
+      synthetic banking data. With Muhammad Maaz and Jesse Ward-Bond.
+    links:
+      announcement: https://www.utm.utoronto.ca/imi/news/imi-bigdataaihub-announces-winners-2024-competition-fighting-crime-big-data-and-artificial
+      code: https://github.com/jwardbond/2023-imi-bigdata
 
 service:
   - role: Mentor, Company Program

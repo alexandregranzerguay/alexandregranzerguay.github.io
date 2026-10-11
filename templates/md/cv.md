@@ -58,7 +58,7 @@
 ## Awards and scholarships
 
 {% for a in cv.awards %}
-- {{ a.name }}, {{ a.org }}, {{ a.year }}
+- {{ a.name }}, {{ a.org }}, {{ a.year }}.{% if a.detail %} {{ a.detail }}{% endif %}{% if a.links %} {{ a.links.announcement or "" }}{% endif %}
 {% endfor %}
 {% endif %}
 

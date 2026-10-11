@@ -12,6 +12,21 @@
 #   earlier: false          # true groups it under "Earlier" on the projects page
 #   cv: false
 
+- slug: imi-bigdata-2024
+  name: Wildlife-trafficking risk in banking data
+  role: team member
+  year: "2024"
+  summary: >-
+    Customer risk classification, weighted PageRank and public-source name matching on synthetic
+    banking data, with a Flask app for exploring the results. First place in the 2024
+    IMI BIGDataAIHUB competition.
+  stack: [Python, Flask]
+  links:
+    code: https://github.com/jwardbond/2023-imi-bigdata
+    announcement: https://www.utm.utoronto.ca/imi/news/imi-bigdataaihub-announces-winners-2024-competition-fighting-crime-big-data-and-artificial
+  featured: true
+  cv: false  # listed under Awards on the CV instead
+
 - slug: pysyft
   name: PySyft (OpenMined)
   role: contributor

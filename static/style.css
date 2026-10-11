@@ -35,5 +35,7 @@ table{border-collapse:collapse;font-size:.95rem}td,th{padding:.2rem .6rem;border
 .fig{display:block;width:100%;height:auto;overflow:visible}.fig text{font:11px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--muted)}
 .fig .axis path{fill:none;stroke:var(--faint)}.fig .full{fill:none;stroke:var(--muted);stroke-dasharray:4 3;opacity:.7}.fig .cur{fill:none;stroke:var(--link);stroke-width:2}
 .fig .asset circle{fill:var(--fg)}.fig .kinks circle{fill:var(--bg);stroke:var(--link);stroke-width:1.5}.fig .cells rect{fill:var(--link);opacity:.75}.strip{margin-top:.75rem}
-.fig-controls{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;font-size:.95rem}.fig-controls input{flex:1;min-width:10rem;accent-color:var(--link)}
+.fig-controls{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;font-size:.95rem}.fig-controls input[type=range]{flex:1;min-width:10rem;accent-color:var(--link)}
 @media (min-width:1100px){body{font-size:1.125rem}}
+.fig.aml .edge{stroke:var(--faint)}.fig.aml .edge.sus{stroke:var(--link);opacity:.5}.fig.aml .node{fill:var(--muted);cursor:pointer}.fig.aml .node.top{fill:var(--link)}.fig.aml .ring{fill:none;stroke:var(--muted);stroke-width:1;opacity:.8}.fig.aml .label{font-size:11px;paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
+.fig-controls label{white-space:nowrap}.fig-controls input[type=checkbox]{accent-color:var(--link)}

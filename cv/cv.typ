@@ -67,7 +67,7 @@
 
 #if cv.awards.len() > 0 [
   #section("Awards and scholarships")
-  #for a in cv.awards { entry(a.name, org: a.org, dates: str(a.year)) }
+  #for a in cv.awards { entry(a.name, org: a.org, dates: str(a.year), detail: a.at("detail", default: none)) }
 ]
 
 #let oss = projects.filter(p => p.at("cv", default: false))

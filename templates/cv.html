@@ -45,7 +45,7 @@
 <ul>{% for title, t in paper_talks %}<li>{{ title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}
 {% for t in cv.talks %}<li>{{ t.title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
 {% if cv.awards %}<h2>Awards and scholarships</h2>
-<ul>{% for a in cv.awards %}<li>{{ a.name }}, {{ a.org }} <span class="meta">· {{ a.year }}</span></li>{% endfor %}</ul>{% endif %}
+<ul class="plain">{% for a in cv.awards %}<li><strong>{{ a.name }}</strong>, {{ a.org }} <span class="meta">· {{ a.year }}</span>{% if a.detail %}<br><span class="meta">{{ a.detail }}</span>{% endif %}{% if a.links %}<br><span class="meta">{% for k, u in a.links.items() %}<a href="{{ u }}">{{ k }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
 
 <h2>Service and mentoring</h2>
 <ul>{% for s in cv.service %}<li>{{ s.role }}, {{ s.org }} <span class="meta">· {{ fmt_range(s.start, s.end) }}</span>. {{ s.text }}</li>{% endfor %}</ul>

@@ -16,7 +16,7 @@
 {% if p.links.code %}<a href="{{ p.links.code }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %} <span class="meta">· {% if p.role %}{{ p.role }}, {% endif %}{{ p.year }}</span><br>
 {{ p.summary }}
 {% if p.stack %}<span class="meta">{{ p.stack | join(", ") }}.</span>{% endif %}
-{% set extra = [] %}{% for k in ("paper",) if p.links[k] %}{% set _ = extra.append(k) %}{% endfor %}
+{% set extra = [] %}{% for k in ("paper", "announcement") if p.links[k] %}{% set _ = extra.append(k) %}{% endfor %}
 {% if extra %}<br><span class="meta">{% for k in extra %}<a href="{{ p.links[k] }}">{{ k }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
 </li>
 {% endmacro %}
