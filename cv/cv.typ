@@ -2,7 +2,10 @@
 #import "lib.typ": *
 #show: setup.with("Curriculum Vitae")
 
-#header(subtitle: [Curriculum vitae #sym.dot.c #cv.person.headline])
+#header()
+
+#section("Profile")
+#cv.person.bio
 
 #section("Education")
 #for e in cv.education {
@@ -24,7 +27,7 @@
   let items = papers.filter(r => r.status == key)
   if items.len() > 0 {
     section(heading)
-    for r in items { research-entry(r) }
+    for r in items { research-entry(r, details: true) }
   }
 }
 
@@ -33,16 +36,7 @@
   #patents-block()
 ]
 
-#section("Teaching")
-#for t in cv.teaching {
-  entry(
-    t.role,
-    org: t.institution,
-    dates: fmt-range(t.start, t.end),
-    detail: t.duties,
-    bullets: t.courses.map(c => [#c.name#if c.code != none [ (#c.code)]#if c.terms.len() > 0 [ #text(fill: muted)[(#c.terms.join(", "))]]]),
-  )
-}
+#pagebreak()
 
 #section("Industry experience")
 #for x in cv.experience.filter(x => x.at("cv", default: true)) {
@@ -52,6 +46,24 @@
     note: x.at("note", default: none),
     dates: fmt-range(x.start, x.end),
     bullets: x.bullets.map(bullet),
+  )
+}
+
+#section("Skills")
+#skills-block()
+#block(above: 0.4em)[*Languages:* #languages-line()]
+#block(above: 0.4em)[*Interests:* #cv.interests.join(", ")]
+
+#pagebreak()
+
+#section("Teaching")
+#for t in cv.teaching {
+  entry(
+    t.role,
+    org: t.institution,
+    dates: fmt-range(t.start, t.end),
+    detail: t.duties,
+    bullets: t.courses.map(c => [#c.name#if c.code != none [ (#c.code)]#if c.terms.len() > 0 [ #text(fill: muted)[(#c.terms.join(", "))]]]),
   )
 }
 
@@ -80,8 +92,3 @@
 
 #section("Service and mentoring")
 #for s in cv.service { entry(s.role, org: s.org, dates: fmt-range(s.start, s.end), bullets: (s.text,)) }
-
-#section("Skills")
-#skills-block()
-#block(above: 0.4em)[*Languages:* #languages-line()]
-#block(above: 0.4em)[*Interests:* #cv.interests.join(", ")]

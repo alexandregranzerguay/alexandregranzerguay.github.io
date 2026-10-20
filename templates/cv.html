@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% from "macros.html" import research_item, patent_items %}
 {% block main %}
+<div class="cv-page">
 <h1>Curriculum vitae</h1>
 <p class="lede">PDF: <a href="/cv.pdf">academic CV</a> · <a href="/resume.pdf">one-page résumé</a> · <a href="/cv.json">JSON Resume</a></p>
+
+<h2>Profile</h2>
+<p>{{ person.bio }}</p>
 
 <h2>Education</h2>
 <ul class="plain">
@@ -53,4 +57,5 @@
 <h2>Skills</h2>
 <ul>{% for s in cv.skills %}<li>{{ s.label }}: {{ s["items"] | join(", ") }}</li>{% endfor %}
 <li>Languages: {% for l in cv.languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}</li></ul>
+</div>
 {% endblock %}

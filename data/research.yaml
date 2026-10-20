@@ -17,6 +17,7 @@
 - slug: mpc-fixed-income-index-tracking
   type: article
   title: "Multi-Period Fixed-Income Index Tracking: A Model Predictive Control Framework"
+  cv_summary: Multi-period bond index tracking with transaction costs, liquidity limits and risk-exposure constraints.
   authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
   date: "2027"
   status: descending
@@ -33,6 +34,8 @@
 - slug: sparse-treasury-index-tracking
   type: article
   title: "Disciplined Sparse Tracking of U.S. Treasury Indices: Exposure Control, Risk Models and Trading"
+  submission_note: In preparation for an Annals of Operations Research special issue.
+  cv_summary: Sparse Treasury index replication with exposure control, alternative risk models and trading constraints.
   authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
   date: "2027"
   status: descending
@@ -49,6 +52,8 @@
 - slug: admm-cardinality-risk-parity
   type: article
   title: ADMM Heuristics for Large-Scale Cardinality-Constrained Risk Parity Portfolio Optimization
+  submission_note: Under review at Optimization Methods and Software.
+  cv_summary: Non-convex ADMM heuristics for risk parity with exact cardinality constraints.
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2026-04"
   status: kkt
@@ -66,6 +71,8 @@
 - slug: sparse-risk-parity
   type: article
   title: Sparse 60/40 Risk Parity Portfolios
+  submission_note: Under review at Computational Economics.
+  cv_summary: Risk parity with prescribed equity–bond allocations and cardinality constraints.
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2025-03"  # TODO confirm
   status: kkt
@@ -110,6 +117,7 @@
 - slug: adaptive-receding-horizon-tracking
   type: article
   title: Risk-Return Adaptive Receding Horizon Index Tracking Strategy
+  cv_summary: Multi-period index tracking with cardinality constraints using a penalized alternating direction method.
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2024-07"
   status: converged
@@ -142,6 +150,7 @@
 - slug: portfolio-transition-strategies
   type: article
   title: Optimizing Transition Strategies for Small to Medium Sized Portfolios
+  cv_summary: Multi-period portfolio transitions under turnover constraints and transaction costs.
   authors: [Nakul Upadhya, Alexandre Granzer-Guay]
   date: "2024-01"
   status: descending

@@ -2,6 +2,10 @@
 
 {{ person.headline }}. {{ person.location }}. {{ person.email_display }} · {{ BASE }}/
 
+## Profile
+
+{{ person.bio }}
+
 ## Education
 
 {% for e in cv.education %}
@@ -22,7 +26,7 @@
 ## Research
 
 {% for r in papers %}
-- {{ r.title }} ({{ r.year }}). {{ authors(r.authors) }}. Status: {{ r.status_label }}.{% if r.talks %} Presented at {{ r.talks | map(attribute="event") | join(", ") }}.{% endif %}
+- {{ r.title }} ({{ r.year }}). {{ authors(r.authors) }}. Status: {{ r.status_label }}.{% if r.submission_note %} {{ r.submission_note }}{% endif %}{% if r.cv_summary %} {{ r.cv_summary }}{% endif %}{% if r.talks %} Presented at {{ r.talks | map(attribute="event") | join(", ") }}.{% endif %}
 
 {% endfor %}
 

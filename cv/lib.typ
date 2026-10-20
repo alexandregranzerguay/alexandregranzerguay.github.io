@@ -78,7 +78,7 @@
 #let section(title) = {
   v(0.85em, weak: true)
   block(below: 0.55em, sticky: true, width: 100%)[
-    #text(size: 10.5pt, tracking: 0.04em, smallcaps(strong(title)))
+    #text(size: 12pt, weight: "bold", title)
     #h(0.4em)
     #box(width: 1fr, inset: (bottom: 0.28em), line(length: 100%, stroke: 0.4pt + rule-color))
   ]
@@ -109,13 +109,19 @@
   r.status == "converged" and r.type == "patent"
 ) { "granted" } else if r.status == "descending" and r.public { "preprint" } else { status-label.at(r.status) }
 
-#let research-entry(r) = block(above: 0.65em, below: 0pt)[
+#let research-entry(r, details: false) = block(above: 0.65em, below: 0pt)[
   #grid(
     columns: (1fr, auto),
     column-gutter: 1em,
     [#r.title #text(fill: muted)[(#year(r))]. #text(size: 9pt)[#authors(r.authors).] #if r.public and r.venue != none { emph(r.venue) + "." } #if r.at("talks", default: ()).len() > 0 { text(size: 9pt)[Presented at #r.talks.map(t => t.short + " " + talk-place(t)).join("; ").] }],
     text(size: 9pt, fill: muted, status-text(r)),
   )
+  #if details and r.at("submission_note", default: none) != none {
+    block(above: 0.25em, below: 0pt, text(size: 9.5pt, fill: muted, r.submission_note))
+  }
+  #if details and r.at("cv_summary", default: none) != none {
+    block(above: 0.25em, below: 0pt, r.cv_summary)
+  }
 ]
 
 #let skills-block(resume: false) = for s in cv.skills {
