@@ -87,7 +87,7 @@
 #let entry(title, org: none, dates: none, place: none, note: none, detail: none, bullets: ()) = block(
   above: 0.8em,
   below: 0pt,
-  breakable: true,
+  breakable: false,
 )[
   #grid(
     columns: (1fr, auto),
@@ -101,7 +101,6 @@
 
 #let authors(names) = (
   names
-    .map(a => if a == me { strong(a) } else { a })
     .join(", ", last: if names.len() > 2 { ", and " } else { " and " })
 )
 
@@ -113,7 +112,7 @@
   #grid(
     columns: (1fr, auto),
     column-gutter: 1em,
-    [#r.title #text(fill: muted)[(#year(r))]. #text(size: 9pt)[#authors(r.authors).] #if r.public and r.venue != none { emph(r.venue) + "." } #if r.at("talks", default: ()).len() > 0 { text(size: 9pt)[Presented at #r.talks.map(t => t.short + " " + talk-place(t)).join("; ").] }],
+    [#r.title #text(fill: muted)[(#year(r))]. #text(size: 9pt)[#authors(r.authors).] #if r.public and r.venue != none { emph(r.venue) + "." }],
     text(size: 9pt, fill: muted, status-text(r)),
   )
   #if details and r.at("submission_note", default: none) != none {

@@ -10,8 +10,8 @@
   entry(
     e.degree + if e.field != none and not e.degree.contains(e.field) [ (#e.field)],
     org: e.school,
-    dates: fmt-range(e.start, e.end),
-    detail: if e.at("advisor", default: none) != none { e.detail + " Supervisor: " + e.advisor + "." } else { e.detail },
+    dates: if e.at("expected_end", default: none) != none { fmt-range(e.start, e.expected_end) + " (expected)" } else { fmt-range(e.start, e.end) },
+    detail: if e.short == "PhD" { "Non-convex portfolio optimization. Supervisor: " + e.advisor + "." } else { none },
   )
 }
 

@@ -8,15 +8,14 @@ person:
   alternate_names: [Alexandre Granzer Guay, Alex Granzer-Guay]
   headline: Quantitative researcher working on large-scale and non-convex portfolio optimization problems
   bio: >-
-    I am a PhD candidate in Operations Research at the University of Toronto
-    and a Quantitative Researcher at CIBC Global Asset Management.
-    My supervisor is Prof. Roy H. Kwon in the Department of Mechanical and
-    Industrial Engineering. I develop optimization methods for portfolio
-    construction with cardinality constraints, multiple trading periods and
-    non-convex objectives. My work uses ADMM decomposition, formulations that
-    exploit problem structure, and specialized branch-and-bound algorithms.
-    Applications include risk parity, risk budgeting and index tracking across
-    fixed-income, equity and multi-asset portfolios.
+    PhD candidate in Operations Research (University of Toronto) and Quantitative Researcher at CIBC Global Asset Management.
+    My research develops scalable, structure-exploiting optimization methods for portfolio construction,
+    with a focus on cardinality-constrained, multi-period (model predictive control) and non-convex problems.
+    I design and apply decomposition methods based on ADMM, structure-aware formulations and specialized
+    branch-and-bound algorithms that make these problems tractable at institutional scale.
+    Applications include risk parity and risk-budgeting portfolios as well as multi-period index tracking,
+    and I have applied these methods to fixed-income, equity and multi-asset portfolios.
+    More broadly, I enjoy building decision-making systems that turn complex, constrained problems into practical solutions.
   summary: >-
     Quantitative Researcher at CIBC Global Asset Management and PhD candidate in
     large-scale and non-convex portfolio optimization at the University of Toronto.
@@ -45,14 +44,15 @@ links:
   linkedin: null  # TODO LinkedIn profile URL
 
 education:
-  - degree: Ph.D., Mechanical and Industrial Engineering
+  - degree: Ph.D., Mechanical and Industrial Engineering (Operations Research)
     short: PhD
     field: Operations Research
     school: University of Toronto
     location: Toronto, Canada
     start: "2023"
     end: present
-    detail: Non-convex portfolio optimization. Expected completion in 2027.
+    expected_end: "2027"
+    detail: Non-convex optimization methods for portfolio construction.
     gpa: 3.83/4.0
     coursework: [Integer Programming, Markov Decision Processes, Machine Learning for Mathematical Optimization, Applied Probability for Mathematical Finance, Game Theory, Introduction to Machine Learning]
     advisor: Roy H. Kwon
@@ -63,7 +63,7 @@ education:
     location: Toronto, Canada
     start: "2021"
     end: "2023"
-    detail: Financial optimization and risk models.
+    detail: Thesis on multi-period index-tracking strategies for investment portfolios.
     gpa: 3.75/4.0
     coursework: [Non-Linear Optimization, Computational Finance and Risk Management, Stochastic Processes]
     advisor: Roy H. Kwon
@@ -75,7 +75,7 @@ education:
     location: Kingston, Canada
     start: "2014"
     end: "2019"
-    detail: Included a 12-month internship as a software developer at the Queen's University Centre for Advanced Computing.
+    detail: Included a 12-month software development internship.
 
 experience:
   - title: Quantitative Researcher
@@ -84,11 +84,11 @@ experience:
     start: "2026-02"
     end: present
     bullets:
-      - text: Develop a model predictive control framework for multi-period bond index tracking under turnover, trading-cost and liquidity constraints.
+      - text: Developing a model predictive control framework for multi-period bond index tracking across large fixed-income universes under turnover, trading-cost and liquidity constraints.
         resume: true
-      - text: Designed the supporting term-structure models, stochastic models, stress tests and backtesting framework.
+      - text: Designed the optimization pipeline end to end, covering term-structure and stochastic models, stress testing and backtesting.
         resume: true
-      - text: Built trade optimizers that turn target portfolios into executable trades under turnover, liquidity, and mandate-specific constraints.
+      - text: Built trade optimizers that convert target portfolios into executable trades under turnover, liquidity and mandate constraints.
         resume: true
 
   - title: Quantitative Researcher (Mitacs Accelerate)
@@ -97,11 +97,11 @@ experience:
     start: "2023-11"
     end: "2024-06"
     bullets:
-      - text: Designed a constraint-learning approach that assigns retail investors to suitable portfolios along the efficient frontier.
-        resume: true
-      - text: Built custom portfolio optimization models for research projects and client mandates.
+      - text: Investipal is a purpose-built platform that assigns retail investors to model portfolios, similar to Wealthsimple.
         resume: false
-      - text: Designed and built the platform's backtesting and portfolio-performance modules.
+      - text: Designed a novel portfolio allocation approach based on constraint learning that places each investor on a suitable portfolio along the efficient frontier.
+        resume: true
+      - text: Built custom portfolio optimization models for research and client mandates, and designed the platform's backtesting and performance modules.
         resume: true
 
   - title: Machine Learning Engineer
@@ -110,14 +110,10 @@ experience:
     start: "2020-11"
     end: "2021-08"
     bullets:
-      - text: Maintained an internal ML API for portfolio optimization, backtesting and visualization.
+      - text: Maintained an internal API for portfolio optimization, backtesting and visualization. Built a data pipeline and data lake from scratch.
         resume: true
-      - text: Built a data pipeline and data lake from scratch that fed modelling, visualization and analytics work.
+      - text: Automated equity research workflows for a team of 10 analysts. Deployed an executive dashboard for ETF sales decisions.
         resume: true
-      - text: Automated equity research workflows for a team of 10 analysts.
-        resume: true
-      - text: Designed and deployed an executive dashboard for ETF sales decisions.
-        resume: false
 
   - title: Technology Rotational Program
     org: TD Bank Group
@@ -126,50 +122,36 @@ experience:
     end: "2020-11"
     earlier: true
     bullets:
-      - lead: Business Systems Analyst and Technology Delivery Lead, TD Credit Cards and Merchant Solutions (2020).
-        text: Led delivery of a critical application processing 800 real-time credit card applications a day, resolved 10+ production incidents during the warranty period, and drove delivery decisions for two large projects, one waterfall and one agile. Co-inventor on two US patents from this work (US 11,880,709 and US 12,164,953).
-      - lead: Solution Architect, TD Architecture and Engineering (2019–2020).
-        text: Ran vendor engagements and proofs of concept for digitization and automation (PowerApps, Azure Logic Apps, cloud AI services).
-
-  - title: Contributor
-    org: Coldstart AI
-    location: Toronto, Canada
-    start: "2020-01"
-    end: "2022-08"
-    earlier: true
-    resume: false  # never on the 1-page résumé
-    cv: true       # TODO keep or drop this role on the academic CV
-    bullets:
-      - text: Sought partners for alpha-stage strategic partnerships and set technology-architecture and operations standards.
+      - text: Technology Delivery Lead for an application processing approximately 800 real-time credit card applications daily. Co-inventor on two US patents (below).
 
   - title: Software Developer (internship)
-    org: Queen's University Centre for Advanced Computing
+    org: Queen's Centre for Advanced Computing
     location: Kingston, Canada
     start: "2017-05"
     end: "2018-04"
     earlier: true
-    bullets:
-      - text: Developed proof-of-concept and production software for a major Canadian financial services company.
+    bullets: []
 
-teaching:  # newest first. TODO codes for Engineering and Society and Digital Systems (optional)
+teaching:
   - institution: University of Toronto
     role: Teaching Assistant
-    start: "2022-09"
+    start: "2022"
     end: present
-    duties: Run tutorials and labs, write midterm and final exam questions, and grade assignments and exams.
+    duties: Ran tutorials and labs, wrote exam questions, and graded assignments and exams.
     courses:
       - {name: Financial Optimization Models, code: MIE377, terms: [Winter 2024–2027]}
       - {name: Financial Engineering, code: MIE375, terms: [Fall 2023–2026]}
       - {name: Mathematical Programming, code: MIE376, terms: [Winter 2023]}
       - {name: Decision Making under Uncertainty, code: MIE566, terms: [Fall 2022]}
-      - {name: Engineering and Society, code: null, terms: [Fall 2022]}
-  - institution: Queen's University
-    role: Teaching Assistant
-    start: "2017-09"
-    end: "2017-12"
-    duties: Ran labs, helped students debug their code and hardware implementations, and graded assignments.
-    courses:
-      - {name: Digital Systems, code: null, terms: [Fall 2017]}
+
+research_slugs:
+  - mpc-fixed-income-index-tracking
+  - sparse-treasury-index-tracking
+  - admm-cardinality-risk-parity
+  - sparse-risk-parity
+  - adaptive-receding-horizon-tracking
+  - portfolio-transition-strategies
+research_presentation: Presented ADMM heuristics for cardinality-constrained risk parity and Sparse 60/40 risk parity portfolios at the CORS Annual Conference, Kingston, 2026.
 
 talks: []   # extra talks not tied to a paper; paper talks live in research.yaml. TODO {title, event, city, year}
 awards:
@@ -178,37 +160,22 @@ awards:
     short: First place, 2024 IMI BIGDataAIHUB Big Data and AI Competition (UofT Mississauga, sponsored by Scotiabank)  # one-page résumé
     year: 2024
     detail: >-
-      Fighting Crime with Big Data and Artificial Intelligence: detecting illegal wildlife trade in
-      synthetic banking data. With Muhammad Maaz and Jesse Ward-Bond.
+      With two teammates, adapted a weighted PageRank algorithm to uncover wildlife-trafficking
+      networks in synthetic banking transaction data.
     links:
       announcement: https://www.utm.utoronto.ca/imi/news/imi-bigdataaihub-announces-winners-2024-competition-fighting-crime-big-data-and-artificial
       code: https://github.com/jwardbond/2023-imi-bigdata
 
-service:
-  - role: Mentor, Company Program
-    org: Junior Achievement Central Ontario (with TD Bank Group)
-    start: "2020-11"
-    end: "2022-08"
-    text: Mentored a student team through starting and running an online business.
-  - role: Co-op mentor
-    org: TD Bank Group
-    start: "2020-01"
-    end: "2022-08"
-    text: Mentored three co-op students through their placements.
-  - role: Volunteer, United Way campaign
-    org: TD Bank Group
-    start: "2019-10"
-    end: "2019-12"
-    text: Helped raise $10,000 CAD, including through the CN Tower Climb.
+service: []
 
 skills:
   - label: Optimization
-    items: [linear, quadratic and conic programming, mixed-integer programming (MIQP, MISOCP), branch-and-bound, non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
+    items: [LP, QP, SOCP and conic programming, mixed-integer programming (MIQP, MISOCP), branch-and-bound, non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
     resume_items: [LP, QP, SOCP, MIQP, MISOCP, branch-and-bound, non-convex optimization, MPC, ADMM]
   - label: Quantitative methods
     items: [covariance construction and shrinkage, factor and low-rank covariance models, Bayes-Stein shrinkage, stationary block bootstrap, tracking error and certainty-equivalent return, out-of-sample evaluation, numerical stability and conditioning, Nelson-Siegel term-structure estimation]
     resume_items: [covariance and factor models, shrinkage, Nelson-Siegel estimation]
-  - label: Optimization software
+  - label: Solvers and libraries
     items: [Gurobi, CPLEX, CVXPY]  # TODO add others you use (MOSEK, JuMP, ...)
   - label: Programming
     items: [Python, Julia, MATLAB, SQL]
@@ -218,4 +185,4 @@ languages:
   - {name: French, level: fluent}
   - {name: Spanish, level: conversational}
 
-interests: [Game theory, fermentation, building resilient systems]
+interests: []

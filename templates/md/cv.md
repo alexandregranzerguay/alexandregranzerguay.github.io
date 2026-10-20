@@ -1,4 +1,4 @@
-# {{ person.name }}: curriculum vitae
+# {{ person.name }}
 
 {{ person.headline }}. {{ person.location }}. {{ person.email_display }} · {{ BASE }}/
 
@@ -9,68 +9,45 @@
 ## Education
 
 {% for e in cv.education %}
-- **{{ e.degree }}**, {{ e.school }}, {{ fmt_range(e.start, e.end) }}. {{ e.detail }}{% if e.gpa %} GPA: {{ e.gpa }}.{% endif %}{% if e.thesis %} Thesis: {{ e.thesis }}.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}{% if e.coursework %} Coursework: {{ e.coursework | join(", ") }}.{% endif %}
+- **{{ e.degree }}{% if e.gpa %}, GPA {{ e.gpa }}{% endif %}**. {{ fmt_range(e.start, e.expected_end or e.end) }}{% if e.expected_end %} (expected){% endif %}. {{ e.school }}. {{ e.detail }}{% if e.advisor %} Supervised by Prof. {{ e.advisor }}.{% endif %}{% if e.coursework %} Coursework includes {{ e.coursework | join(", ") }}.{% endif %}
 
 {% endfor %}
+## Research and publications
+
+{% for slug in cv.research_slugs %}{% set r = (papers | selectattr("slug", "equalto", slug) | list)[0] %}
+- {{ r.title }} (with {{ r.authors | reject("equalto", person.name) | join(", ") }}). {% if r.public %}{{ r.venue }}, {{ r.year }}.{% else %}{% if r.status == "descending" %}Working paper, {{ r.year }}. {% endif %}{% if r.submission_note %}{{ r.submission_note }} {% endif %}{% if r.status != "descending" %}{{ r.year }}.{% endif %}{% endif %}{% if r.cv_summary %} {{ r.cv_summary }}{% endif %}
+
+{% endfor %}
+{{ cv.research_presentation }}
 
 ## Experience
 
-{% for x in cv.experience if x.cv is not defined or x.cv %}
-### {{ x.title }}, {{ x.org }} ({{ fmt_range(x.start, x.end) }}, {{ x.location }})
+{% for x in cv.experience %}
+### {{ x.title }}, {{ x.org }} ({{ fmt_range(x.start, x.end) }})
 
 {% for b in x.bullets %}
-- {% if b.lead %}*{{ b.lead }}* {% endif %}{{ b.text }}
+- {{ b.text }}
 {% endfor %}
 
 {% endfor %}
-## Research
-
-{% for r in papers %}
-- {{ r.title }} ({{ r.year }}). {{ authors(r.authors) }}. Status: {{ r.status_label }}.{% if r.submission_note %} {{ r.submission_note }}{% endif %}{% if r.cv_summary %} {{ r.cv_summary }}{% endif %}{% if r.talks %} Presented at {{ r.talks | map(attribute="event") | join(", ") }}.{% endif %}
-
-{% endfor %}
-
-{% if patents %}
-## Patents
-
-{% for p in patents %}
-- {{ p.title }}. {{ p.venue }}, {{ p.year }}. Inventors: {{ authors(p.authors) }}. Assigned to {{ p.assignee }}. {{ p.links.patent }}
-{% endfor %}
-{% endif %}
-
 ## Teaching
 
 {% for t in cv.teaching %}
 ### {{ t.role }}, {{ t.institution }} ({{ fmt_range(t.start, t.end) }})
 
-{{ t.duties }}
-
 {% for c in t.courses %}
-- {{ c.name }}{% if c.terms %} ({{ c.terms | join(", ") }}){% endif %}
+- {{ c.name }} ({{ c.code }}), {{ c.terms | join(", ") }}
+{% endfor %}
+- {{ t.duties }}
+{% endfor %}
 
-{% endfor %}
-{% endfor %}
-## Talks
-
-{% for r in papers %}{% for t in r.talks %}
-- {{ r.title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %}, {{ t.year }}{% endif %}.
-{% endfor %}{% endfor %}
-{% for t in cv.talks %}
-- {{ t.title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %}, {{ t.year }}{% endif %}.
-{% endfor %}
-{% if cv.awards %}
-## Awards and scholarships
+## Awards and patents
 
 {% for a in cv.awards %}
-- {{ a.name }}, {{ a.org }}, {{ a.year }}.{% if a.detail %} {{ a.detail }}{% endif %}{% if a.links %} {{ a.links.announcement or "" }}{% endif %}
+- {{ a.name }} ({{ a.org }}), {{ a.year }}. {{ a.detail }}
 {% endfor %}
-{% endif %}
-
-## Service and mentoring
-
-{% for s in cv.service %}
-- {{ s.role }}, {{ s.org }} ({{ fmt_range(s.start, s.end) }}). {{ s.text }}
-{% endfor %}
+{% set ps = patents | sort(attribute="date") %}
+- US Patents {% for p in ps %}{{ p.number | replace("US ", "") }}{% if not loop.last %} and {% endif %}{% endfor %} — {{ ps[0].title }} (TD Bank), {{ ps[-1].year }}.
 
 ## Skills
 

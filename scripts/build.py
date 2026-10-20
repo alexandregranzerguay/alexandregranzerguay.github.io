@@ -160,7 +160,7 @@ def fmt_range(a, b) -> str:
 
 
 def authors(names: list[str], me: str, html: bool = True) -> str:
-    out = [f"<strong>{n}</strong>" if (html and n == me) else n for n in names]
+    out = list(names)
     if len(out) <= 2:
         s = " and ".join(out)
     else:

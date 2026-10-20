@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-{% from "macros.html" import research_item, patent_items %}
 {% block main %}
 <div class="cv-page">
 <h1>Curriculum vitae</h1>
-<p class="lede">PDF: <a href="/cv.pdf">academic CV</a> · <a href="/resume.pdf">one-page résumé</a> · <a href="/cv.json">JSON Resume</a></p>
+<p class="lede">PDF: <a href="/cv.pdf">CV</a> · <a href="/resume.pdf">one-page résumé</a> · <a href="/cv.json">JSON Resume</a></p>
 
 <h2>Profile</h2>
 <p>{{ person.bio }}</p>
@@ -11,48 +10,42 @@
 <h2>Education</h2>
 <ul class="plain">
 {% for e in cv.education %}
-<li><strong>{{ e.degree }}</strong>, {{ e.school }} <span class="meta">· {{ fmt_range(e.start, e.end) }}</span><br>
-<span class="meta">{{ e.detail }}{% if e.gpa %} GPA: {{ e.gpa }}.{% endif %}{% if e.thesis %} Thesis: <em>{{ e.thesis }}</em>.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}{% if e.coursework %}<br>Coursework: {{ e.coursework | join(", ") }}.{% endif %}</span></li>
+<li><strong>{{ e.degree }}{% if e.gpa %}, GPA {{ e.gpa }}{% endif %}</strong> <span class="meta">· {{ fmt_range(e.start, e.expected_end or e.end) }}{% if e.expected_end %} (expected){% endif %}</span><br>
+{{ e.school }}. {{ e.detail }}{% if e.advisor %} Supervised by Prof. {{ e.advisor }}.{% endif %}{% if e.coursework %}<br><span class="meta">Coursework includes {{ e.coursework | join(", ") }}.</span>{% endif %}</li>
 {% endfor %}
 </ul>
 
-<h2>Research</h2>
-<ul class="plain">
-{% for r in papers %}{{ research_item(r) }}{% endfor %}
+<h2>Research and publications</h2>
+<ul>
+{% for slug in cv.research_slugs %}{% set r = (papers | selectattr("slug", "equalto", slug) | list)[0] %}
+<li>{% if r.page %}<a href="{{ r.page }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %} (with {{ r.authors | reject("equalto", person.name) | join(", ") }}).
+{% if r.public %}{{ r.venue }}, {{ r.year }}.{% else %}{% if r.status == "descending" %}Working paper, {{ r.year }}. {% endif %}{% if r.submission_note %}{{ r.submission_note }} {% endif %}{% if r.status != "descending" %}{{ r.year }}.{% endif %}{% endif %}{% if r.cv_summary %} {{ r.cv_summary }}{% endif %}</li>
+{% endfor %}
 </ul>
-{% if patents %}
-<h2>Patents</h2>
-<ul class="plain">
-{{ patent_items(patents) }}
-</ul>
-{% endif %}
+<p>{{ cv.research_presentation }}</p>
 
 <h2>Experience</h2>
 <ul class="plain">
-{% for x in cv.experience if x.cv is not defined or x.cv %}
-<li><strong>{{ x.title }}</strong>, {{ x.org }} <span class="meta">· {{ fmt_range(x.start, x.end) }}</span>
-<ul>{% for b in x.bullets %}<li>{% if b.lead %}<em>{{ b.lead }}</em> {% endif %}{{ b.text }}</li>{% endfor %}</ul></li>
+{% for x in cv.experience %}
+<li><strong>{{ x.title }}</strong>, {{ x.org }}{% if x.location == "Toronto, Canada" %}, Toronto{% endif %} <span class="meta">· {{ fmt_range(x.start, x.end) }}</span>
+{% if x.bullets %}<ul>{% for b in x.bullets %}<li>{{ b.text }}</li>{% endfor %}</ul>{% endif %}</li>
 {% endfor %}
 </ul>
 
 <h2>Teaching</h2>
 <ul class="plain">
 {% for t in cv.teaching %}
-<li><strong>{{ t.role }}</strong>, {{ t.institution }} <span class="meta">· {{ fmt_range(t.start, t.end) }}</span><br>
-<span class="meta">{{ t.duties }}</span>
-<ul>{% for c in t.courses %}<li>{{ c.name }}{% if c.code %} ({{ c.code }}){% endif %}{% if c.terms %} <span class="meta">· {{ c.terms | join(", ") }}</span>{% endif %}</li>{% endfor %}</ul></li>
+<li><strong>{{ t.role }}</strong>, {{ t.institution }} <span class="meta">· {{ fmt_range(t.start, t.end) }}</span>
+<ul>{% for c in t.courses %}<li>{{ c.name }} ({{ c.code }}), {{ c.terms | join(", ") }}</li>{% endfor %}<li>{{ t.duties }}</li></ul></li>
 {% endfor %}
 </ul>
 
-{% set paper_talks = [] %}{% for r in papers %}{% for t in r.talks %}{% set _ = paper_talks.append((r.title, t)) %}{% endfor %}{% endfor %}
-{% if paper_talks or cv.talks %}<h2>Talks</h2>
-<ul>{% for title, t in paper_talks %}<li>{{ title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}
-{% for t in cv.talks %}<li>{{ t.title }}. {{ t.event }}{% if t.city %}, {{ t.city }}{% endif %}{% if t.year %} <span class="meta">· {{ t.year }}</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
-{% if cv.awards %}<h2>Awards and scholarships</h2>
-<ul class="plain">{% for a in cv.awards %}<li><strong>{{ a.name }}</strong>, {{ a.org }} <span class="meta">· {{ a.year }}</span>{% if a.detail %}<br><span class="meta">{{ a.detail }}</span>{% endif %}{% if a.links %}<br><span class="meta">{% for k, u in a.links.items() %}<a href="{{ u }}">{{ k }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
-
-<h2>Service and mentoring</h2>
-<ul>{% for s in cv.service %}<li>{{ s.role }}, {{ s.org }} <span class="meta">· {{ fmt_range(s.start, s.end) }}</span>. {{ s.text }}</li>{% endfor %}</ul>
+<h2>Awards and patents</h2>
+<ul>
+{% for a in cv.awards %}<li>{{ a.name }} ({{ a.org }}), {{ a.year }}. {{ a.detail }}</li>{% endfor %}
+{% set ps = patents | sort(attribute="date") %}
+<li>US Patents {% for p in ps %}<a href="{{ p.links.patent }}">{{ p.number | replace("US ", "") }}</a>{% if not loop.last %} and {% endif %}{% endfor %} — {{ ps[0].title }} (TD Bank), {{ ps[-1].year }}.</li>
+</ul>
 
 <h2>Skills</h2>
 <ul>{% for s in cv.skills %}<li>{{ s.label }}: {{ s["items"] | join(", ") }}</li>{% endfor %}

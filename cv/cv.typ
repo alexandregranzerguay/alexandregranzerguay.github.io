@@ -1,4 +1,4 @@
-// Full academic CV.
+// CV structure and detail follow the supplied 2026 CV.
 #import "lib.typ": *
 #show: setup.with("Curriculum Vitae")
 
@@ -9,86 +9,48 @@
 
 #section("Education")
 #for e in cv.education {
-  let detail = [#e.detail]
-  if e.at("gpa", default: none) != none { detail += [ GPA: #e.gpa.] }
-  if e.at("thesis", default: none) != none { detail += [ Thesis: #emph(e.thesis).] }
-  if e.at("advisor", default: none) != none { detail += [ Supervisor: #e.advisor.] }
-  if e.at("coursework", default: ()).len() > 0 { detail += [ Coursework: #e.coursework.join(", ").] }
-  entry(e.degree, org: e.school + ", " + e.location, dates: fmt-range(e.start, e.end), detail: detail)
+  let title = [#e.degree]
+  if e.at("gpa", default: none) != none { title += [, GPA #e.gpa] }
+  let detail = [#e.school. #e.detail]
+  if e.at("advisor", default: none) != none { detail += [ Supervised by Prof. #e.advisor.] }
+  if e.at("coursework", default: ()).len() > 0 { detail += [ Coursework includes #e.coursework.join(", ").] }
+  entry(title, dates: if e.at("expected_end", default: none) != none { fmt-range(e.start, e.expected_end) + " (expected)" } else { fmt-range(e.start, e.end) }, detail: detail)
 }
 
-#for (key, heading) in (
-  ("converged", "Publications and theses"),
-  ("backtracking", "Under revision"),
-  ("kkt", "Under review"),
-  ("descending", "Working papers"),
-  ("initialized", "In preparation"),
-) {
-  let items = papers.filter(r => r.status == key)
-  if items.len() > 0 {
-    section(heading)
-    for r in items { research-entry(r, details: true) }
-  }
+#section("Research and publications")
+#list(..cv.research_slugs.map(slug => {
+  let r = papers.find(r => r.slug == slug)
+  let coauthors = r.authors.filter(a => a != me)
+  [
+    #r.title (with #coauthors.join(", ")).
+    #if r.public { [#r.venue, #year(r).] } else {
+      if r.status == "descending" { [Working paper, #year(r). ] }
+      if r.at("submission_note", default: none) != none { [#r.submission_note ] }
+      if r.status != "descending" { [#year(r).] }
+    }
+    #if r.at("cv_summary", default: none) != none { [ #r.cv_summary] }
+  ]
+}))
+#block(above: 0.6em)[#cv.research_presentation]
+
+#section("Experience")
+#for x in cv.experience {
+  entry(x.title, org: x.org + if x.location == "Toronto, Canada" { ", Toronto" } else { "" }, dates: fmt-range(x.start, x.end), bullets: x.bullets.map(bullet))
 }
 
-#if patents.len() > 0 [
-  #section("Patents")
-  #patents-block()
-]
-
-#pagebreak()
-
-#section("Industry experience")
-#for x in cv.experience.filter(x => x.at("cv", default: true)) {
-  entry(
-    x.title,
-    org: x.org,
-    note: x.at("note", default: none),
-    dates: fmt-range(x.start, x.end),
-    bullets: x.bullets.map(bullet),
-  )
+#section("Teaching")
+#for t in cv.teaching {
+  entry(t.role, org: t.institution, dates: fmt-range(t.start, t.end),
+    bullets: t.courses.map(c => [#c.name (#c.code), #c.terms.join(", ")]) + (t.duties,))
 }
+
+#section("Awards and patents")
+#for a in cv.awards {
+  block(above: 0.5em)[#a.name (#a.org), #a.year. #a.detail]
+}
+#let ps = patents.sorted(key: p => p.date)
+#block(above: 0.5em)[US Patents #ps.map(p => p.number.replace("US ", "")).join(" and ") — #ps.first().title (TD Bank), #year(ps.last()).]
 
 #section("Skills")
 #skills-block()
 #block(above: 0.4em)[*Languages:* #languages-line()]
-#block(above: 0.4em)[*Interests:* #cv.interests.join(", ")]
-
-#pagebreak()
-
-#section("Teaching")
-#for t in cv.teaching {
-  entry(
-    t.role,
-    org: t.institution,
-    dates: fmt-range(t.start, t.end),
-    detail: t.duties,
-    bullets: t.courses.map(c => [#c.name#if c.code != none [ (#c.code)]#if c.terms.len() > 0 [ #text(fill: muted)[(#c.terms.join(", "))]]]),
-  )
-}
-
-#let all-talks = paper-talks + cv.talks
-#if all-talks.len() > 0 [
-  #section("Talks")
-  #for t in all-talks {
-    entry(
-      t.title,
-      org: t.event + if t.at("city", default: none) != none { ", " + t.city } else { "" },
-      dates: if t.at("year", default: none) != none { str(t.year) } else { "" },
-    )
-  }
-]
-
-#if cv.awards.len() > 0 [
-  #section("Awards and scholarships")
-  #for a in cv.awards { entry(a.name, org: a.org, dates: str(a.year), detail: a.at("detail", default: none)) }
-]
-
-#let oss = projects.filter(p => p.at("cv", default: false))
-#if oss.len() > 0 [
-  #section("Open source")
-  #for p in oss { entry(p.name, org: p.role, dates: p.year, bullets: (p.summary,)) }
-]
-
-#section("Service and mentoring")
-#for s in cv.service { entry(s.role, org: s.org, dates: fmt-range(s.start, s.end), bullets: (s.text,)) }
