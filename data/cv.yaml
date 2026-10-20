@@ -8,12 +8,15 @@ person:
   alternate_names: [Alexandre Granzer Guay, Alex Granzer-Guay]
   headline: Quantitative researcher working on large-scale and non-convex portfolio optimization
   bio: >-
-    I am a Quantitative Researcher at CIBC Global Asset Management and a PhD
-    candidate in large-scale and non-convex portfolio optimization under the
-    supervision of Prof. Roy H. Kwon, Department of Mechanical and Industrial
-    Engineering, University of Toronto. My research focuses on developing
-    scalable, structure-exploiting optimization methods for non-convex and
-    mixed-integer portfolio construction problems.
+    I am a PhD candidate in Operations Research at the University of Toronto
+    and a Quantitative Researcher at CIBC Global Asset Management.
+    My supervisor is Prof. Roy H. Kwon in the Department of Mechanical and
+    Industrial Engineering. I develop optimization methods for portfolio
+    construction with cardinality constraints, multiple trading periods and
+    non-convex objectives. My work uses ADMM decomposition, formulations that
+    exploit problem structure, and specialized branch-and-bound algorithms.
+    Applications include risk parity, risk budgeting and index tracking across
+    fixed-income, equity and multi-asset portfolios.
   summary: >-
     Quantitative Researcher at CIBC Global Asset Management and PhD candidate in
     large-scale and non-convex portfolio optimization at the University of Toronto.
@@ -28,6 +31,8 @@ person:
     - Portfolio optimization
     - Mixed-integer conic optimization
     - Risk parity
+    - Risk budgeting
+    - Branch-and-bound
     - Alternating direction method of multipliers (ADMM)
     - Model predictive control
     - Fixed-income index tracking
@@ -47,7 +52,9 @@ education:
     location: Toronto, Canada
     start: "2023"
     end: present
-    detail: Non-convex optimization methods in finance.
+    detail: Non-convex portfolio optimization. Expected completion in 2027.
+    gpa: 3.83/4.0
+    coursework: [Integer Programming, Markov Decision Processes, Machine Learning for Mathematical Optimization, Applied Probability for Mathematical Finance, Game Theory, Introduction to Machine Learning]
     advisor: Roy H. Kwon
   - degree: M.A.Sc., Mechanical and Industrial Engineering
     short: MASc
@@ -57,6 +64,8 @@ education:
     start: "2021"
     end: "2023"
     detail: Financial optimization and risk models.
+    gpa: 3.75/4.0
+    coursework: [Non-Linear Optimization, Computational Finance and Risk Management, Stochastic Processes]
     advisor: Roy H. Kwon
     thesis: Multi-Period Index-Tracking Strategies for Investment Portfolios
   - degree: B.A.Sc., Electrical Engineering
@@ -75,9 +84,9 @@ experience:
     start: "2026-02"
     end: present
     bullets:
-      - text: Develop a multi-period bond index tracking framework based on model predictive control (MPC) for large fixed-income universes under turnover, trading-cost and liquidity constraints.
+      - text: Develop a model predictive control framework for multi-period bond index tracking under turnover, trading-cost and liquidity constraints.
         resume: true
-      - text: Designed the optimization pipeline end to end, including term-structure and stochastic models, stress testing and the backtesting framework.
+      - text: Designed the supporting term-structure models, stochastic models, stress tests and backtesting framework.
         resume: true
       - text: Built trade optimizers that turn target portfolios into executable trades under turnover, liquidity, and mandate-specific constraints.
         resume: true
@@ -88,8 +97,10 @@ experience:
     start: "2023-11"
     end: "2024-06"
     bullets:
-      - text: Built custom portfolio optimization models for research projects and client mandates.
+      - text: Designed a constraint-learning approach that assigns retail investors to suitable portfolios along the efficient frontier.
         resume: true
+      - text: Built custom portfolio optimization models for research projects and client mandates.
+        resume: false
       - text: Designed and built the platform's backtesting and portfolio-performance modules.
         resume: true
 
@@ -192,7 +203,11 @@ service:
 
 skills:
   - label: Optimization
-    items: [linear, quadratic and conic programming, mixed-integer programming (MIQP, MISOCP), non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
+    items: [linear, quadratic and conic programming, mixed-integer programming (MIQP, MISOCP), branch-and-bound, non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
+    resume_items: [LP, QP, SOCP, MIQP, MISOCP, branch-and-bound, non-convex optimization, MPC, ADMM]
+  - label: Quantitative methods
+    items: [covariance construction and shrinkage, factor and low-rank covariance models, Bayes-Stein shrinkage, stationary block bootstrap, tracking error and certainty-equivalent return, out-of-sample evaluation, numerical stability and conditioning, Nelson-Siegel term-structure estimation]
+    resume_items: [covariance and factor models, shrinkage, Nelson-Siegel estimation]
   - label: Optimization software
     items: [Gurobi, CPLEX, CVXPY]  # TODO add others you use (MOSEK, JuMP, ...)
   - label: Programming

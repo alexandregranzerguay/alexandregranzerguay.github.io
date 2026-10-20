@@ -495,7 +495,9 @@ def json_resume(cv: dict, research: list[dict]) -> dict:
         "volunteer": [{"organization": s["org"], "position": s["role"], "startDate": s["start"],
                        "endDate": s["end"], "summary": s["text"]} for s in cv["service"]],
         "education": [{"institution": e["school"], "area": e["field"], "studyType": e["short"],
-                       "startDate": str(e["start"]), **({} if e["end"] == "present" else {"endDate": str(e["end"])})}
+                       "startDate": str(e["start"]), **({} if e["end"] == "present" else {"endDate": str(e["end"])}),
+                       **({"score": e["gpa"]} if e.get("gpa") else {}),
+                       **({"courses": e["coursework"]} if e.get("coursework") else {})}
                       for e in cv["education"]],
         "publications": [{"name": r["title"] + (f" ({r['number']})" if r.get("number") else ""), "releaseDate": str(r["date"]),
                           **({"publisher": r["venue"]} if r.get("venue") else {}),

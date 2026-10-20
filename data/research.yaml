@@ -16,9 +16,9 @@
 
 - slug: mpc-fixed-income-index-tracking
   type: article
-  title: "Multi-Period Fixed-Income Index Tracking: A Model Predictive Control Framework"  # TODO working title
+  title: "Multi-Period Fixed-Income Index Tracking: A Model Predictive Control Framework"
   authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
-  date: "2026-09"  # TODO
+  date: "2027"
   status: descending
   selected: true
   scope: >-
@@ -33,8 +33,8 @@
 - slug: sparse-treasury-index-tracking
   type: article
   title: "Disciplined Sparse Tracking of U.S. Treasury Indices: Exposure Control, Risk Models and Trading"
-  authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]  # TODO confirm (taken from the earlier Treasury draft)
-  date: "2026-07"
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon, Michael Cook]
+  date: "2027"
   status: descending
   selected: true
   scope: >-
@@ -48,7 +48,7 @@
 
 - slug: admm-cardinality-risk-parity
   type: article
-  title: ADMM Heuristics for Large-Scale Cardinality-Constrained Risk Parity Portfolio Optimizations
+  title: ADMM Heuristics for Large-Scale Cardinality-Constrained Risk Parity Portfolio Optimization
   authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2026-04"
   status: kkt
@@ -61,12 +61,12 @@
   abstract: null
   links: {}
   talks:
-    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2025, city: Kingston}
+    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2026, city: Kingston}
 
 - slug: sparse-risk-parity
   type: article
   title: Sparse 60/40 Risk Parity Portfolios
-  authors: [Alexandre Granzer-Guay, Roy H. Kwon]                 # TODO confirm
+  authors: [Alexandre Granzer-Guay, Roy H. Kwon]
   date: "2025-03"  # TODO confirm
   status: kkt
   scope: >-
@@ -77,7 +77,7 @@
   abstract: null
   links: {}
   talks:
-    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2025, city: Kingston}
+    - {event: "Canadian Operational Research Society (CORS) Annual Conference", short: CORS, org: Canadian Operational Research Society, year: 2026, city: Kingston}
 
 - slug: masc-thesis
   type: thesis

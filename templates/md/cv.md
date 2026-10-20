@@ -5,7 +5,7 @@
 ## Education
 
 {% for e in cv.education %}
-- **{{ e.degree }}**, {{ e.school }}, {{ fmt_range(e.start, e.end) }}. {{ e.detail }}{% if e.thesis %} Thesis: {{ e.thesis }}.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}
+- **{{ e.degree }}**, {{ e.school }}, {{ fmt_range(e.start, e.end) }}. {{ e.detail }}{% if e.gpa %} GPA: {{ e.gpa }}.{% endif %}{% if e.thesis %} Thesis: {{ e.thesis }}.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}{% if e.coursework %} Coursework: {{ e.coursework | join(", ") }}.{% endif %}
 
 {% endfor %}
 
@@ -74,4 +74,3 @@
 - {{ s.label }}: {{ s["items"] | join(", ") }}
 {% endfor %}
 - Languages: {% for l in cv.languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}
-

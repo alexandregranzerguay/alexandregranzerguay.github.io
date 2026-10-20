@@ -8,7 +8,7 @@
 <ul class="plain">
 {% for e in cv.education %}
 <li><strong>{{ e.degree }}</strong>, {{ e.school }} <span class="meta">· {{ fmt_range(e.start, e.end) }}</span><br>
-<span class="meta">{{ e.detail }}{% if e.thesis %} Thesis: <em>{{ e.thesis }}</em>.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}</span></li>
+<span class="meta">{{ e.detail }}{% if e.gpa %} GPA: {{ e.gpa }}.{% endif %}{% if e.thesis %} Thesis: <em>{{ e.thesis }}</em>.{% endif %}{% if e.advisor %} Supervisor: {{ e.advisor }}.{% endif %}{% if e.coursework %}<br>Coursework: {{ e.coursework | join(", ") }}.{% endif %}</span></li>
 {% endfor %}
 </ul>
 

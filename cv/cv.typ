@@ -7,8 +7,10 @@
 #section("Education")
 #for e in cv.education {
   let detail = [#e.detail]
+  if e.at("gpa", default: none) != none { detail += [ GPA: #e.gpa.] }
   if e.at("thesis", default: none) != none { detail += [ Thesis: #emph(e.thesis).] }
   if e.at("advisor", default: none) != none { detail += [ Supervisor: #e.advisor.] }
+  if e.at("coursework", default: ()).len() > 0 { detail += [ Coursework: #e.coursework.join(", ").] }
   entry(e.degree, org: e.school + ", " + e.location, dates: fmt-range(e.start, e.end), detail: detail)
 }
 

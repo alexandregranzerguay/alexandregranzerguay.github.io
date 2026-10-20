@@ -118,8 +118,9 @@
   )
 ]
 
-#let skills-block() = for s in cv.skills {
-  block(above: 0.4em, below: 0pt)[*#s.label:* #s.items.join(", ")]
+#let skills-block(resume: false) = for s in cv.skills {
+  let items = if resume { s.at("resume_items", default: s.items) } else { s.items }
+  block(above: 0.4em, below: 0pt)[*#s.label:* #items.join(", ")]
 }
 
 #let languages-line() = cv.languages.map(l => l.name + " (" + l.level + ")").join(", ")
