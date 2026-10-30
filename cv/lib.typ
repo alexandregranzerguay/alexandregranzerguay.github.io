@@ -31,16 +31,20 @@
 
 #let url-label(u) = u.replace("https://", "").replace("http://", "").trim("/")
 
+#let muted = luma(100)
+#let display = "Libertinus Serif"
+#let gutter = 1.15in
+
 #let setup(kind, doc) = {
   set document(
     title: me + ", " + kind,
     author: me,
     keywords: cv.person.knows_about,
   )
-  set page(paper: "us-letter", margin: (x: 0.8in, top: 0.6in, bottom: 0.6in))
+  set page(paper: "us-letter", margin: (x: 0.7in, top: 0.6in, bottom: 0.6in))
   set text(font: "Lato", size: 10.5pt, lang: "en", hyphenate: false)
   set par(leading: 0.5em, spacing: 0.5em)
-  set list(marker: [•], indent: 0.5em, body-indent: 0.5em, spacing: 0.4em)
+  set list(marker: text(fill: accent, weight: "bold")[›], indent: 0em, body-indent: 0.5em, spacing: 0.4em)
   show link: set text(fill: accent)
   doc
 }
@@ -48,39 +52,45 @@
 #let header() = {
   let p = cv.person
   let l = cv.links
-  let contact = (p.location.replace("Canada", "ON"),)
-  if phone != none { contact.push(phone) }
-  contact.push(link("mailto:" + p.email, p.email))
-  let links = (link(p.url, url-label(p.url)), link(l.github, "GitHub"))
-  if l.scholar != none { links.push(link(l.scholar, "Google Scholar")) }
-  if l.linkedin != none { links.push(link(l.linkedin, "LinkedIn")) }
-  if l.orcid != none { links.push(link(l.orcid, "ORCID")) }
-  let sep = [ #h(0.2em) #sym.dot.c #h(0.2em) ]
-  set align(center)
-  block(below: 0.6em, text(size: 17pt, weight: "bold", fill: accent, upper(me)))
-  block(below: 0.45em, contact.join(sep))
-  block(below: 0pt, links.join(sep))
+  let items = (p.location, link("mailto:" + p.email, p.email))
+  if phone != none { items.push(phone) }
+  items.push(link(p.url, url-label(p.url)))
+  items.push(link(l.github, "GitHub"))
+  if l.scholar != none { items.push(link(l.scholar, "Google Scholar")) }
+  if l.linkedin != none { items.push(link(l.linkedin, "LinkedIn")) }
+  if l.orcid != none { items.push(link(l.orcid, "ORCID")) }
+  block(below: 0.5em, text(font: display, size: 28pt, me))
+  block(below: 0.55em, text(font: display, size: 12pt, style: "italic", fill: accent, p.headline))
+  text(size: 9pt, fill: muted, items.join([ #h(0.3em)|#h(0.3em) ]))
 }
 
-#let section(title) = {
+// Title in the left column, content in the right column, both top-aligned.
+#let section(title, body) = {
   v(1.1em, weak: true)
-  block(below: 0.7em, sticky: true, width: 100%, stroke: (bottom: 0.8pt + accent), inset: (bottom: 0.3em),
-    text(weight: "bold", fill: accent, upper(title)))
+  block(sticky: true, below: 0.75em, line(length: 100%, stroke: 0.4pt + luma(200)))
+  grid(
+    columns: (gutter, 1fr),
+    text(font: display, size: 12.5pt, fill: accent, top-edge: "cap-height", smallcaps(lower(title))),
+    body,
+  )
 }
 
 #let entry(title, org: none, dates: none, detail: none, extra: none, bullets: ()) = block(
-  above: 0.75em,
+  above: 0.8em,
   below: 0pt,
 )[
   #block(sticky: true, below: 0pt, grid(
     columns: (1fr, auto),
     column-gutter: 1em,
-    strong(title + if org != none [ #sym.dash.en #org]),
-    emph(dates),
+    [*#title*#if org != none [ #text(fill: muted)[·] #text(fill: accent, weight: "semibold", org)]],
+    box(fill: rgb("#e8eff6"), inset: (x: 0.4em, y: 0.15em), radius: 2pt, text(size: 8.5pt, fill: accent, dates)),
   ))
   #if detail != none { block(above: 0.4em, below: 0pt, emph(detail)) }
   #if extra != none { block(above: 0.4em, below: 0pt, extra) }
   #if bullets.len() > 0 { block(above: 0.4em, below: 0pt, list(..bullets.map(b => [#b]))) }
 ]
+
+// A top-level item without a bullet, spaced like an entry.
+#let item(body) = block(above: 0.8em, below: 0pt, body)
 
 #let languages-line() = cv.languages.map(l => l.name + " (" + l.level + ")").join(", ")
