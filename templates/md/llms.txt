@@ -7,7 +7,7 @@
 - [Profile (Markdown)]({{ BASE }}/index.md): bio, research, projects, teaching
 - [CV (Markdown)]({{ BASE }}/cv.md): full curriculum vitae
 - [CV (JSON Resume)]({{ BASE }}/cv.json): machine-readable CV
-- [CV (PDF)]({{ BASE }}/cv.pdf) and [one-page résumé (PDF)]({{ BASE }}/resume.pdf)
+- [CV (PDF)]({{ BASE }}/cv.pdf)
 
 ## Research
 

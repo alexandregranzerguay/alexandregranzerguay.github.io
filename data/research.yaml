@@ -3,7 +3,6 @@
 #   listed: false -> not shown anywhere
 #   public: false -> title, authors, year, status and talks only; abstract, venue and links are never rendered
 #   public: true  -> abstract, links, BibTeX and a /research/<slug>/ page
-#   resume: false -> left off the one-page résumé (still on the site and the academic CV)
 #   selected: true -> shown on the home page (keep it to about three)
 #   scope: short description for unpublished work, shown in place of an abstract
 # type is article, thesis or patent. Patents are listed separately and get no paper page.
@@ -93,7 +92,6 @@
   listed: true
   public: true
   venue: M.A.Sc. thesis, University of Toronto
-  resume: false  # the published paper stands in for it on the one-page résumé
   abstract: >-
     We introduce an innovative multi-period approach to index tracking for long-term investment
     portfolios. Unlike conventional tracking methods relying on single-period estimates, we propose a

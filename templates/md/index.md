@@ -8,7 +8,6 @@
 - {{ label(k) }}: {{ u }}
 {% endfor %}
 - CV (PDF): {{ BASE }}/cv.pdf
-- Résumé (PDF): {{ BASE }}/resume.pdf
 - CV (JSON Resume): {{ BASE }}/cv.json
 
 Research interests: {{ person.knows_about | join(", ") }}.

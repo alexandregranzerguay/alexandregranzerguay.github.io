@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "_site"
 BASE = "https://alexandregranzerguay.github.io"
 SOURCE = "https://github.com/alexandregranzerguay/alexandregranzerguay.github.io"
+GOATCOUNTER = "bettingcompactor"  # https://bettingcompactor.goatcounter.com
 
 STATUS = {  # key -> (plain label, schema.org creativeWorkStatus)
     "initialized": ("in preparation", "Draft"),
@@ -289,6 +290,7 @@ class Site:
         self.env = Environment(loader=FileSystemLoader(ROOT / "templates"),
                                autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
         self.env.globals.update(glyph=glyph, fmt_date=fmt_date, fmt_range=fmt_range, BASE=BASE, SOURCE=SOURCE,
+                                GOATCOUNTER=GOATCOUNTER,
                                 link_label=lambda k: LINK_LABELS.get(k, k),
                                 authors=lambda names: authors(names, self.me))
         self.md_env = Environment(loader=FileSystemLoader(ROOT / "templates" / "md"), autoescape=False,
@@ -465,10 +467,10 @@ class Site:
 
     def typst(self) -> None:
         def run(src: str, out: str, *extra: str) -> None:
-            subprocess.run(["typst", "compile", "--root", str(ROOT), "--ignore-system-fonts", *extra,
+            subprocess.run(["typst", "compile", "--root", str(ROOT), "--ignore-system-fonts",
+                            "--font-path", str(ROOT / "cv" / "fonts"), *extra,
                             str(ROOT / src), str(SITE / out)], check=True)
 
-        run("cv/resume.typ", "resume.pdf")
         run("cv/cv.typ", "cv.pdf")
         og = ROOT / "build" / "og-header.svg"
         og.parent.mkdir(exist_ok=True)

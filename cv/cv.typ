@@ -9,12 +9,12 @@
 
 #section("Education")
 #for e in cv.education {
-  let title = [#e.degree]
+  let title = [#e.degree.replace(" and ", " & ")]
   if e.at("gpa", default: none) != none { title += [, GPA #e.gpa] }
   let detail = [#e.school. #e.detail]
   if e.at("advisor", default: none) != none { detail += [ Supervised by Prof. #e.advisor.] }
-  if e.at("coursework", default: ()).len() > 0 { detail += [ Coursework includes #e.coursework.join(", ").] }
-  entry(title, dates: if e.at("expected_end", default: none) != none { fmt-range(e.start, e.expected_end) + " (expected)" } else { fmt-range(e.start, e.end) }, detail: detail)
+  let coursework = if e.at("coursework", default: ()).len() > 0 [Coursework includes #e.coursework.join(", ", last: " and ").]
+  entry(title, dates: if e.at("expected_end", default: none) != none { fmt-range(e.start, e.expected_end) + " (expected)" } else { fmt-range(e.start, e.end) }, detail: detail, extra: coursework)
 }
 
 #section("Research and publications")
@@ -22,8 +22,8 @@
   let r = papers.find(r => r.slug == slug)
   let coauthors = r.authors.filter(a => a != me)
   [
-    #r.title (with #coauthors.join(", ")).
-    #if r.public { [#r.venue, #year(r).] } else {
+    *#r.title* (with #coauthors.join(", ")).
+    #if r.public { [#emph(r.venue), #year(r).] } else {
       if r.status == "descending" { [Working paper, #year(r). ] }
       if r.at("submission_note", default: none) != none { [#r.submission_note ] }
       if r.status != "descending" { [#year(r).] }
@@ -45,12 +45,14 @@
 }
 
 #section("Awards and patents")
-#for a in cv.awards {
-  block(above: 0.5em)[#a.name (#a.org), #a.year. #a.detail]
-}
 #let ps = patents.sorted(key: p => p.date)
-#block(above: 0.5em)[US Patents #ps.map(p => p.number.replace("US ", "")).join(" and ") — #ps.first().title (TD Bank), #year(ps.last()).]
+#list(
+  ..cv.awards.map(a => [#a.name (#a.org), #a.year. #a.detail]),
+  [US Patents #ps.map(p => p.number.replace("US ", "")).join(" and ") #sym.dash.en #ps.first().title (TD Bank), #year(ps.last()).],
+)
 
 #section("Skills")
-#skills-block()
-#block(above: 0.4em)[*Languages:* #languages-line()]
+#list(
+  ..cv.skills.map(s => [*#s.label* #sym.dash.en #s.items.join(", ").]),
+  [*Languages* #sym.dash.en #languages-line().],
+)

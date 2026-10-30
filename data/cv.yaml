@@ -1,6 +1,5 @@
-# Single source of truth for the website, cv.json, llms files and both Typst PDFs.
+# Single source of truth for the website, cv.json, llms files and the Typst CV.
 # Dates are quoted "YYYY" or "YYYY-MM" strings; "present" for ongoing.
-# Bullets with resume: true appear on the 1-page résumé; all bullets appear on the academic CV.
 # Anything marked TODO is listed by `python scripts/build.py --todo`.
 
 person:
@@ -85,11 +84,8 @@ experience:
     end: present
     bullets:
       - text: Developing a model predictive control framework for multi-period bond index tracking across large fixed-income universes under turnover, trading-cost and liquidity constraints.
-        resume: true
       - text: Designed the optimization pipeline end to end, covering term-structure and stochastic models, stress testing and backtesting.
-        resume: true
       - text: Built trade optimizers that convert target portfolios into executable trades under turnover, liquidity and mandate constraints.
-        resume: true
 
   - title: Quantitative Researcher (Mitacs Accelerate)
     org: Investipal
@@ -98,11 +94,8 @@ experience:
     end: "2024-06"
     bullets:
       - text: Investipal is a purpose-built platform that assigns retail investors to model portfolios, similar to Wealthsimple.
-        resume: false
       - text: Designed a novel portfolio allocation approach based on constraint learning that places each investor on a suitable portfolio along the efficient frontier.
-        resume: true
       - text: Built custom portfolio optimization models for research and client mandates, and designed the platform's backtesting and performance modules.
-        resume: true
 
   - title: Machine Learning Engineer
     org: TD Asset Management
@@ -111,16 +104,13 @@ experience:
     end: "2021-08"
     bullets:
       - text: Maintained an internal API for portfolio optimization, backtesting and visualization. Built a data pipeline and data lake from scratch.
-        resume: true
       - text: Automated equity research workflows for a team of 10 analysts. Deployed an executive dashboard for ETF sales decisions.
-        resume: true
 
   - title: Technology Rotational Program
     org: TD Bank Group
     location: Toronto, Canada
     start: "2019-07"
     end: "2020-11"
-    earlier: true
     bullets:
       - text: Technology Delivery Lead for an application processing approximately 800 real-time credit card applications daily. Co-inventor on two US patents (below).
 
@@ -129,7 +119,6 @@ experience:
     location: Kingston, Canada
     start: "2017-05"
     end: "2018-04"
-    earlier: true
     bullets: []
 
 teaching:
@@ -157,7 +146,6 @@ talks: []   # extra talks not tied to a paper; paper talks live in research.yaml
 awards:
   - name: First place, IMI BIGDataAIHUB Big Data and AI Competition
     org: Institute for Management and Innovation, University of Toronto Mississauga (sponsored by Scotiabank)
-    short: First place, 2024 IMI BIGDataAIHUB Big Data and AI Competition (UofT Mississauga, sponsored by Scotiabank)  # one-page résumé
     year: 2024
     detail: >-
       With two teammates, adapted a weighted PageRank algorithm to uncover wildlife-trafficking
@@ -171,10 +159,8 @@ service: []
 skills:
   - label: Optimization
     items: [LP, QP, SOCP and conic programming, mixed-integer programming (MIQP, MISOCP), branch-and-bound, non-convex optimization, robust and stochastic optimization, model predictive control, ADMM and first-order methods]
-    resume_items: [LP, QP, SOCP, MIQP, MISOCP, branch-and-bound, non-convex optimization, MPC, ADMM]
   - label: Quantitative methods
     items: [covariance construction and shrinkage, factor and low-rank covariance models, Bayes-Stein shrinkage, stationary block bootstrap, tracking error and certainty-equivalent return, out-of-sample evaluation, numerical stability and conditioning, Nelson-Siegel term-structure estimation]
-    resume_items: [covariance and factor models, shrinkage, Nelson-Siegel estimation]
   - label: Solvers and libraries
     items: [Gurobi, CPLEX, CVXPY]  # TODO add others you use (MOSEK, JuMP, ...)
   - label: Programming

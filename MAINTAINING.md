@@ -22,11 +22,11 @@ Paper status is one of `initialized` (in preparation), `descending` (working pap
 ```bash
 uv venv && uv pip install -r requirements.txt   # once
 python scripts/build.py                          # site, PDFs and OG image into _site/
-python scripts/budget.py _site                   # page weight, requests, script, résumé = 1 page
+python scripts/budget.py _site                   # page weight, requests, script, CV pages
 python -m http.server -d _site 8000              # preview
 ```
 
-Typst 0.15 must be on the PATH. Private CV copies with a phone number (kept out of the repo): `typst compile --root . --input phone="+1 ..." cv/resume.typ resume-private.pdf`.
+Typst 0.15 must be on the PATH. Private CV copies with a phone number (kept out of the repo): `typst compile --root . --input phone="+1 ..." --font-path cv/fonts cv/cv.typ cv-private.pdf`.
 
 The frontier data for the sparse-frontier note is precomputed with `python scripts/frontier.py` (needs `requirements-dev.txt`) and committed.
 

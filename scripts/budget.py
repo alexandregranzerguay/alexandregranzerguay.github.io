@@ -1,5 +1,5 @@
 """CI check: every page must satisfy its weight, request and script constraints, and the
-one-page résumé must be exactly one page. A violation prints the binding constraints and
+CV must be at most three pages. A violation prints the binding constraints and
 exits 1 ("infeasible").
 
 Usage: python scripts/budget.py [_site]
@@ -33,7 +33,7 @@ def main() -> int:
         print(f"{flag:<10} {rel:<45} {cost['weight'] / KB:6.1f} KB  {cost['requests']} req  "
               f"{cost['script'] / KB:4.1f} KB js")
         failures += [f"{rel}: {b}" for b in bad]
-    for pdf, limit in (("resume.pdf", (1, 1)), ("cv.pdf", (1, 3))):
+    for pdf, limit in (("cv.pdf", (1, 3)),):
         f = site / pdf
         if f.exists():
             n = pdf_pages(f)
